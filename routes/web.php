@@ -16,9 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// INI PERUBAHAN PAHRIJAL
 Route::get('/index', function () {
     return "Ini index";
 });
+
+// INI PERUBAHAN MUHYI
+Route::get('/muhyi', function () {
+    return "Ini muhyi";
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
