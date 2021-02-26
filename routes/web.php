@@ -17,16 +17,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// INI PERUBAHAN PAHRIJAL
-Route::get('/index', function () {
-    return "Ini index";
-});
-
-// INI PERUBAHAN MUHYI
-Route::get('/muhyi', function () {
-    return "Ini muhyi";
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//ROLE KEPALA SEKOLAH
+Route::middleware('role:kepsek')->prefix('/kepalasekolah')->name('kepsek.')->group(function() {
+    Route::get('kepsek-page', function() {
+        return 'Halaman untuk Kepsek';
+    })->name('page');
+});
+
+//ROLE ORANG TUA
+Route::middleware('role:ortu')->prefix('/orangtua')->name('ortu.')->group(function() {
+    Route::get('ortu-page', function() {
+        return 'Halaman untuk Kepsek';
+    })->name('page');
+});
+
+//ROLE PEGAWAI
+Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(function() {
+    Route::get('pegawai-page', function() {
+        return 'Halaman untuk Kepsek';
+    })->name('page');
+});
