@@ -15,6 +15,7 @@ class CreateRombelsTable extends Migration
     {
         Schema::create('rombels', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_rombel');
             $table->timestamps();
         });
     }
