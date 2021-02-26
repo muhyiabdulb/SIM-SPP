@@ -15,6 +15,12 @@ class CreateDetailTransaksisTable extends Migration
     {
         Schema::create('detail_transaksis', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('transaksi_id');
+            $table->unsignedBigInteger('jenis_pembayaran_id');
+            $table->unsignedBigInteger('via_transfer_id');
+            $table->date('tanggal_transfer');
+            $table->integer('nominal');
             $table->timestamps();
         });
     }

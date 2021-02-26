@@ -15,6 +15,7 @@ class CreateViaTransfersTable extends Migration
     {
         Schema::create('via_transfers', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_bank');
             $table->timestamps();
         });
     }

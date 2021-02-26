@@ -15,6 +15,9 @@ class CreatePembimbingsTable extends Migration
     {
         Schema::create('pembimbings', function (Blueprint $table) {
             $table->id();
+            $table->string('nip');
+            $table->string('nama_pembimbing');
+            $table->unsignedBigInteger('rayon_id');
             $table->timestamps();
         });
     }
