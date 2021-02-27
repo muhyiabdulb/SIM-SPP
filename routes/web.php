@@ -31,13 +31,13 @@ Route::middleware('role:kepsek')->prefix('/kepalasekolah')->name('kepsek.')->gro
 //ROLE ORANG TUA
 Route::middleware('role:ortu')->prefix('/orangtua')->name('ortu.')->group(function() {
     Route::get('ortu-page', function() {
-        return 'Halaman untuk Kepsek';
+        return 'Halaman untuk ortu';
     })->name('page');
 });
 
 //ROLE PEGAWAI
 Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(function() {
     Route::get('pegawai-page', function() {
-        return 'Halaman untuk Kepsek';
+        return 'Halaman untuk Pegawai';
     })->name('page');
 });
