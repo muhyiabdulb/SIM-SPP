@@ -42,10 +42,10 @@ class LoginController extends Controller
     public function authenticated(Request $request, $user)
     {
         if ($user->hasRole('kepsek')) {
-            return redirect()->route('kepsek.page');
+            return redirect()->route('kepsek.dashboard');
         } elseif ($user->hasRole('pegawai')) {
-            return redirect()->route('pegawai.page');
+            return redirect()->route('pegawai.dashboard');
         }
-        return redirect()->route('ortu.page');
+        return redirect()->route('ortu.dashboard');
     }
 }
