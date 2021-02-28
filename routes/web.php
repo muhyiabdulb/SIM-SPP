@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //ROLE KEPALA SEKOLAH
-Route::middleware('role:kepsek')->prefix('/kepalasekolah')->name('kepsek.')->group(function() {
+Route::middleware('role:kepsek')->prefix('/kepsek')->name('kepsek.')->group(function() {
     Route::get('kepsek-page', function() {
         return 'Halaman untuk Kepsek';
     })->name('page');
