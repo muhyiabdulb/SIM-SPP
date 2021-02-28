@@ -2,6 +2,7 @@
 
 @section('content')
 <!-- WRAPPER -->
+<div id="wrapper">
     <div class="vertical-align-wrap">
         <div class="vertical-align-middle">
             <div class="auth-box ">
@@ -11,7 +12,7 @@
                             <div class="logo text-center"><img src="{{ asset('template/img/logo-dark.png') }}" alt="Klorofil Logo"></div>
                             <p class="lead">Login to your account</p>
                         </div>
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" class="form-auth-small" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="email" class="control-label sr-only">Email</label>
@@ -55,5 +56,7 @@
             </div>
         </div>
     </div>
+</div>
 <!-- END WRAPPER -->
+
 @endsection
