@@ -4,7 +4,7 @@
 		<nav>
 			<ul class="nav">
 				@role('kepsek')
-					<li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+					<li><a href="" class="{{ request()->is('kepsek/dashboard') ? ' active' : '' }}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
@@ -23,15 +23,15 @@
 					<li><a href="" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
 				@elserole('ortu')
-					<li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+					<li><a href="" class="{{ request()->is('ortu/dashboard') ? ' active' : '' }}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
 				@elserole('pegawai')
-					<li><a href="" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-					<li><a href="" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
-					<li><a href="" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
+					<li><a href="" class="{{ request()->is('pegawai/dashboard') ? ' active' : '' }}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+					<li><a href="" class=""><i class="lnr lnr-dice"></i> <span>Transaksi</span></a></li>
+					<li><a href="" class=""><i class="lnr lnr-text-format"></i> <span>Laporan</span></a></li>
 					<li><a href="" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
 				@endrole
 			</ul>
