@@ -17,6 +17,8 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('template/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('template/img/favicon.png')}}">
+
+	@yield('style')
 </head>
 
 <body>
@@ -43,6 +45,7 @@
 	<script src="{{asset('template/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('template/scripts/klorofil-common.js')}}"></script>
 	
+	@yield('script')
 </body>
 
 </html>
