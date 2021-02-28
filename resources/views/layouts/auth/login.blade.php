@@ -1,6 +1,7 @@
-<html lang="en">
+<!doctype html>
+<html lang="en" class="fullscreen-bg">
 <head>
-	<title>Dashboard | Klorofil - Free Bootstrap Dashboard Template</title>
+	<title>{{ $title ?? 'Tidak title' }}</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -22,27 +23,16 @@
 <body>
 	<!-- WRAPPER -->
 	<div id="wrapper">
-		@include('layouts.includes._navbar')
-		<!-- LEFT SIDEBAR -->
-		@include('layouts.includes._sidebar')
-		<!-- END LEFT SIDEBAR -->
 		<!-- MAIN -->
 		@yield('content')
 		<!-- END MAIN -->
-		<div class="clearfix"></div>
-		<footer>
-			<div class="container-fluid">
-				<p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
-			</div>
-		</footer>
 	</div>
 	<!-- END WRAPPER -->
-	<!-- Javascript -->
+    <!-- Javascript -->
 	<script src="{{asset('template/vendor/jquery/jquery.min.js')}}"></script>
 	<script src="{{asset('template/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('template/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('template/scripts/klorofil-common.js')}}"></script>
 	
 </body>
-
 </html>
