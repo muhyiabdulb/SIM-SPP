@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -35,3 +36,4 @@ Route::middleware('role:ortu')->prefix('/ortu')->name('ortu.')->group(function()
 Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 });
+Route::resource('jenispembayarans','JenisPembayaranController');
