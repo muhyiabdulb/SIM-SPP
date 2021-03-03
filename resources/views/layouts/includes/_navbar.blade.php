@@ -1,66 +1,107 @@
-<!-- NAVBAR -->
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="brand">
-		<a href="index.html"><img src="{{ asset('template/img/logo-dark.png') }}" alt="Klorofil Logo" class="img-responsive logo"></a>
-	</div>
-	<div class="container-fluid">
-		<div class="navbar-btn">
-			<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-		</div>
-		<form class="navbar-form navbar-left">
-			<div class="input-group">
-				<input type="text" value="" class="form-control" placeholder="Search dashboard...">
-				<span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
-			</div>
-		</form>
-		<div id="navbar-menu">
-			<ul class="nav navbar-nav navbar-right">
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-						<i class="lnr lnr-alarm"></i>
-						<span class="badge bg-danger">5</span>
-					</a>
-					<ul class="dropdown-menu notifications">
-						<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-						<li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-						<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-						<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-						<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-						<li><a href="#" class="more">See all notifications</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Basic Use</a></li>
-						<li><a href="#">Working With Data</a></li>
-						<li><a href="#">Security</a></li>
-						<li><a href="#">Troubleshooting</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('template/img/user.png') }}" class="img-circle" alt="Avatar"> <span> {{ Auth::user()->name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-					<ul class="dropdown-menu">
-						<li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-						<li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-						<li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-						<li>
-							<li>
-								<a class="dropdown-item" href="{{ route('logout') }}"
-							   onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="lnr lnr-exit"></i>
-								Keluar</a>
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-									@csrf
-								</form>
-							</li>
-						</li>
-					</ul>
-				</li>
-				<!-- <li>
-					<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-				</li> -->
-			</ul>
-		</div>
-	</div>
-</nav>
-<!-- END NAVBAR -->
+  <div id="app">
+      <div class="main-wrapper">
+          <div class="navbar-bg"></div>
+          <nav class="navbar navbar-expand-lg main-navbar">
+              <form class="form-inline mr-auto">
+                  <ul class="navbar-nav mr-3">
+                      <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a>
+                      </li>
+                      <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i
+                                  class="fas fa-search"></i></a></li>
+                  </ul>
+                  <div class="search-element">
+                      <input class="form-control" type="search" placeholder="Search" aria-label="Search"
+                          data-width="250">
+                      <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                      <div class="search-backdrop"></div>
+                  </div>
+              </form>
+              <ul class="navbar-nav navbar-right">
+					 <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+              class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+            <div class="dropdown-menu dropdown-list dropdown-menu-right">
+              <div class="dropdown-header">Notifications
+                <div class="float-right">
+                  <a href="#">Mark All As Read</a>
+                </div>
+              </div>
+              <div class="dropdown-list-content dropdown-list-icons">
+                <a href="#" class="dropdown-item dropdown-item-unread">
+                  <div class="dropdown-item-icon bg-primary text-white">
+                    <i class="fas fa-code"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Template update is available now!
+                    <div class="time text-primary">2 Min Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white">
+                    <i class="far fa-user"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>You</b> and <b>Dedik Sugiharto</b> are now friends
+                    <div class="time">10 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-success text-white">
+                    <i class="fas fa-check"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    <b>Kusnaedi</b> has moved task <b>Fix bug header</b> to <b>Done</b>
+                    <div class="time">12 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-danger text-white">
+                    <i class="fas fa-exclamation-triangle"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Low disk space. Let's clean it!
+                    <div class="time">17 Hours Ago</div>
+                  </div>
+                </a>
+                <a href="#" class="dropdown-item">
+                  <div class="dropdown-item-icon bg-info text-white">
+                    <i class="fas fa-bell"></i>
+                  </div>
+                  <div class="dropdown-item-desc">
+                    Welcome to Stisla template!
+                    <div class="time">Yesterday</div>
+                  </div>
+                </a>
+              </div>
+              <div class="dropdown-footer text-center">
+                <a href="#">View All <i class="fas fa-chevron-right"></i></a>
+              </div>
+            </div>
+          </li>
+                  <li class="dropdown"><a href="#" data-toggle="dropdown"
+                          class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                          <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                          <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-right">
+                          <div class="dropdown-title">Logged in 5 min ago</div>
+                          <a href="features-profile.html" class="dropdown-item has-icon">
+                              <i class="far fa-user"></i> Profile
+                          </a>
+                          <a href="features-activities.html" class="dropdown-item has-icon">
+                              <i class="fas fa-bolt"></i> Activities
+                          </a>
+                          <a href="features-settings.html" class="dropdown-item has-icon">
+                              <i class="fas fa-cog"></i> Settings
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="{{ route('logout') }}"
+                              onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i
+                                  class="lnr lnr-exit"></i>
+                              Keluar</a>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                              @csrf
+                          </form>
+                      </div>
+                  </li>
+              </ul>
+          </nav>

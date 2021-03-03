@@ -42,3 +42,34 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 });
 Route::resource('jenispembayarans','JenisPembayaranController');
+
+Route::get('/admin', function () {
+    return view ('admin.master');
+});
+Route::get('/siswa', function () {
+    return view ('admin.siswa.index');
+});
+Route::get('/pembimbing', function () {
+    return view ('admin.pembimbing.index');
+});
+Route::get('/rombel', function () {
+    return view ('admin.rombel.index');
+});
+Route::get('/rayon', function () {
+    return view ('admin.rayon.index');
+});
+Route::get('/jurusan', function () {
+    return view ('admin.jurusan.index');
+});
+Route::get('/semester', function () {
+    return view ('admin.semester.index');
+});
+Route::get('/mapel', function () {
+    return view ('admin.mapel.index');
+});
+Route::get('/jenis', function () {
+    return view ('admin.jenis.index');
+});
+Route::get('/transfer', function () {
+    return view ('admin.transfer.index');
+});
