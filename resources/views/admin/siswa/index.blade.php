@@ -1,4 +1,5 @@
 @extends('../admin.master')
+
 @section('content')
 
 <section class="section">
@@ -52,7 +53,6 @@
         </div>
     </div>
     <!-- Button trigger modal -->
-
 
     <!-- Modal untuk input -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -174,5 +174,6 @@
             </div>
         </div>
     </div>
+</div>
 
-    @endsection
+@endsection
