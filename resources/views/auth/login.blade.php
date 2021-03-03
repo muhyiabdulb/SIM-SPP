@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="card card-primary">
-                                <h3 align="center" style="padding-top: 25px;">Login</h3>
+                                <h3 style="text-align:center;padding-top: 25px;">Login</h3>
 
                             <div class="card-body">
                                 <form method="POST" class="form-auth-small" action="{{ route('login') }}">
