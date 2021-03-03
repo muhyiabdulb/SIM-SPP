@@ -47,8 +47,6 @@ Route::middleware('role:pembimbing')->prefix('/pembimbing')->name('pembimbing.')
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 });
 
-Route::resource('jenispembayarans','JenisPembayaranController');
-
 Route::get('/admin', function () {
     return view ('admin.master');
 });
