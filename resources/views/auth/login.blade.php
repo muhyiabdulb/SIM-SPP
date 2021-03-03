@@ -31,11 +31,13 @@
                 <div class="row">
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-                       
+                        <div class="login-brand">
+                            <img src="../assets/img/logo-wk.png" alt="logo" width="100"
+                                class="shadow-light rounded-circle">
+                        </div>
+
                         <div class="card card-primary">
-                            <div class="card-header">
-                                <h4 style="text-align: center">Login</h4>
-                            </div>
+                                <h3 align="center" style="padding-top: 25px;">Login</h3>
 
                             <div class="card-body">
                                 <form method="POST" class="form-auth-small" action="{{ route('login') }}">
