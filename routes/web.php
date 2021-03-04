@@ -107,15 +107,36 @@ Route::get('/rayon/edit', function () {
 Route::get('/jurusan', function () {
     return view ('admin.jurusan.index');
 });
+Route::get('/jurusan/create', function () {
+    return view ('admin.jurusan.create');
+});
+Route::get('/jurusan/edit', function () {
+    return view ('admin.jurusan.edit');
+});
 Route::get('/semester', function () {
     return view ('admin.semester.index');
 });
-Route::get('/mapel', function () {
-    return view ('admin.mapel.index');
+Route::get('/semester/create', function () {
+    return view ('admin.semester.create');
 });
-Route::get('/jenis', function () {
-    return view ('admin.jenis.index');
+Route::get('/semester/edit', function () {
+    return view ('admin.semester.edit');
 });
-Route::get('/transfer', function () {
-    return view ('admin.transfer.index');
+Route::get('/jenis_pembayaran', function () {
+    return view ('admin.jenis_pembayaran.index');
+});
+Route::get('/jenis_pembayaran/create', function () {
+    return view ('admin.jenis_pembayaran.create');
+});
+Route::get('/jenis_pembayaran/edit', function () {
+    return view ('admin.jenis_pembayaran.edit');
+});
+Route::get('/via_transfer', function () {
+    return view ('admin.via_transfer.index');
+});
+Route::get('/via_transfer/create', function () {
+    return view ('admin.via_transfer.create');
+});
+Route::get('/via_transfer/edit', function () {
+    return view ('admin.via_transfer.edit');
 });
