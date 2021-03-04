@@ -20,16 +20,23 @@
 </head>
 
 <body>
+  <div>
+    <div>
+      {{-- Navbar --}}
     	@include('layouts.includes._navbar')
-		<!-- LEFT SIDEBAR -->
+
+      {{-- Sidebar --}}
 		  @include('layouts.includes._sidebar')
+
       <!-- Main Content -->
       <div class="main-content">
        @yield('content')
       </div>
-      @include('layouts.includes._footer')
+      
     </div>
   </div>
+
+  @include('layouts.includes._footer')
 
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
