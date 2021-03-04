@@ -1,15 +1,16 @@
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">SIM SPP</a>
+            <a href="index.html">SIM - SPP</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">SPP</a>
         </div>
         <ul class="sidebar-menu">
 			@role('ortu')
+            <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
-                <a href="" class="{{ request()->is('ortu/dashboard') ? ' active' : '' }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('ortu.dashboard') }}" class="{{ request()->is('ortu/dashboard') ? ' active' : '' }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link"><i class="fa fa-book"></i><span>Tunggakan</span></a>
@@ -20,7 +21,7 @@
 			@elserole('admin')
 			<li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('admin.dashboard') }}" class="active"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fa fa-users"></i> <span>Data Master</span></a>
@@ -36,7 +37,22 @@
                     <li><a href="">Data Via Transfer</a></li>
                 </ul>
             </li>
+            @elserole('kepsek')
+            <li class="menu-header">Dashboard</li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('kepsek.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            @elserole('pegawai')
+            <li class="menu-header">Dashboard</li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            @elserole('pembimbing')
+            <li class="menu-header">Dashboard</li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pembimbing.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            @endrole
         </ul>
-		@endrole
     </aside>
 </div>
