@@ -17,6 +17,8 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+
+  @yield('style')
 </head>
 
 <body>
@@ -43,6 +45,8 @@
   @include('sweetalert::alert')
   {{-- /SweetAlert --}}
   
+  @yield('script')
+
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
