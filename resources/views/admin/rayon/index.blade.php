@@ -28,13 +28,13 @@
                         </thead>
                        
                         <tbody>
-                            @foreach ($rayons as $r)
+                            
                             <tr>
-                                <td>{{ $r->id }}</td>
-                                <td>{{ $r->nama_rayon }}</td>
+                                <td></td>
+                                <td></td>
                                 <td>
-                                    <form action="{{ route('admin.rayons.destroy', $r->id) }}" method="post">
-                                        <button href="{{ route('admin.rayons.edit', $r->id) }}" class="btn btn-primary btn-action mr-1" data-toggle="modal"
+                                    <form action="" method="post">
+                                        <button href="" class="btn btn-primary btn-action mr-1" data-toggle="modal"
                                             data-target="#exampleModal3"><i class="fa fa-pencil-alt"></i></button>
                                             @csrf
                                             @method('DELETE')
@@ -44,11 +44,11 @@
                                     </form>
                                 </td>
                             </tr>
-                            @endforeach
+                          
                         </tbody>
                        
                     </table>
-                    {!! $rayons->render() !!}
+                   
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
 
 
     <!-- Modal untuk input -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -120,6 +120,6 @@
                 </div> --}}
             </form>
         </div>
-    </div>
+    </div> --}}
 
     @endsection
