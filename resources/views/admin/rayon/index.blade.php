@@ -28,27 +28,26 @@
                         </thead>
                        
                         <tbody>
-                            
+                            @foreach ($rayons as $r)
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $r->nama_rayon }}</td>
                                 <td>
-                                    <form action="" method="post">
-                                        <button href="" class="btn btn-primary btn-action mr-1" data-toggle="modal"
-                                            data-target="#exampleModal3"><i class="fa fa-pencil-alt"></i></button>
-                                            @csrf
-                                            @method('DELETE')
-                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.rayon.destroy', $r->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+
+                                        <a href="{{ route('admin.rayon.edit', $r->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                            
+                                        <button class="btn btn-danger btn-action"><i class="fas fa-trash"></i></button>
                                     </form>
                                 </td>
                             </tr>
-                          
+                            @endforeach
                         </tbody>
                        
                     </table>
-                   
+                    {{-- {!! $rayons->links() !!} --}}
                 </div>
             </div>
         </div>
@@ -57,21 +56,26 @@
 
 
     <!-- Modal untuk input -->
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Input Rayon</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Rayon</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('admin.rayons.store') }}" method="post">
+                <form action="{{ route('admin.rayon.store') }}" method="post">
                 @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>NAMA RAYON</label>
-                            <input type="text" class="form-control" name="nama_rayon">
+                            <label id="nama_rayon">NAMA RAYON</label>
+                            <input type="text" name="nama_rayon" class="form-control">
+                            @error('nama_rayon')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -89,7 +93,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Rayon</h5>
-                    <button href="{{ route('admin.rayons.index')}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button href="{{ route('admin.rayon.index')}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -104,7 +108,7 @@
                         </ul>
                     </div>
                 @endif
-                {{-- <form action="{{ route('admin.rayons.update', $rayons->id) }}" method="post">
+                {{-- <form action="{{ route('admin.rayon.update', $rayons->id) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
@@ -120,6 +124,6 @@
                 </div> --}}
             </form>
         </div>
-    </div> --}}
+    </div>
 
     @endsection
