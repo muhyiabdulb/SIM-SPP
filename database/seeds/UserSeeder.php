@@ -13,6 +13,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $kepsek = User::create([
+            'siswa_id' => 0,
             'name' => 'Kepsek',
             'email' => 'kepsek@gmail.com',
             'username' => 'kepsek',
@@ -22,6 +23,7 @@ class UserSeeder extends Seeder
         $kepsek->assignRole('kepsek');
 
         $ortu = User::create([
+            'siswa_id' => 1,
             'name' => 'Ortu',
             'email' => 'ortu@gmail.com',
             'username' => 'ortu',
@@ -31,6 +33,7 @@ class UserSeeder extends Seeder
         $ortu->assignRole('ortu');
 
         $pegawai = User::create([
+            'siswa_id' => 0,
             'name' => 'Pegawai',
             'email' => 'pegawai@gmail.com',
             'username' => 'pegawai',
@@ -40,6 +43,7 @@ class UserSeeder extends Seeder
         $pegawai->assignRole('pegawai');
 
         $admin = User::create([
+            'siswa_id' => 0,
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'username' => 'admin',
@@ -49,6 +53,7 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
 
         $pembimbing = User::create([
+            'siswa_id' => 0,
             'name' => 'Pembimbing',
             'email' => 'pembimbing@gmail.com',
             'username' => 'pembimbing',
