@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Rayon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Alert;
 
 class RayonController extends Controller
 {
@@ -13,6 +14,11 @@ class RayonController extends Controller
         $rayons = Rayon::get();
         // return $rayons;
         return view('admin.rayon.index', compact('rayons'));
+    }
+
+    public function create()
+    {
+        return view('admin.rayon.create');
     }
 
     public function store(Request $request)
@@ -24,13 +30,14 @@ class RayonController extends Controller
         // dd($request->nama_Rayon);
 
         Rayon::create($request->all());
-        return redirect()->back()->with('toast_success', 'Berhasil Ditambahkan :)');
+        Alert::success('Pemberitahun!', 'Berhasil Ditambahkan');
+        return redirect()->route('admin.rayon.index');
     }
 
     public function edit(Rayon $rayon)
     {
-        dd($rayon);
-        return view('admin.rayon.index', compact('rayon'));
+        // dd($rayon);
+        return view('admin.rayon.edit', compact('rayon'));
     }
 
     public function update(Request $request, Rayon $rayon)
@@ -41,13 +48,15 @@ class RayonController extends Controller
 
         // dd($request->nama_Rayon);
 
-        Rayon::findOrFail($rayon)->update($request->all());
-        return redirect()->back()->with('toast_success', 'Berhasil Diupdate :)');
+        $rayon->update($request->all());
+        Alert::success('Pemberitahun!', 'Berhasil Diupdate');
+        return redirect()->route('admin.rayon.index');
     }
 
     public function destroy(Rayon $rayon)
     {
         $rayon->delete();
-        return redirect()->back()->with('toast_success', 'Berhasil Dihapus :)');
+        Alert::success('Pemberitahun!', 'Berhasil Dihapus :)');
+        return redirect()->route('admin.rayon.index');
     }
 }
