@@ -27,6 +27,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
     // CRUD RAYON
+    // PAKE PREFIX SESUAI CRUD
     Route::prefix('/rayon')->name('rayon.')->group(function(){
         Route::get('/', 'Admin\RayonController@index')->name('index');
         Route::get('/create', 'Admin\RayonController@create')->name('create');
@@ -36,7 +37,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::delete('/delete/{rayon}', 'Admin\RayonController@destroy')->name('destroy');
     });
 
-    // ROUTE NYA PAKE PREFIX YA :) ... LANJUTKAN ... 
+    // ROUTE NYA PAKE PREFIX YA, HARUS SAMA :) ... LANJUTKAN ... 
 });
 
 // ROLE PEGAWAI
