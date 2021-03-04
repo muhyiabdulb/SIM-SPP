@@ -25,6 +25,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 // ROLE ADMIN
 Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+    
 });
 
 // ROLE PEGAWAI
