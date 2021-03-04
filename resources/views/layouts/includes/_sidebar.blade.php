@@ -23,11 +23,7 @@
                 <a href="#" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fa fa-book"></i><span>Data Master</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="#" class="nav-link has-dropdown"><i class="fa fa-users"></i> <span>Data Peserta
-                        Didik</span></a>
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i> <span>Data Master</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ url('siswa') }}">Data Siswa</a></li>
                     <li><a href="{{ url('pembimbing') }}">Data Pembimbing Siswa</a></li>
