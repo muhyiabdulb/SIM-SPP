@@ -16,9 +16,8 @@ class RayonController extends Controller
     public function index()
     {
         $rayons = Rayon::latest()->paginate(5);
-  
-        return view('admin.rayon.index',compact('rayons'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+        // dd($rayons);
+        return view('admin.rayon.index',compact('rayons'));
     }
   
     /**
@@ -32,7 +31,9 @@ class RayonController extends Controller
         $request->validate([
             'nama_rayon' => 'required',
         ]);
-  
+        
+        return $request->nama_rayon;
+
         Rayon::create($request->all());
    
         return redirect()->route('admin.rayon.index')

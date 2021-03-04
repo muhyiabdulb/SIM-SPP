@@ -1,4 +1,5 @@
-@extends('../admin.master')
+@extends('layouts.master', ['title' => 'Data Rayon'])
+
 @section('content')
 
 <section class="section">
@@ -25,14 +26,15 @@
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                        @foreach ($rayons as $r)
+                       
                         <tbody>
+                            @foreach ($rayons as $r)
                             <tr>
-                                <td>{{ ++$i }}</td>
+                                <td>{{ $r->id }}</td>
                                 <td>{{ $r->nama_rayon }}</td>
                                 <td>
-                                    <form action="{{ route('admin.rayon.destroy',$r->id) }}" method="post">
-                                        <button href="{{ route('admin.rayon.edit',$r->id) }}" class="btn btn-primary btn-action mr-1" data-toggle="modal"
+                                    <form action="{{ route('admin.rayons.destroy', $r->id) }}" method="post">
+                                        <button href="{{ route('admin.rayons.edit', $r->id) }}" class="btn btn-primary btn-action mr-1" data-toggle="modal"
                                             data-target="#exampleModal3"><i class="fa fa-pencil-alt"></i></button>
                                             @csrf
                                             @method('DELETE')
@@ -42,9 +44,11 @@
                                     </form>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
-                        @endforeach
+                       
                     </table>
+                    {!! $rayons->render() !!}
                 </div>
             </div>
         </div>
@@ -62,16 +66,19 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>NAMA RAYON</label>
-                        <input type="text" class="form-control" name="nama_rayon">
+                <form action="{{ route('admin.rayons.store') }}" method="post">
+                @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>NAMA RAYON</label>
+                            <input type="text" class="form-control" name="nama_rayon">
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -82,7 +89,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Rayon</h5>
-                    <button href="{{ route('admin.rayon.index')}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button href="{{ route('admin.rayons.index')}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -97,20 +104,20 @@
                         </ul>
                     </div>
                 @endif
-                <form action="{{ route('admin.rayon.update',$rayon->id) }}" method="post">
+                {{-- <form action="{{ route('admin.rayons.update', $rayons->id) }}" method="post">
                     @csrf
                     @method('PUT')
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Nama Rayon</label>
-                            <input type="text" class="form-control" name="nama_rayon" value="{{ $rayon->nama_rayon }}">
+                            <input type="text" class="form-control" name="nama_rayon" value="{{ $rayons->nama_rayon }}">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
-                </div>
+                </div> --}}
             </form>
         </div>
     </div>

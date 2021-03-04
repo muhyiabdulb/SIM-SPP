@@ -26,6 +26,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
+    // CRUD RAYON
+    Route::resource('rayons', 'Admin\RayonController');
 });
 
 // ROLE PEGAWAI
