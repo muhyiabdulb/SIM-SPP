@@ -49,6 +49,8 @@ Route::middleware('role:pembimbing')->prefix('/pembimbing')->name('pembimbing.')
 
 Route::resource('jenispembayarans','JenisPembayaranController');
 
+Route::resource('rayons', 'RayonController');
+
 Route::get('/admin', function () {
     return view ('admin.master');
 });
