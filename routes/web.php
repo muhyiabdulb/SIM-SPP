@@ -26,7 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
-    
 });
 
 // ROLE PEGAWAI
@@ -49,13 +48,6 @@ Route::middleware('role:pembimbing')->prefix('/pembimbing')->name('pembimbing.')
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 });
 
-<<<<<<< HEAD
-Route::resource('jenispembayarans','JenisPembayaranController');
-
-Route::resource('rayons', 'RayonController');
-
-=======
->>>>>>> 853eb636195100a5213ab75c14587b7ed707b7ea
 Route::get('/admin', function () {
     return view ('admin.master');
 });
