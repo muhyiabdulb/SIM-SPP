@@ -29,8 +29,15 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fa fa-users"></i> <span>Data Peserta
                         Didik</span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url('student') }}">Data Siswa</a></li>
-                    <li><a href="{{ url('parent') }}">Data Orangtua Siswa</a></li>
+                    <li><a href="{{ url('siswa') }}">Data Siswa</a></li>
+                    <li><a href="{{ url('pembimbing') }}">Data Pembimbing Siswa</a></li>
+                    <li><a href="{{ url('rombel') }}">Data Rombel</a></li>
+                    <li><a href="{{ url('rayon') }}">Data Rayon</a></li>
+                    <li><a href="{{ url('jurusan') }}">Data Jurusan</a></li>
+                    <li><a href="{{ url('semester') }}">Data Semester</a></li>
+                    <li><a href="{{ url('mapel') }}">Data Mapel</a></li>
+                    <li><a href="{{ url('jenis') }}">Data Jenis Pembayaran</a></li>
+                    <li><a href="{{ url('transfer') }}">Data Via Transfer</a></li>
                 </ul>
             </li>
         </ul>
