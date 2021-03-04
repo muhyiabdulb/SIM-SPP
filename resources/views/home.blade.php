@@ -3,13 +3,17 @@
 @section('content')
         <section class="section">
             <div class="section-header">
-                    @role('kepsek')
-                    <h1>Selamat Datang {{ Auth::user()->name }}</h1>
-                    @elserole('pegawai')
-                    <h1>Selamat Datang {{ Auth::user()->name }}</h1>
-                    @elserole('ortu')
-                    <h1>Selamat Datang {{ Auth::user()->name }}</h1>
-                    @endrole
+                @role('kepsek')
+                <h1>Selamat Datang {{ Auth::user()->name }}</h1>
+                @elserole('pegawai')
+                <h1>Selamat Datang {{ Auth::user()->name }}</h1>
+                @elserole('ortu')
+                <h1>Selamat Datang {{ Auth::user()->name }}</h1>
+                @elserole('admin')
+                <h1>Selamat Datang {{ Auth::user()->name }}</h1>
+                @elserole('pembimbing')
+                <h1>Selamat Datang {{ Auth::user()->name }}</h1>
+                @endrole
             </div>
         </section>    
 @endsection
