@@ -27,16 +27,24 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse ($rayons as $rayon)
                             <tr>
-                                <td>1</td>
-                                <td>Tajur 1</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $rayon->nama_rayon }}</td>
                                 <td>
-                                    <a href="{{ ('rayon/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.rayon.destroy', $rayon->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ route('admin.rayon.edit', $rayon->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
+                                    </form>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="3" class="text-center"><h3>Data Kosong</h3></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
