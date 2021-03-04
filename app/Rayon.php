@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rayon extends Model
 {
     // SEMUA FIELD DIMASUKKAN
-    protected $guarded = [];
+    protected $guarded = [
+        'nama_rayon'
+    ];
 }

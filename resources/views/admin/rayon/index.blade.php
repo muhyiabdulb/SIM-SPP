@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <button href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                    <button href="" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</button>
                 </div>
             </div>
@@ -25,19 +25,25 @@
                                 <th>ACTION</th>
                             </tr>
                         </thead>
+                        @foreach ($rayons as $r)
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Cisarua 3</td>
+                                <td>{{ ++$i }}</td>
+                                <td>{{ $r->nama_rayon }}</td>
                                 <td>
-                                    <button href="#" class="btn btn-primary btn-action mr-1" data-toggle="modal"
-                                        data-target="#exampleModal3"><i class="fa fa-pencil-alt"></i></button>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.rayon.destroy',$r->id) }}" method="post">
+                                        <button href="{{ route('admin.rayon.edit',$r->id) }}" class="btn btn-primary btn-action mr-1" data-toggle="modal"
+                                            data-target="#exampleModal3"><i class="fa fa-pencil-alt"></i></button>
+                                            @csrf
+                                            @method('DELETE')
+                                        <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                            data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                            data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    </form>
                                 </td>
                             </tr>
                         </tbody>
+                        @endforeach
                     </table>
                 </div>
             </div>
@@ -59,7 +65,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>NAMA RAYON</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="nama_rayon">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -76,21 +82,36 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit Rayon</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button href="{{ route('admin.rayon.index')}}" type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Nama Rayon</label>
-                        <input type="text" class="form-control">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form action="{{ route('admin.rayon.update',$rayon->id) }}" method="post">
+                    @csrf
+                    @method('PUT')
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Nama Rayon</label>
+                            <input type="text" class="form-control" name="nama_rayon" value="{{ $rayon->nama_rayon }}">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 
