@@ -65,14 +65,44 @@ Route::get('/admin', function () {
 Route::get('/siswa', function () {
     return view ('admin.siswa.index');
 });
+Route::get('/siswa/create', function (){
+    return view ('admin.siswa.create');
+});
+Route::get('/siswa/edit', function (){
+    return view ('admin.siswa.edit');
+});
+Route::get('/siswa/show', function (){
+    return view ('admin.siswa.show');
+});
 Route::get('/pembimbing', function () {
     return view ('admin.pembimbing.index');
+});
+Route::get('/pembimbing/create', function (){
+    return view ('admin.pembimbing.create');
+});
+Route::get('/pembimbing/edit', function (){
+    return view ('admin.pembimbing.edit');
+});
+Route::get('/pembimbing/show', function (){
+    return view ('admin.pembimbing.show');
 });
 Route::get('/rombel', function () {
     return view ('admin.rombel.index');
 });
+Route::get('/rombel/create', function () {
+    return view ('admin.rombel.create');
+});
+Route::get('/rombel/edit', function () {
+    return view ('admin.rombel.edit');
+});
 Route::get('/rayon', function () {
     return view ('admin.rayon.index');
+});
+Route::get('/rayon/create', function () {
+    return view ('admin.rayon.create');
+});
+Route::get('/rayon/edit', function () {
+    return view ('admin.rayon.edit');
 });
 Route::get('/jurusan', function () {
     return view ('admin.jurusan.index');

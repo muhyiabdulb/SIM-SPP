@@ -26,15 +26,15 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i> <span>Data Master</span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="">Data Siswa</a></li>
-                    <li><a href="">Data Pembimbing Siswa</a></li>
-                    <li><a href="">Data Rombel</a></li>
-                    <li><a href="{{ route('admin.rayon.index') }}">Data Rayon</a></li>
-                    <li><a href="">Data Jurusan</a></li>
-                    <li><a href="">Data Semester</a></li>
-                    <li><a href="">Data Mapel</a></li>
-                    <li><a href="">Data Jenis Pembayaran</a></li>
-                    <li><a href="">Data Via Transfer</a></li>
+                    <li><a href="{{ url('siswa') }}">Data Siswa</a></li>
+                    <li><a href="{{ url('pembimbing') }}">Data Pembimbing Siswa</a></li>
+                    <li><a href="{{ url('rombel') }}">Data Rombel</a></li>
+                    <li><a href="{{ url('rayon') }}">Data Rayon</a></li>
+                    <li><a href="{{ url('jurusan') }}">Data Jurusan</a></li>
+                    <li><a href="{{ url('semester') }}">Data Semester</a></li>
+                    <li><a href="{{ url('mapel') }}">Data Mapel</a></li>
+                    <li><a href="{{ url('pembayaran') }}">Data Jenis Pembayaran</a></li>
+                    <li><a href="{{ url('transaksi') }}">Data Via Transfer</a></li>
                 </ul>
             </li>
             @elserole('kepsek')

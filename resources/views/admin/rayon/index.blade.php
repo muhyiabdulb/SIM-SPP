@@ -12,45 +12,35 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ route('admin.rayon.create') }}" class="btn btn-primary"
+                    <a href="{{ url('rayon/create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
-            <div class="card-body">
+            <div class="card-body ">
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>NAMA RAYON</th>
+                                <th>NAMA</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
-                       
                         <tbody>
-                            @foreach($rayons as $rayon)
                             <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rayon->nama_rayon }}</td>
+                                <td>1</td>
+                                <td>Tajur 1</td>
                                 <td>
-                                    <form action="{{ route('admin.rayon.destroy', $rayon->id) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-                                          <button type="submit" class="btn btn-danger btn-sm" ><i class="fa fa-trash"></i></button> 
-                                          <a href="{{ route('admin.rayon.edit', $rayon->id) }}" class="btn btn-success btn-sm "><i class="fa fa-pen"></i></a>          
-                                      </form>
+                                    <a href="{{ ('rayon/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
+                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
+                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
-                            @endforeach
                         </tbody>
-                       
                     </table>
-                    {{-- {!! $rayons->links() !!} --}}
                 </div>
             </div>
         </div>
     </div>
-    <!-- Button trigger modal -->
-</div>
-
 @endsection

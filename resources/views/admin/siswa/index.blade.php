@@ -1,4 +1,4 @@
-@extends('../layouts.master', ['title' => 'Data Siswa'])
+@extends('layouts.master', ['title' => 'Data Siswa'])
 
 @section('content')
 
@@ -12,8 +12,8 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <button href="#" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                        style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</button>
+                    <a href="{{ url('siswa/create') }}" class="btn btn-primary"
+                        style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
             <div class="card-body ">
@@ -22,8 +22,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Photo</th>
                                 <th>NIS</th>
                                 <th>NAMA</th>
+                                <th>JENIS KELAMIN</th>
                                 <th>ROMBEL</th>
                                 <th>RAYON</th>
                                 <th>ACTION</th>
@@ -32,15 +34,15 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
+                                <td></td>
                                 <td>11806738</td>
                                 <td>Bayu Ganteng</td>
+                                <td>Laki-laki</td>
                                 <td>RPL XII-1</td>
                                 <td>Tajur 1</td>
                                 <td>
-                                    <button href="#" class="btn btn-success btn-action mr-1" data-toggle="modal"
-                                        data-target="#exampleModal2"><i class="fa fa-eye"></i></button>
-                                    <button href="#" class="btn btn-primary btn-action mr-1" data-toggle="modal"
-                                        data-target="#exampleModal3"><i class="fa fa-pencil-alt"></i></button>
+                                    <a href="{{ ('siswa/show') }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ ('siswa/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
                                     <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
                                         data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
                                         data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>

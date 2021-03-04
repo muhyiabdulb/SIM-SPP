@@ -1,23 +1,22 @@
-@extends('layouts.master', ['title' => 'Edit Data Siswa'])
+@extends('layouts.master', ['title' => 'Edit Data Pembimbing Siswa'])
 
 @section('content')
-
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Edit Data Siswa</h4>
+                <h4>Edit Data Pembimbing Siswa</h4>
             </div>
             <div class="card-body">
                 <form>
                     <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="contoh1">Photo</label>
-                            <input type="file" class="form-control">
+                            <label for="contoh2">NIP</label>
+                            <input type="text" class="form-control" placeholder="NIP">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="contoh2">NIS</label>
-                            <input type="text" class="form-control" placeholder="NIS">
+                            <label for="contoh1">Photo</label>
+                            <input type="file" class="form-control">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="contoh1">Nama</label>
@@ -38,14 +37,6 @@
                             </div>
                         </div>
                         <div class="form-group col-md-4">
-                            <label>Rombel</label>
-                            <select class="form-control">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-4">
                             <label>Rayon</label>
                             <select class="form-control">
                                 <option>Option 1</option>
@@ -53,10 +44,13 @@
                                 <option>Option 3</option>
                             </select>
                         </div>
-                        <div class="card-footer text-right">
-                            <a href={{ url('siswa') }} class="btn btn-danger" type="reset">Back</a>
-                            <button class="btn btn-primary" type="submit">submit</button>
+           <div class="form-group col-md-4">
+                        <div class="card-footer">
+                        <button class="btn btn-primary" type="submit">submit</button>
+                        <a href={{ url('pembimbing') }} class="btn btn-danger" type="reset">Back</a>
+                         </div>
                         </div>
+                </div>
                 </form>
             </div>
         </div>
