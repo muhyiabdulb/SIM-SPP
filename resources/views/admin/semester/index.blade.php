@@ -1,4 +1,5 @@
-@extends('../admin.master')
+@extends('layouts.master', ['title' => 'Data Semester'])
+
 @section('content')
 
 <section class="section">
