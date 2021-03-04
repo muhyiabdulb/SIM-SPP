@@ -21,7 +21,7 @@
 			@elserole('admin')
 			<li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
-                <a href="{{ route('admin.dashboard') }}" class="active"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('admin.dashboard') }}" class="{{ request()->is('admin/dashboard') ? ' active' : '' }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fa fa-users"></i> <span>Data Master</span></a>

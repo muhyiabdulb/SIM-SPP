@@ -36,7 +36,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::delete('/delete/{rayon}', 'Admin\RayonController@destroy')->name('destroy');
     });
 
-    // LANJUTKAN ...
+    // ROUTE NYA PAKE PREFIX YA :) ... LANJUTKAN ... 
 });
 
 // ROLE PEGAWAI
