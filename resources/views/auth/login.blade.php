@@ -10,7 +10,7 @@
                     <div
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
-                            <img src="../assets/img/logo-wk.png" alt="logo" width="100"
+                            <img src="{{ asset('assets/img/logo-wk.png') }}" alt="logo" width="100"
                                 class="shadow-light rounded-circle">
                         </div>
 
@@ -25,9 +25,9 @@
                                         <input type="email" name="email" class="form-control" id="email"
                                             placeholder="Email">
                                         @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <div class="invalid">
+                                                {{ $message }}
+                                            </div>
                                         @enderror
                                     </div>
                                     <div class="form-group">
@@ -35,9 +35,9 @@
                                         <input type="password" name="password" class="form-control" id="password"
                                             placeholder="Password">
                                         @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+                                            <div class="invalid">
+                                                {{ $message }}
+                                            </div>
                                         @enderror
                                         
                                         <div class="">
