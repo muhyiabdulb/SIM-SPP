@@ -17,11 +17,13 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+
+  @yield('style')
 </head>
 
 <body>
-  <div>
-    <div>
+  <div class="app">
+    <div class="main-wrapper">
       {{-- Navbar --}}
     	@include('layouts.includes._navbar')
 
@@ -33,10 +35,17 @@
        @yield('content')
       </div>
       
+      {{-- Footer --}}
+      @include('layouts.includes._footer')
+
     </div>
   </div>
 
-  @include('layouts.includes._footer')
+  {{-- SweetAlert --}}
+  @include('sweetalert::alert')
+  {{-- /SweetAlert --}}
+  
+  @yield('script')
 
   <!-- General JS Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"
