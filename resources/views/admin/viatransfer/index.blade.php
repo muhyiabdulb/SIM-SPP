@@ -1,10 +1,10 @@
-@extends('layouts.master', ['title' => 'Data Rombel'])
+@extends('layouts.master', ['title' => 'Data Via Transfer'])
 
 @section('content')
 
 <section class="section">
     <div class="section-header">
-        <h1>Data Rombel</h1>
+        <h1>Data Via Transfer</h1>
     </div>
 </section>
 <div class="row">
@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ route('admin.rombel.create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.viatransfer.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -22,29 +22,27 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>ID Jurusan</th>
-                                <th>Nama Rombel</th>
+                                <th>Nama Bank</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($rombels as $rombel)
+                            @forelse ($viatransfers as $viarransfer)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rombel->jurusan_id }}</td>
-                                <td>{{ $rombel->nama_rombel }}</td>
+                                <td>{{ $viarransfer->nama_bank }}</td>
                                 <td>
-                                    <form action="{{ route('admin.rombel.destroy', $rombel->id) }}" method="POST">
+                                    <form action="{{ route('admin.viatransfer.destroy', $viarransfer->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('admin.rombel.edit', $rombel->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <a href="{{ route('admin.viatransfer.edit', $viarransfer->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
                                         <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
                                     </form>
                                 </td>
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="4" class="text-center"><h3>Data Kosong</h3></td>
+                                <td colspan="3" class="text-center"><h3>Data Kosong</h3></td>
                             </tr>
                             @endforelse
                         </tbody>

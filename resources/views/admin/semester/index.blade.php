@@ -1,10 +1,10 @@
-@extends('layouts.master', ['title' => 'Data semester'])
+@extends('layouts.master', ['title' => 'Data Semester'])
 
 @section('content')
 
 <section class="section">
     <div class="section-header">
-        <h1>Data semester</h1>
+        <h1>Data Semester</h1>
     </div>
 </section>
 <div class="row">
@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ url('semester/create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.semester.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -22,23 +22,31 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>SEMESTER</th>
-                                <th>TAHUN AJARAN</th>
-                                <th>ACTION</th>
+                                <th>semester</th>
+                                <th>Tahun Ajaran</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse ($semesters as $semester)
                             <tr>
-                                <td>1</td>
-                                <td>Ganjil</td>
-                                <td>2014-2015</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $semester->semester }}</td>
+                                <td>{{ $semester->tahum_ajaran }}</td>
                                 <td>
-                                    <a href="{{ ('semester/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.semester.destroy', $semester->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ route('admin.semester.edit', $semester->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
+                                    </form>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="5" class="text-center"><h3>Data Kosong</h3></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
