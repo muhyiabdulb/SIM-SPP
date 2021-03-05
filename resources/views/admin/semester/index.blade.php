@@ -32,7 +32,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $semester->semester }}</td>
-                                <td>{{ $semester->tahum_ajaran }}</td>
+                                <td>{{ $semester->tahun_ajaran }}</td>
                                 <td>
                                     <form action="{{ route('admin.semester.destroy', $semester->id) }}" method="POST">
                                         @csrf

@@ -20,7 +20,7 @@ class SemesterController extends Controller
     public function create()
     {
         // pindah ke halaman create
-        return view('admin.Semester.create');
+        return view('admin.semester.create');
     }
 
     public function store(Request $request)
@@ -39,13 +39,13 @@ class SemesterController extends Controller
         return redirect()->route('admin.semester.index');
     }
 
-    public function edit(Semester $Semester)
+    public function edit(Semester $semester)
     {
         // pindah halaman ke edit
-        return view('admin.Semester.edit', compact('semester'));
+        return view('admin.semester.edit', compact('semester'));
     }
 
-    public function update(Request $request, Semester $Semester)
+    public function update(Request $request, Semester $semester)
     {
         // ini validasi sesuai inputan
         $request->validate([
@@ -59,7 +59,7 @@ class SemesterController extends Controller
         return redirect()->route('admin.semester.index');
     }
 
-    public function destroy(Semester $Semester)
+    public function destroy(Semester $semester)
     {
         // mengahapus 1 data
         $semester->delete();

@@ -14,7 +14,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="contoh2">Semester</label>
-                            <select class="form-control" name="semester" id="semester">
+                            <select class="form-control" name="semester" value="{{ $semester->semester }}" class="form-control" placeholder="Semester">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>

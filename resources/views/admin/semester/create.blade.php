@@ -8,7 +8,7 @@
                 <h4>Tambah Data Semester</h4>
             </div>
              <div class="card-body">
-                <form action="{{ route('admin.jurusan.store') }}" method="POST">
+                <form action="{{ route('admin.semester.store') }}" method="POST">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
