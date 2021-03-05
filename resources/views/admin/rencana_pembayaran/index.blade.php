@@ -31,19 +31,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($rencanapembayarans as $rencanapembayaran)
+                            @forelse ($rencanaPembayarans as $rencanaPembayaran)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rencanapembayaran->jenis_pembayaran_id }}</td>
-                                <td>{{ $rencanapembayaran->nominal }}</td>
-                                <td>{{ $rencanapembayaran->banyaknya }}</td>
-                                <td>{{ $rencanapembayaran->total_nominal }}</td>
-                                <td>{{ $rencanapembayaran->tahun }}</td>
+                                <td>{{ $rencanaPembayaran->jenis_pembayaran_id }}</td>
+                                <td>{{ $rencanaPembayaran->nominal }}</td>
+                                <td>{{ $rencanaPembayaran->banyaknya }}</td>
+                                <td>{{ $rencanaPembayaran->total_nominal }}</td>
+                                <td>{{ $rencanaPembayaran->tahun }}</td>
                                 <td>
-                                    <form action="{{ route('admin.rencanapembayaran.destroy', $rencanapembayaran->id) }}" method="POST">
+                                    <form action="{{ route('admin.rencanapembayaran.destroy', $rencanaPembayaran->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('admin.rencanapembayaran.edit', $rencanapembayaran->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <a href="{{ route('admin.rencanapembayaran.edit', $rencanaPembayaran->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
                                         <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
                                 </td>
                             </tr>

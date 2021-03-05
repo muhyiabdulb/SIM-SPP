@@ -13,12 +13,17 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label for="contoh2">Jenis Pembayaran</label>
-                            <input type="text" name="jenis_pembayaran_id" class="form-control" placeholder="Jenis Pembayaran">
-                            @error('jenis_pembayaran_id')
-                                <div class="invalid">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <select name="jenis_pemyaran_id" class="form-control">
+                                <option selected disabled="disabled">Pilih Jenis Pembayaran</option>
+                                 @foreach ($jenisPembayarans as $item)
+                                     <option value="{{ $item->id }}">{{ $item->jenis_pembayaran }}</option>
+                                 @endforeach
+                             </select>
+                             @error('jenis_pemyaran_id')
+                                 <div class="invalid">
+                                     {{ $message }}
+                                 </div>
+                             @enderror
                         </div>
 
                         <div class="form-group col-md-12">

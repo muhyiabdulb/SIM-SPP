@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\RencanaPembayaran;
+use App\{RencanaPembayaran, JenisPembayaran};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Alert;
 
 class RencanaPembayaranController extends Controller
 {
     public function index()
     {
         // variabel Semesters buat nampung data Semester dari db 
-        $rencanapembayarans = RencanaPembayaran::get();
+        $rencanaPembayarans = RencanaPembayaran::get();
         // masukkan ke halaman index, jangan compact variabel nya
-        return view('admin.rencana_pembayaran.index', compact('rencanapembayarans'));
+        return view('admin.rencana_pembayaran.index', compact('rencanaPembayarans'));
     }
 
     public function create()
     {
+        $jenisPembayarans = JenisPembayaran::all();
         // pindah ke halaman create
-        return view('admin.rencana_pembayaran.create');
+        return view('admin.rencana_pembayaran.create', compact('jenisPembayarans'));
     }
 
     public function store(Request $request)
@@ -32,7 +34,8 @@ class RencanaPembayaranController extends Controller
             'total_nominal' => 'required',
             'tahun' => 'required',
         ]);
-
+        
+        // return $request->all();
         // masukkan semua inputan ke db
         RencanaPembayaran::create($request->all());
         // alert berhasil
