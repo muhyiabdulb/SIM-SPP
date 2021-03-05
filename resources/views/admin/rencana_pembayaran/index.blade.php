@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ url('rencana_pembayaran/create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.rencanapembayaran.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -31,20 +31,27 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse ($rencanapembayarans as $rencanapembayaran)
                             <tr>
-                                <td>1</td>
-                                <td>SPP</td>
-                                <td>200</td>
-                                <td>2</td>
-                                <td>400</td>
-                                <td>2015</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $rencanapembayaran->jenis_pembayaran_id }}</td>
+                                <td>{{ $rencanapembayaran->nominal }}</td>
+                                <td>{{ $rencanapembayaran->banyaknya }}</td>
+                                <td>{{ $rencanapembayaran->total_nominal }}</td>
+                                <td>{{ $rencanapembayaran->tahun }}</td>
                                 <td>
-                                    <a href="{{ ('rencana_pembayaran/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.rencanapembayaran.destroy', $rencanapembayaran->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ route('admin.rencanapembayaran.edit', $rencanapembayaran->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="7" class="text-center"><h3>Data Kosong</h3></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
