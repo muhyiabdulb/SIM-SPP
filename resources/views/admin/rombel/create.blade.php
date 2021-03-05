@@ -13,7 +13,13 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="contoh2">ID Jurusan</label>
-                            <input type="text" name="jurusan_id" class="form-control" placeholder="ID Jurusan">
+                            {{-- <input type="text" name="jurusan_id" class="form-control" placeholder="ID Jurusan"> --}}
+                            <select name="jurusan_id" class="form-control">
+                               <option selected disabled="disabled">Pilih Jurusan</option>
+                                @foreach ($jurusans as $item)
+                                    <option value="{{ $item->id }}">{{ $item->jurusan }}</option>
+                                @endforeach
+                            </select>
                             @error('jurusan_id')
                                 <div class="invalid">
                                     {{ $message }}
@@ -31,7 +37,7 @@
                         </div>
                         <div class="form-group col-md-4">
                                 <button class="btn btn-primary" type="submit">Simpan</button>
-                                <a href="{{ URL::previous() }}" class="btn btn-danger" type="reset">Kembali</a>
+                                <a href="{{ route('admin.rombel.index') }}" class="btn btn-danger" type="reset">Kembali</a>
                             </div>
                         </div>
                     </div>
