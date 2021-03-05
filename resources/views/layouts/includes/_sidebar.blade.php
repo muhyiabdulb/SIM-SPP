@@ -32,9 +32,8 @@
                     <li><a href="{{ route('admin.rayon.index') }}">Data Rayon</a></li>
                     <li><a href="{{ url('jurusan') }}">Data Jurusan</a></li>
                     <li><a href="{{ url('semester') }}">Data Semester</a></li>
-                    <li><a href="{{ url('mapel') }}">Data Mapel</a></li>
-                    <li><a href="{{ url('pembayaran') }}">Data Jenis Pembayaran</a></li>
-                    <li><a href="{{ url('transaksi') }}">Data Via Transfer</a></li>
+                    <li><a href="{{ url('jenis_pembayaran') }}">Data Jenis Pembayaran</a></li>
+                    <li><a href="{{ url('via_transfer') }}">Data Via Transfer</a></li>
                 </ul>
             </li>
             @elserole('kepsek')
