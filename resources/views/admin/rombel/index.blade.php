@@ -31,7 +31,7 @@
                             @forelse ($rombels as $rombel)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rombel->jurusan_id }}</td>
+                                <td>{{ $rombel->jurusan['jurusan'] }}</td>
                                 <td>{{ $rombel->nama_rombel }}</td>
                                 <td>
                                     <form action="{{ route('admin.rombel.destroy', $rombel->id) }}" method="POST">

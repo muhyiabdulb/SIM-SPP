@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Rombel;
+use App\{Rombel, Jurusan};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Alert;
@@ -19,8 +19,10 @@ class rombelController extends Controller
 
     public function create()
     {
+        $jurusans = Jurusan::all();
+        // return $jurusans;
         // pindah ke halaman create
-        return view('admin.rombel.create');
+        return view('admin.rombel.create', compact('jurusans'));
     }
 
     public function store(Request $request)
