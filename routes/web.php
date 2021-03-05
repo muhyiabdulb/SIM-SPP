@@ -131,6 +131,15 @@ Route::get('/jenis_pembayaran/create', function () {
 Route::get('/jenis_pembayaran/edit', function () {
     return view ('admin.jenis_pembayaran.edit');
 });
+Route::get('/rencana_pembayaran', function () {
+    return view ('admin.rencana_pembayaran.index');
+});
+Route::get('/rencana_pembayaran/create', function () {
+    return view ('admin.rencana_pembayaran.create');
+});
+Route::get('/rencana_pembayaran/edit', function () {
+    return view ('admin.rencana_pembayaran.edit');
+});
 Route::get('/via_transfer', function () {
     return view ('admin.via_transfer.index');
 });
