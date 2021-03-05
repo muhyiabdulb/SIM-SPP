@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="../node_modules/owl.carousel/dist/assets/owl.theme.default.min.css">
   <!-- Template CSS -->
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('../assets/css/components.css') }}">
 
   @yield('style')
 </head>
@@ -58,7 +58,7 @@
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="../assets/js/stisla.js"></script>
+  <script src="{{ asset('../assets/js/stisla.js') }}"></script>
 
   <!-- JS Libraies -->
   <script src="../node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
@@ -68,11 +68,11 @@
   <script src="../node_modules/chocolat/dist/js/jquery.chocolat.min.js"></script>
 
   <!-- Template JS File -->
-  <script src="../assets/js/scripts.js"></script>
-  <script src="../assets/js/custom.js"></script>
+  <script src="{{ asset('../assets/js/scripts.js') }}"></script>
+  <script src="{{ asset('../assets/js/custom.js') }}"></script>
 
   <!-- Page Specific JS File -->
-  <script src="../assets/js/page/index.js"></script>
+  <script src="{{ asset('../assets/js/page/index.js') }}"></script>
 </body>
 
 </html>

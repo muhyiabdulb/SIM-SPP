@@ -1,24 +1,21 @@
-@extends('layouts.master', ['title' => 'Edit Data Semester'])
+@extends('layouts.master', ['title' => 'Edit Data Jenis Pembayaran'])
 
 @section('content')
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Edit Data Semester</h4>
+                <h4>Edit Data Jenis Pembayaran</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.semester.update', $semester->id) }}" method="POST">
+                <form action="{{ route('admin.jenispembayaran.update', $jenispembayaran->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="contoh2">Semester</label>
-                            <select class="form-control" name="semester" value="{{ $semester->semester }}" class="form-control" placeholder="Semester">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                            </select>
-                            @error('semester')
+                            <label for="contoh2">Jenis Pembayaran</label>
+                            <input type="text" name="jenis_pembayaran" value="{{ $jenispembayaran->jenis_pembayaran }}" class="form-control" placeholder="Jenis Pembayaran">
+                            @error('jenis_pembayaran')
                                 <div class="invalid">
                                     {{ $message }}
                                 </div>
@@ -26,18 +23,18 @@
                         </div>
 
                         <div class="form-group col-md-12">
-                            <label for="contoh2">Tahun Ajaran</label>
-                            <input type="text" name="tahun_ajaran" value="{{ $semester->tahun_ajaran }}" class="form-control" placeholder="Tahun Ajaran">
-                            @error('tahun_ajaran')
+                            <label for="contoh2">Nominal</label>
+                            <input type="text" name="nominal" value="{{ $jenispembayaran->nominal }}" class="form-control" placeholder="Nominaln">
+                            @error('nominal')
                                 <div class="invalid">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
-
-                     <div class="form-group col-md-12">
+                     <div class="form-group col-md-4">
                         <button class="btn btn-primary" type="submit">Update</button>
-                        <a href="{{ route('admin.semester.index') }}" class="btn btn-danger" type="reset">Kembali</a>
+                        <a href="{{ URL::previous() }}" class="btn btn-danger" type="reset">Kembali</a>
+                         </div>
                         </div>
                     </div>
                 </form>

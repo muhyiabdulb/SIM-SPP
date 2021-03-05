@@ -1,10 +1,10 @@
-@extends('layouts.master', ['title' => 'Data Jurusan'])
+@extends('layouts.master', ['title' => 'Data Via Transfer'])
 
 @section('content')
 
 <section class="section">
     <div class="section-header">
-        <h1>Data jurusan</h1>
+        <h1>Data Via Transfer</h1>
     </div>
 </section>
 <div class="row">
@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ route('admin.jurusan.create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.viatransfer.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -22,31 +22,27 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Jurusan</th>
-                                <th>Program Keahlian</th>
-                                <th>Kompetensi Keahlian</th>
+                                <th>Nama Bank</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($jurusans as $jurusan)
+                            @forelse ($viatransfers as $viarransfer)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $jurusan->jurusan }}</td>
-                                <td>{{ $jurusan->program_keahlian }}</td>
-                                <td>{{ $jurusan->kompetensi_keahlian }}</td>
+                                <td>{{ $viarransfer->nama_bank }}</td>
                                 <td>
-                                    <form action="{{ route('admin.jurusan.destroy', $jurusan->id) }}" method="POST">
+                                    <form action="{{ route('admin.viatransfer.destroy', $viarransfer->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('admin.jurusan.edit', $jurusan->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <a href="{{ route('admin.viatransfer.edit', $viarransfer->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
                                         <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
                                     </form>
                                 </td>
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="5" class="text-center"><h3>Data Kosong</h3></td>
+                                <td colspan="3" class="text-center"><h3>Data Kosong</h3></td>
                             </tr>
                             @endforelse
                         </tbody>

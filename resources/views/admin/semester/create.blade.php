@@ -7,26 +7,34 @@
             <div class="card-header">
                 <h4>Tambah Data Semester</h4>
             </div>
-            <div class="card-body">
-                <form>
+             <div class="card-body">
+                <form action="{{ route('admin.semester.store') }}" method="POST">
+                    @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Semester</label>
-                            <select class="form-control">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
+                            <select class="form-control" name="semester" id="semester" placeholder="Semester" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
                             </select>
+                        @error('semester')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group col-md-6">
                             <label for="contoh2">Tahun Ajaran</label>
-                            <input type="text" class="form-control" placeholder="Tahun Ajaran">
+                            <input type="text" name="tahun_ajaran" class="form-control" placeholder="Tahun Ajaran">
+                            @error('tahun_ajaran')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                      <div class="form-group col-md-4">
-                        <div class="card-footer">
                         <button class="btn btn-primary" type="submit">submit</button>
-                        <a href={{ url('semester') }} class="btn btn-danger" type="reset">Back</a>
-                         </div>
+                        <a href="{{ route('admin.semester.index') }}" class="btn btn-danger" type="reset">Back</a>
                         </div>
                     </div>
                 </form>

@@ -2,66 +2,68 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Rayon;
+use App\Semester;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Alert;
 
-class RayonController extends Controller
+class SemesterController extends Controller
 {
     public function index()
     {
-        // variabel rayons buat nampung data Rayon dari db 
-        $rayons = Rayon::get();
+        // variabel Semesters buat nampung data Semester dari db 
+        $semesters = Semester::get();
         // masukkan ke halaman index, jangan compact variabel nya
-        return view('admin.rayon.index', compact('rayons'));
+        return view('admin.semester.index', compact('semesters'));
     }
 
     public function create()
     {
         // pindah ke halaman create
-        return view('admin.rayon.create');
+        return view('admin.semester.create');
     }
 
     public function store(Request $request)
     {
         // ini validasi sesuai inputan
         $request->validate([
-            'nama_rayon' => 'required'
+            'semester' => 'required',
+            'tahun_ajaran' => 'required',
         ]);
 
         // masukkan semua inputan ke db
-        Rayon::create($request->all());
+        Semester::create($request->all());
         // alert berhasil
         Alert::success('Pemberitahun!', 'Berhasil Ditambahkan');
         // pindah halaman lagi ke index
-        return redirect()->route('admin.rayon.index');
+        return redirect()->route('admin.semester.index');
     }
 
-    public function edit(Rayon $rayon)
+    public function edit(Semester $semester)
     {
         // pindah halaman ke edit
-        return view('admin.rayon.edit', compact('rayon'));
+        return view('admin.semester.edit', compact('semester'));
     }
 
-    public function update(Request $request, Rayon $rayon)
+    public function update(Request $request, Semester $semester)
     {
         // ini validasi sesuai inputan
         $request->validate([
-            'nama_rayon' => 'required'
+            'semester' => 'required',
+            'tahun_ajaran' => 'required',
         ]);
 
         // inputan di update
-        $rayon->update($request->all());
+        $semester->update($request->all());
         Alert::success('Pemberitahun!', 'Berhasil Diupdate');
-        return redirect()->route('admin.rayon.index');
+        return redirect()->route('admin.semester.index');
     }
 
-    public function destroy(Rayon $rayon)
+    public function destroy(Semester $semester)
     {
         // mengahapus 1 data
-        $rayon->delete();
+        $semester->delete();
         Alert::success('Pemberitahun!', 'Berhasil Dihapus :)');
-        return redirect()->route('admin.rayon.index');
+        return redirect()->route('admin.semester.index');
     }
 }

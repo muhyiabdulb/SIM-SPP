@@ -8,25 +8,33 @@
                 <h4>Edit Data rombel</h4>
             </div>
             <div class="card-body">
-                <form>
+                <form action="{{ route('admin.rombel.update', $rombel->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label>Jurusan</label>
-                            <select class="form-control">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                            </select>
+                            <label for="contoh2">ID Jurusan</label>
+                            <input type="text" name="jurusan_id" value="{{ $rombel->jurusan_id }}" class="form-control" placeholder="ID Jurusan">
+                            @error('jurusan_id')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+
                         <div class="form-group col-md-6">
-                            <label for="contoh2">Nama</label>
-                            <input type="text" class="form-control" placeholder="Name">
+                            <label for="contoh2">Nama Rombel</label>
+                            <input type="text" name="nama_rombel" value="{{ $rombel->nama_rombel }}" class="form-control" placeholder="Nama Rombel">
+                            @error('nama_rombel')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+
                      <div class="form-group col-md-4">
-                        <div class="card-footer">
-                        <button class="btn btn-primary" type="submit">submit</button>
-                        <a href={{ url('rombel') }} class="btn btn-danger" type="reset">Back</a>
-                         </div>
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        <a href="{{ route('admin.rombel.index') }}" class="btn btn-danger" type="reset">Kembali</a>
                         </div>
                     </div>
                 </form>

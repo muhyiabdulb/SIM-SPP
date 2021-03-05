@@ -1,27 +1,36 @@
-@extends('layouts.master', ['title' => 'Tambah Data Rayon'])
+@extends('layouts.master', ['title' => 'Tambah Data Jenis Pembayaran'])
 
 @section('content')
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Tambah Data Rayon</h4>
+                <h4>Tambah Data Jenis Pembayaran</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.rayon.store') }}" method="POST">
+                <form action="{{ route('admin.jenispembayaran.store') }}" method="POST">
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="contoh2">Nama</label>
-                            <input type="text" name="nama_rayon" class="form-control" placeholder="Nama Rayon">
-                            @error('nama_rayon')
+                            <label for="contoh2">Jenis Pembayaran</label>
+                            <input type="text" name="jenis_pembayaran" class="form-control" placeholder="Jenis Pembayaran">
+                            @error('jenis_pembayaran')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="contoh2">Nominal</label>
+                            <input type="text" name="nominal" class="form-control" placeholder="Nominal">
+                            @error('nominal')
                                 <div class="invalid">
                                     {{ $message }}
                                 </div>
                             @enderror
                         </div>
                         <div class="form-group col-md-4">
-                            <div class="card-footer">
                                 <button class="btn btn-primary" type="submit">Simpan</button>
                                 <a href="{{ URL::previous() }}" class="btn btn-danger" type="reset">Kembali</a>
                             </div>

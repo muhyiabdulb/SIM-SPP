@@ -36,7 +36,56 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::delete('/delete/{rayon}', 'Admin\RayonController@destroy')->name('destroy');
     });
 
-    // ROUTE NYA PAKE PREFIX YA :) ... LANJUTKAN ... 
+    // ROUTE JURUSAN
+      Route::prefix('/jurusan')->name('jurusan.')->group(function(){
+        Route::get('/', 'Admin\JurusanController@index')->name('index');
+        Route::get('/create', 'Admin\JurusanController@create')->name('create');
+        Route::post('/store', 'Admin\JurusanController@store')->name('store');
+        Route::get('/edit/{jurusan}', 'Admin\JurusanController@edit')->name('edit');
+        Route::put('/update/{jurusan}', 'Admin\JurusanController@update')->name('update');
+        Route::delete('/delete/{jurusan}', 'Admin\JurusanController@destroy')->name('destroy');
+    });
+
+      //ROUTE ROMBEL
+      Route::prefix('/rombel')->name('rombel.')->group(function(){
+        Route::get('/', 'Admin\RombelController@index')->name('index');
+        Route::get('/create', 'Admin\RombelController@create')->name('create');
+        Route::post('/store', 'Admin\RombelController@store')->name('store');
+        Route::get('/edit/{rombel}', 'Admin\RombelController@edit')->name('edit');
+        Route::put('/update/{rombel}', 'Admin\RombelController@update')->name('update');
+        Route::delete('/delete/{rombel}', 'Admin\RombelController@destroy')->name('destroy');
+    });
+
+      //ROUTE SEMESTER
+      Route::prefix('/semester')->name('semester.')->group(function(){
+        Route::get('/', 'Admin\SemesterController@index')->name('index');
+        Route::get('/create', 'Admin\SemesterController@create')->name('create');
+        Route::post('/store', 'Admin\SemesterController@store')->name('store');
+        Route::get('/edit/{semester}', 'Admin\SemesterController@edit')->name('edit');
+        Route::put('/update/{semester}', 'Admin\SemesterController@update')->name('update');
+        Route::delete('/delete/{semester}', 'Admin\SemesterController@destroy')->name('destroy');
+    });
+
+      // CRUD VIA TRANSFER
+    Route::prefix('/viatransfer')->name('viatransfer.')->group(function(){
+        Route::get('/', 'Admin\ViaTransferController@index')->name('index');
+        Route::get('/create', 'Admin\ViaTransferController@create')->name('create');
+        Route::post('/store', 'Admin\ViaTransferController@store')->name('store');
+        Route::get('/edit/{viatransfer}', 'Admin\ViaTransferController@edit')->name('edit');
+        Route::put('/update/{viatransfer}', 'Admin\ViaTransferController@update')->name('update');
+        Route::delete('/delete/{viatransfer}', 'Admin\ViaTransferController@destroy')->name('destroy');
+    });
+
+    //ROUTE JENIS PEMBAYARAN
+      Route::prefix('/jenispembayaran')->name('jenispembayaran.')->group(function(){
+        Route::get('/', 'Admin\JenisPembayaranController@index')->name('index');
+        Route::get('/create', 'Admin\JenisPembayaranController@create')->name('create');
+        Route::post('/store', 'Admin\JenisPembayaranController@store')->name('store');
+        Route::get('/edit/{jenispembayaran}', 'Admin\JenisPembayaranController@edit')->name('edit');
+        Route::put('/update/{jenispembayaran}', 'Admin\JenisPembayaranController@update')->name('update');
+        Route::delete('/delete/{jenispembayaran}', 'Admin\JenisPembayaranController@destroy')->name('destroy');
+ });
+ 
 });
 
 // ROLE PEGAWAI
@@ -149,3 +198,4 @@ Route::get('/via_transfer/create', function () {
 Route::get('/via_transfer/edit', function () {
     return view ('admin.via_transfer.edit');
 });
+

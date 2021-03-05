@@ -4,7 +4,7 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>Data rombel</h1>
+        <h1>Data Rombel</h1>
     </div>
 </section>
 <div class="row">
@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ url('rombel/create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.rombel.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -22,23 +22,31 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>JURUSAN</th>
-                                <th>NAMA</th>
-                                <th>ACTION</th>
+                                <th>ID Jurusan</th>
+                                <th>Nama Rombel</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse ($rombels as $rombel)
                             <tr>
-                                <td>1</td>
-                                <td>RPL</td>
-                                <td>1</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $rombel->jurusan['jurusan'] }}</td>
+                                <td>{{ $rombel->nama_rombel }}</td>
                                 <td>
-                                    <a href="{{ ('rombel/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.rombel.destroy', $rombel->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ route('admin.rombel.edit', $rombel->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
+                                    </form>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="4" class="text-center"><h3>Data Kosong</h3></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
