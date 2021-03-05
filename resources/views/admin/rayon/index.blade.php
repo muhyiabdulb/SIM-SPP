@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ url('rayon/create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.rayon.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
