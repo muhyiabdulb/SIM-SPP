@@ -30,7 +30,7 @@
                     <li><a href="{{ url('pembimbing') }}">Data Pembimbing Siswa</a></li>
                     <li><a href="{{ url('rombel') }}">Data Rombel</a></li>
                     <li><a href="{{ route('admin.rayon.index') }}">Data Rayon</a></li>
-                    <li><a href="{{ url('jurusan') }}">Data Jurusan</a></li>
+                    <li><a href="{{ route('admin.jurusan.index') }}">Data Jurusan</a></li>
                     <li><a href="{{ url('semester') }}">Data Semester</a></li>
                     <li><a href="{{ url('jenis_pembayaran') }}">Data Jenis Pembayaran</a></li>
                     <li><a href="{{ url('via_transfer') }}">Data Via Transfer</a></li>

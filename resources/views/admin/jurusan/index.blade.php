@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Data jurusan'])
+@extends('layouts.master', ['title' => 'Data Jurusan'])
 
 @section('content')
 
@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ url('jurusan/create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.jurusan.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -22,25 +22,33 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>JURUSAN</th>
-                                <th>PROGRAM KEAHLIAN</th>
-                                <th>KOMPETENSI KEAHLIAN</th>
-                                <th>ACTION</th>
+                                <th>Jurusan</th>
+                                <th>Program Keahlian</th>
+                                <th>Kompetensi Keahlian</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse ($jurusans as $jurusan)
                             <tr>
-                                <td>1</td>
-                                <td>RPL</td>
-                                <td>RPL</td>
-                                <td>RPL</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $jurusan->jurusan }}</td>
+                                <td>{{ $jurusan->program_keahlian }}</td>
+                                <td>{{ $jurusan->kompetensi_keahlian }}</td>
                                 <td>
-                                    <a href="{{ ('jurusan/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.jurusan.destroy', $jurusan->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ route('admin.jurusan.edit', $jurusan->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
+                                    </form>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="5" class="text-center"><h3>Data Kosong</h3></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
