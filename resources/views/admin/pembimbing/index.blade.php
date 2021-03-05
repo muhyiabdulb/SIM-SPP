@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ url('pembimbing/create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.pembimbing.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -31,13 +31,16 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($pembimbings as $pembimbing)
                             <tr>
-                                <td>1</td>
-                                <td>11806738</td>
-                                <td></td>
-                                <td>Bayu Ganteng</td>
-                                <td>Laki-laki</td>
-                                <td>Tajur 1</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $pembimbing->nip }}</td>
+                                <td>
+                                    <img style="height:40px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ $pembimbing->takeImage }}">    
+                                </td>
+                                <td>{{ $pembimbing->nama_pembimbing }}</td>
+                                <td>{{ $pembimbing->jenis_kelamin }}</td>
+                                <td>{{ $pembimbing->rayon->nama_rayon }}</td>
                                 <td>
                                     <a href="{{ ('pembimbing/show') }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
                                     <a href="{{ ('pembimbing/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
@@ -46,6 +49,7 @@
                                         data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

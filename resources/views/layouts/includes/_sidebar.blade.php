@@ -27,7 +27,7 @@
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i> <span>Data Master</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Data Siswa</a></li>
-                    <li><a href="#">Data Pembimbing Siswa</a></li>
+                    <li><a href="{{ route('admin.pembimbing.index') }}">Data Pembimbing Siswa</a></li>
                     <li><a href="{{ route('admin.rombel.index') }}">Data Rombel</a></li>
                     <li><a href="{{ route('admin.rayon.index') }}">Data Rayon</a></li>
                     <li><a href="{{ route('admin.jurusan.index') }}">Data Jurusan</a></li>
