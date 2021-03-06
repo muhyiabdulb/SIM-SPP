@@ -16,8 +16,13 @@
                     @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="contoh2">ID Jurusan</label>
-                            <input type="text" name="jurusan_id" value="{{ $rombel->jurusan_id }}" class="form-control" placeholder="ID Jurusan">
+                            <label for="contoh2">Jurusan</label>
+                            <select name="jurusan_id" class="form-control select2">
+                               <option value="{{ $rombel->jurusan_id }}">{{ $rombel->jurusan->jurusan }}</option>
+                                @foreach ($jurusans as $item)
+                                    <option value="{{ $item->id }}">{{ $item->jurusan }}</option>
+                                @endforeach
+                            </select>
                             @error('jurusan_id')
                                 <div class="invalid">
                                     {{ $message }}
@@ -44,4 +49,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection

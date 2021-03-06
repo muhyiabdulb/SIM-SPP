@@ -50,7 +50,7 @@
                             @if($user->siswa_id === 1)
                                 <input type="text" name="email" class="form-control" placeholder="User ini bukan Ortu, jadi tidak bisa memilih Siswa" readonly> 
                             @else
-                                <select name="siswa_id" class="form-control">
+                                <select name="siswa_id" class="form-control select2">
                                     <option value="{{ $user->siswa_id }}">{{ $user->siswa->nama_siswa }}</option>
                                         @foreach ($siswas as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama_siswa }}</option>
@@ -82,4 +82,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection

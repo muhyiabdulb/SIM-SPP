@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Siswa</label>
-                            <select name="siswa_id" class="form-control">
+                            <select name="siswa_id" class="form-control select2">
                                 <option selected disabled="disabled">Pilih Siswa</option>
                                     @foreach ($siswas as $item)
                                         <option value="{{ $item->id }}">{{ $item->nama_siswa }}</option>
@@ -91,7 +91,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-12">
                             <label>Role</label>
-                            <select name="role" class="form-control">
+                            <select name="role" class="form-control select2">
                                 <option selected disabled="disabled">Pilih Role</option>
                                 <option value="admin">Admin</option>
                                 <option value="pegawai">Pegawai</option>
@@ -112,4 +112,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection

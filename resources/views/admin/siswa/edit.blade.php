@@ -67,7 +67,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Rombel</label>
-                            <select name="rombel_id" class="form-control">
+                            <select name="rombel_id" class="form-control select2">
                                 <option value="{{ $siswa->rombel_id }}">{{ $siswa->rombel->nama_rombel }}</option>
                                  @foreach ($rombels as $item)
                                      <option value="{{ $item->id }}">{{ $item->nama_rombel }}</option>
@@ -82,7 +82,7 @@
 
                         <div class="form-group col-md-6">
                             <label>Rayon</label>
-                            <select name="rayon_id" class="form-control">
+                            <select name="rayon_id" class="form-control select2">
                                 <option value="{{ $siswa->rayon_id }}">{{ $siswa->rayon->nama_rayon }}</option>
                                  @foreach ($rayons as $item)
                                      <option value="{{ $item->id }}">{{ $item->nama_rayon }}</option>
@@ -106,4 +106,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection

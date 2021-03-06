@@ -69,7 +69,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Rayon</label>
-                            <select name="rayon_id" class="form-control">
+                            <select name="rayon_id" class="form-control select2">
                                 <option value="{{ $pembimbing->rayon_id }}">{{ $pembimbing->rayon->nama_rayon }}
                                 </option>
                                 @foreach ($rayons as $item)
@@ -92,4 +92,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection

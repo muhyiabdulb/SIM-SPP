@@ -8,7 +8,7 @@
                 <h4>Tambah Data Semester</h4>
                 <div class="card-header-action">
                    <a href={{ route('admin.semester.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
-            </div>
+                </div>
             </div>
              <div class="card-body">
                 <form action="{{ route('admin.semester.store') }}" method="POST">
@@ -16,7 +16,8 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label>Semester</label>
-                            <select class="form-control" name="semester" id="semester" placeholder="Semester" >
+                            <select class="form-control select2" name="semester" id="semester" placeholder="Semester" >
+                                <option selected disabled>Pilih Semester</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
@@ -44,4 +45,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection

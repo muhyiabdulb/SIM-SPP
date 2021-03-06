@@ -17,6 +17,8 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('../assets/css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('../assets/css/components.css') }}">
+  <link href="{{ asset('vendor/select2/dist/css/select2.min.css') }}" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
   @yield('style')
 </head>
@@ -73,6 +75,9 @@
 
   <!-- Page Specific JS File -->
   <script src="{{ asset('../assets/js/page/index.js') }}"></script>
+
+  <script src="{{ asset('vendor/select2/dist/js/select2.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </body>
 
 </html>

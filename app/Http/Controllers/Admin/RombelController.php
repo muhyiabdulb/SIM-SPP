@@ -43,8 +43,9 @@ class rombelController extends Controller
 
     public function edit(rombel $rombel)
     {
+        $jurusans = Jurusan::all();
         // pindah halaman ke edit
-        return view('admin.rombel.edit', compact('rombel'));
+        return view('admin.rombel.edit', compact('rombel', 'jurusans'));
     }
 
     public function update(Request $request, rombel $rombel)

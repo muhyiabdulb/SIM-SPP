@@ -15,9 +15,8 @@
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="contoh2">ID Jurusan</label>
-                            {{-- <input type="text" name="jurusan_id" class="form-control" placeholder="ID Jurusan"> --}}
-                            <select name="jurusan_id" class="form-control">
+                            <label for="contoh2">Jurusan</label>
+                            <select name="jurusan_id" class="form-control select2">
                                <option selected disabled="disabled">Pilih Jurusan</option>
                                 @foreach ($jurusans as $item)
                                     <option value="{{ $item->id }}">{{ $item->jurusan }}</option>
@@ -48,4 +47,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection

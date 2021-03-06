@@ -17,7 +17,8 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="contoh2">Semester</label>
-                            <select class="form-control" name="semester" value="{{ $semester->semester }}" class="form-control" placeholder="Semester">
+                            <select class="form-control select2" name="semester" value="{{ $semester->semester }}" class="form-control" placeholder="Semester">
+                                <option value="{{ $semester->semester }}">{{ $semester->semester }}</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
@@ -47,4 +48,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 @endsection
