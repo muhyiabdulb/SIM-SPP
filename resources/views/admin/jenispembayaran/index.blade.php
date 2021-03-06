@@ -32,7 +32,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $jenispembayaran->jenis_pembayaran }}</td>
-                                <td>{{ $jenispembayaran->nominal}}</td>
+                                <td>Rp {{ number_format($jenispembayaran->nominal) }}</td>
                                 <td>
                                     <form action="{{ route('admin.jenispembayaran.destroy', $jenispembayaran->id) }}" method="POST">
                                         @csrf
