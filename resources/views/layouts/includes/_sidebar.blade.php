@@ -26,6 +26,7 @@
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-book"></i> <span>Data Master</span></a>
                 <ul class="dropdown-menu">
+                    <li><a href="{{ route('admin.user.index') }}">Data User</a></li>
                     <li><a href="{{ route('admin.siswa.index') }}">Data Siswa</a></li>
                     <li><a href="{{ route('admin.pembimbing.index') }}">Data Pembimbing Siswa</a></li>
                     <li><a href="{{ route('admin.rombel.index') }}">Data Rombel</a></li>

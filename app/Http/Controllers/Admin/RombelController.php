@@ -32,7 +32,7 @@ class rombelController extends Controller
             'jurusan_id' => 'required',
             'nama_rombel' => 'required',
         ]);
-
+        // return $request->all();
         // masukkan semua inputan ke db
         Rombel::create($request->all());
         // alert berhasil
