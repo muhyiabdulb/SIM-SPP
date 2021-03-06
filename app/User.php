@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'photo', 'name', 'email', 'username', 'password',
+       'siswa_id', 'photo', 'name', 'email', 'username', 'password',
     ];
 
     /**
@@ -38,4 +38,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // RELASI KEPADA TABEL SISWA
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class);
+    }
+
+    // membuat function Image
+    public function getTakeImageAttribute()
+    {
+        return "/storage/" . $this->photo;
+    }
 }
