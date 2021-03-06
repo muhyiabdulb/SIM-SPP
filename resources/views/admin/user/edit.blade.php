@@ -1,11 +1,11 @@
-@extends('layouts.master', ['title' => 'Tambah Data Siswa'])
+@extends('layouts.master', ['title' => 'Edit Data User'])
 
 @section('content')
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Tambah Data Siswa</h4>
+                <h4>Edit Data User</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
@@ -48,7 +48,7 @@
                                 <input type="text" name="email" class="form-control" placeholder="User ini bukan Ortu, jadi tidak bisa memilih Siswa" readonly> 
                             @else
                                 <select name="siswa_id" class="form-control">
-                                    <option disabled value="{{ $user->siswa_id }}">{{ $user->siswa->nama_siswa }}</option>
+                                    <option value="{{ $user->siswa_id }}">{{ $user->siswa->nama_siswa }}</option>
                                         @foreach ($siswas as $item)
                                             <option value="{{ $item->id }}">{{ $item->nama_siswa }}</option>
                                         @endforeach
