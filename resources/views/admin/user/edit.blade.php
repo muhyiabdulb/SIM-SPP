@@ -5,7 +5,10 @@
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Tambah Data Siswa</h4>
+                <h4>Tambah Data User</h4>
+                <div class="card-header-action">
+                   <a href={{ route('admin.user.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
+            </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
@@ -74,7 +77,6 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
-                    <a href={{ route('admin.user.index') }} class="btn btn-danger">Kembali</a>
                 </form>
             </div>
         </div>
