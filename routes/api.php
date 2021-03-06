@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('get-jenis-pembayaran', 'Api\TypeController@index')->name('api.get-jenis-pembayaran');
+Route::get('get-jenis-pembayaran-object', 'Api\TypeController@show')->name('api.get-jenis-pembayaran-object');
