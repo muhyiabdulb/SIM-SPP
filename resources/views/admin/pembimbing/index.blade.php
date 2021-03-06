@@ -45,7 +45,7 @@
                                     <form action="{{ route('admin.pembimbing.destroy', $pembimbing->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('admin.pembimbing.show', $pembimbing->id) }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('admin.pembimbing.edit', $pembimbing->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
                                         <button type="submit" class="btn btn-danger btn-action" onclick="return confirm('Anda Yakin ?')"><i class="fas fa-trash"></i></button>
                                     </form>

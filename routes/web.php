@@ -101,6 +101,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::get('/', 'Admin\PembimbingController@index')->name('index');
         Route::get('/create', 'Admin\PembimbingController@create')->name('create');
         Route::post('/store', 'Admin\PembimbingController@store')->name('store');
+        Route::get('/show/{pembimbing}', 'Admin\PembimbingController@show')->name('show');
         Route::get('/edit/{pembimbing}', 'Admin\PembimbingController@edit')->name('edit');
         Route::put('/update/{pembimbing}', 'Admin\PembimbingController@update')->name('update');
         Route::delete('/delete/{pembimbing}', 'Admin\PembimbingController@destroy')->name('destroy');
