@@ -41,14 +41,13 @@
                                 <td>{{ $siswa->nis }}</td>
                                 <td>{{ $siswa->nama_siswa }}</td>
                                 <td>{{ $siswa->jenis_kelamin }}</td>
-                                <td>{{ $siswa->rombel_id }}</td>
-                                <td>{{ $siswa->rayon_id }}</td>
+                                <td>{{ $siswa->rombel->nama_rombel }}</td>
+                                <td>{{ $siswa->rayon->nama_rayon }}</td>
                                 <td>
                                     <form action="{{ route('admin.siswa.destroy', $siswa->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ ('siswa/show') }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
-                                        <a href="" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('admin.siswa.show', $siswa->id) }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('admin.siswa.edit', $siswa->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
                                         <button type="submit" class="btn btn-danger btn-action" onclick="return confirm('Anda Yakin ?')"><i class="fas fa-trash"></i></button>
                                     </form>

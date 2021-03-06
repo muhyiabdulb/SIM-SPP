@@ -112,6 +112,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::get('/', 'Admin\SiswaController@index')->name('index');
         Route::get('/create', 'Admin\SiswaController@create')->name('create');
         Route::post('/store', 'Admin\SiswaController@store')->name('store');
+        Route::get('/show/{siswa}', 'Admin\SiswaController@show')->name('show');
         Route::get('/edit/{siswa}', 'Admin\SiswaController@edit')->name('edit');
         Route::put('/update/{siswa}', 'Admin\SiswaController@update')->name('update');
         Route::delete('/delete/{siswa}', 'Admin\SiswaController@destroy')->name('destroy');
