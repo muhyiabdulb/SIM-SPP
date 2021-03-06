@@ -4,8 +4,11 @@
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <h4>Tambah Data Rayon</h4>
+         <div class="card-header">
+            <h4>Tambah Data Rayon</h4>
+                  <div class="card-header-action">
+                   <a href={{ route('admin.rayon.index') }} class="btn btn-danger">Back</a>
+                  </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.rayon.store') }}" method="POST">
@@ -20,11 +23,8 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group col-md-4">
-                            <div class="card-footer">
+                        <div class="form-group col-md-6" style="padding-top: 29px;">
                                 <button class="btn btn-primary" type="submit">Simpan</button>
-                                <a href="{{ URL::previous() }}" class="btn btn-danger" type="reset">Kembali</a>
-                            </div>
                         </div>
                     </div>
                 </form>

@@ -6,6 +6,9 @@
         <div class="card">
             <div class="card-header">
                 <h4>Tambah Data Semester</h4>
+                <div class="card-header-action">
+                   <a href={{ route('admin.semester.index') }} class="btn btn-danger">Back</a>
+            </div>
             </div>
              <div class="card-body">
                 <form action="{{ route('admin.semester.store') }}" method="POST">
@@ -34,7 +37,6 @@
                         </div>
                      <div class="form-group col-md-4">
                         <button class="btn btn-primary" type="submit">submit</button>
-                        <a href="{{ route('admin.semester.index') }}" class="btn btn-danger" type="reset">Back</a>
                         </div>
                     </div>
                 </form>

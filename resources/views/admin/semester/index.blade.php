@@ -22,7 +22,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>semester</th>
+                                <th>Semester</th>
                                 <th>Tahun Ajaran</th>
                                 <th>Action</th>
                             </tr>

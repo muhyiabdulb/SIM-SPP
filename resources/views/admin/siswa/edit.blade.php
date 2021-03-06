@@ -7,13 +7,16 @@
         <div class="card">
             <div class="card-header">
                 <h4>Edit Data Siswa</h4>
+                  <div class="card-header-action">
+                   <a href={{ route('admin.siswa.index') }} class="btn btn-danger">Back</a>
+                  </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.siswa.update', $siswa->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-row">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-6">
                             <label for="photo">Photo</label>
                             <input id="photo" type="file" name="photo" class="form-control">
                             @error('photo')
@@ -23,7 +26,7 @@
                             @enderror
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label for="nis">NIS</label>
                             <input type="text" name="nis" value="{{ $siswa->nis }}" class="form-control" placeholder="NIS">
                             @error('nis')
@@ -32,8 +35,9 @@
                                 </div>
                             @enderror
                         </div>
-                
-                        <div class="form-group col-md-4">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
                             <label for="contoh1">Nama Siswa</label>
                             <input type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}" class="form-control" placeholder="Nama Siswa">
                             @error('nama_siswa')
@@ -42,10 +46,8 @@
                                 </div>
                             @enderror
                         </div>
-                    </div>
 
-                  <div class="form-row">
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label class="d-block">Jenis Kelamin</label><br>
                             <div class="form-check form-check-inline">
                                 <input name="jenis_kelamin" class="form-check-input" type="radio" id="inlineradio1" value="L">
@@ -61,7 +63,9 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group col-md-4">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
                             <label>Rombel</label>
                             <select name="rombel_id" class="form-control">
                                 <option value="{{ $siswa->rombel_id }}">{{ $siswa->rombel->nama_rombel }}</option>
@@ -76,7 +80,7 @@
                              @enderror
                         </div>
 
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label>Rayon</label>
                             <select name="rayon_id" class="form-control">
                                 <option value="{{ $siswa->rayon_id }}">{{ $siswa->rayon->nama_rayon }}</option>
@@ -90,11 +94,13 @@
                                  </div>
                              @enderror
                         </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group col-md-4">
                             <button class="btn btn-primary" type="submit">Update</button>
-                            <a href={{ route('admin.siswa.index') }} class="btn btn-danger" type="reset">Kembali</a>
                         </div>
                     </div>
+                </div>
                 </form>
             </div>
         </div>

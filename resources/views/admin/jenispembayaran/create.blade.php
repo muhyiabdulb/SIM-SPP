@@ -6,6 +6,9 @@
         <div class="card">
             <div class="card-header">
                 <h4>Tambah Data Jenis Pembayaran</h4>
+                <div class="card-header-action">
+                   <a href={{ route('admin.jenispembayaran.index') }} class="btn btn-danger">Back</a>
+            </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.jenispembayaran.store') }}" method="POST">
@@ -32,7 +35,6 @@
                         </div>
                         <div class="form-group col-md-4">
                                 <button class="btn btn-primary" type="submit">Simpan</button>
-                                <a href="{{ URL::previous() }}" class="btn btn-danger" type="reset">Kembali</a>
                             </div>
                         </div>
                     </div>

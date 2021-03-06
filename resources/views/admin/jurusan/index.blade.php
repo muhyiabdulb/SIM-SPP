@@ -4,7 +4,7 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>Data jurusan</h1>
+        <h1>Data Jurusan</h1>
     </div>
 </section>
 <div class="row">

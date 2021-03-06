@@ -2,31 +2,53 @@
 
 @section('content')
 
-<section class="section">
-    <div class="section-header">
-        <h1>Data Pembimbing Siswa</h1>
-    </div>
-</section>
+
 <div class="row">
     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
         <div class="card">
             <div class="card-header">
+                <h4>Data Pembimbing Siswa</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.pembimbing.index') }}" class="btn btn-primary"
-                        style="border-radius: 5px"> Kembali</a>
+                    <a href={{ route('admin.pembimbing.index') }} class="btn btn-danger">Back</a>
                 </div>
             </div>
-            <div class="card-body">
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ $pembimbing->takeImage }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{ $pembimbing->nip }}</h5>
-                      <h5 class="card-text">{{ $pembimbing->nama_pembimbing }}</h5>
-                      <h5 class="card-text">{{ $pembimbing->jenis_kelamin }}</h5>
-                      <h5 class="card-text">{{ $pembimbing->rayon->nama_rayon }}</h5>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <p style="text-align:justify;"><img src="{{ $pembimbing->takeImage }}"
+                                            class="img-fluid" alt="" style="width: 250px;height:300px;float:left;">
+                                    </p>
+                                </div>
+                                <table>
+                                    <tr>
+                                        <th>NIS</th>
+                                        <th>:</th>
+                                        <th>{{ $pembimbing->nip }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>:</th>
+                                        <th>{{ $pembimbing->nama_pembimbing }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Jenis Kelamin</th>
+                                        <th>:</th>
+                                        <th>{{ $pembimbing->jenis_kelamin }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Rayon</th>
+                                        <th>:</th>
+                                        <th>{{ $pembimbing->rayon->nama_rayon }}</th>
+                                    </tr>
+                                </table>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                </div>
             </div>
-        </div>
-    </div>
-@endsection
+        @endsection

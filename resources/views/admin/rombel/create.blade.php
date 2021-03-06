@@ -5,7 +5,10 @@
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Tambah Data Rombel</h4>
+            <h4>Tambah Data Rombel</h4>
+                  <div class="card-header-action">
+                   <a href={{ route('admin.rombel.index') }} class="btn btn-danger">Back</a>
+                  </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.rombel.store') }}" method="POST">
@@ -28,7 +31,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="contoh2">Nama Rombel</label>
-                            <input type="text" name="nama_rombel" class="form-control" placeholder="Nama rombel">
+                            <input type="text" name="nama_rombel" class="form-control" placeholder="Nama Rombel">
                             @error('nama_rombel')
                                 <div class="invalid">
                                     {{ $message }}
@@ -37,7 +40,6 @@
                         </div>
                         <div class="form-group col-md-4">
                                 <button class="btn btn-primary" type="submit">Simpan</button>
-                                <a href="{{ route('admin.rombel.index') }}" class="btn btn-danger" type="reset">Kembali</a>
                             </div>
                         </div>
                     </div>

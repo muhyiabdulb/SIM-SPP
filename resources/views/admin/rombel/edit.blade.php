@@ -1,11 +1,14 @@
-@extends('layouts.master', ['title' => 'Edit Data rombel'])
+@extends('layouts.master', ['title' => 'Edit Data Rombel'])
 
 @section('content')
 <div class="row">
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
-            <div class="card-header">
-                <h4>Edit Data rombel</h4>
+         <div class="card-header">
+            <h4>Edit Data Rombel</h4>
+                  <div class="card-header-action">
+                   <a href={{ route('admin.rombel.index') }} class="btn btn-danger">Back</a>
+                  </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.rombel.update', $rombel->id) }}" method="POST">
@@ -34,7 +37,6 @@
 
                      <div class="form-group col-md-4">
                         <button class="btn btn-primary" type="submit">Update</button>
-                        <a href="{{ route('admin.rombel.index') }}" class="btn btn-danger" type="reset">Kembali</a>
                         </div>
                     </div>
                 </form>
