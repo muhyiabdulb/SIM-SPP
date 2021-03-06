@@ -36,7 +36,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $pembimbing->nip }}</td>
                                 <td>
-                                    <img style="height:40px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ $pembimbing->takeImage }}">    
+                                    <img style="height:100px; width:100px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ $pembimbing->takeImage }}">    
                                 </td>
                                 <td>{{ $pembimbing->nama_pembimbing }}</td>
                                 <td>{{ $pembimbing->jenis_kelamin }}</td>
