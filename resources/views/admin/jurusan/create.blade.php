@@ -7,7 +7,7 @@
             <div class="card-header">
                  <h4>Tambah Data Jurusan</h4>
                   <div class="card-header-action">
-                   <a href={{ route('admin.jurusan.index') }} class="btn btn-danger">Back</a>
+                   <a href={{ route('admin.jurusan.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
             </div>
             <div class="card-body">
@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="form-group col-md-6" style="padding-top: 29px;">
-                            <button class="btn btn-primary" type="submit">Simpan</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Submit</button>
                         </div>
                     </div>
                     </div>

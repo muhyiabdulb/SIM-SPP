@@ -9,7 +9,7 @@
             <div class="card-header">
                 <h4>Data Pembimbing Siswa</h4>
                 <div class="card-header-action">
-                    <a href={{ route('admin.pembimbing.index') }} class="btn btn-danger">Back</a>
+                    <a href={{ route('admin.pembimbing.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
             </div>
 

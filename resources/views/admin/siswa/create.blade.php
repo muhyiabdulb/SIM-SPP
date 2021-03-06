@@ -7,7 +7,7 @@
             <div class="card-header">
                 <h4>Tambah Data Siswa</h4>
                   <div class="card-header-action">
-                   <a href={{ route('admin.siswa.index') }} class="btn btn-danger">Back</a>
+                   <a href={{ route('admin.siswa.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
                   </div>
             </div>
             <div class="card-body">
@@ -95,7 +95,7 @@
                     </div>
                         <div class="form-row">
                         <div class="form-group col-md-6">
-                            <button class="btn btn-primary" type="submit">submit</button>
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Submit</button>
                         </div>
                         </div>
                     </div>

@@ -7,7 +7,7 @@
             <div class="card-header">
                 <h4>Tambah Data Semester</h4>
                 <div class="card-header-action">
-                   <a href={{ route('admin.semester.index') }} class="btn btn-danger">Back</a>
+                   <a href={{ route('admin.semester.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
             </div>
              <div class="card-body">
@@ -36,7 +36,7 @@
                             @enderror
                         </div>
                      <div class="form-group col-md-4">
-                        <button class="btn btn-primary" type="submit">submit</button>
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Submit</button>
                         </div>
                     </div>
                 </form>
