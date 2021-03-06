@@ -17,7 +17,7 @@
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
-                        @error('semester')
+                            @error('semester')
                                 <div class="invalid">
                                     {{ $message }}
                                 </div>

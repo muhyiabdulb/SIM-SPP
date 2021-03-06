@@ -48,21 +48,42 @@ class PembimbingController extends Controller
         return redirect()->route('admin.pembimbing.index');
     }
 
+    public function show(Pembimbing $pembimbing)
+    {
+        return view('admin.pembimbing.show', compact('pembimbing'));
+    }
+
     public function edit(Pembimbing $pembimbing)
     {
+        $rayons = Rayon::all();
         // pindah halaman ke edit
-        return view('admin.pembimbing.edit', compact('rayon'));
+        return view('admin.pembimbing.edit', compact('pembimbing', 'rayons'));
     }
 
     public function update(Request $request, Pembimbing $pembimbing)
     {
         // ini validasi sesuai inputan
         $request->validate([
-            'nama_rayon' => 'required'
+            'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
+            'nip' => 'required',
+            'nama_pembimbing' => 'required',
+            'jenis_kelamin' => 'required',
+            'rayon_id' => 'required'
         ]);
 
-        // inputan di update
-        $pembimbing->update($request->all());
+        $attr = $request->all();
+
+        if(request()->file('photo')){
+            \Storage::delete($pembimbing->photo);
+            $photo = request()->file('photo')->store("img/photo");
+        } else{
+            $photo = $pembimbing->photo;
+        }
+
+        $attr['photo'] = $photo;
+        // return $attr;
+        $pembimbing->update($attr);
+
         Alert::success('Pemberitahun!', 'Berhasil Diupdate');
         return redirect()->route('admin.pembimbing.index');
     }

@@ -8,49 +8,75 @@
                 <h4>Edit Data Pembimbing Siswa</h4>
             </div>
             <div class="card-body">
-                <form>
+                <form action="{{ route('admin.pembimbing.update', $pembimbing->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label for="contoh2">NIP</label>
-                            <input type="text" class="form-control" placeholder="NIP">
+                            <input type="text" name="nip" class="form-control" value="{{ $pembimbing->nip }}" placeholder="NIP">
+                            @error('nip')
+                                 <div class="invalid">
+                                     {{ $message }}
+                                 </div>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
                             <label for="contoh1">Photo</label>
-                            <input type="file" class="form-control">
+                            <input type="file" name="photo" class="form-control">
+                            @error('photo')
+                                 <div class="invalid">
+                                     {{ $message }}
+                                 </div>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
                             <label for="contoh1">Nama</label>
-                            <input type="text" class="form-control" placeholder="Nama">
+                            <input type="text" name="nama_pembimbing" class="form-control" value="{{ $pembimbing->nama_pembimbing }}"  placeholder="Nama">
                         </div>
+                        @error('nama_pembimbing')
+                            <div class="invalid">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label class="d-block">Jenis Kelamin</label><br>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="inlineradio1" value="option1">
+                                <input name="jenis_kelamin" class="form-check-input" type="radio" id="inlineradio1" value="L">
                                 <label class="form-check-label" for="inlineradio1">Laki-laki</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="inlineradio2" value="option2">
+                                <input name="jenis_kelamin" class="form-check-input" type="radio" id="inlineradio2" value="P">
                                 <label class="form-check-label" for="inlineradio2">Perempuan</label>
                             </div>
+                            @error('jenis_kelamin')
+                                 <div class="invalid">
+                                     {{ $message }}
+                                 </div>
+                            @enderror
                         </div>
                         <div class="form-group col-md-4">
                             <label>Rayon</label>
-                            <select class="form-control">
-                                <option>Option 1</option>
-                                <option>Option 2</option>
-                                <option>Option 3</option>
-                            </select>
+                            <select name="rayon_id" class="form-control">
+                                <option value="{{ $pembimbing->rayon_id }}">{{ $pembimbing->rayon->nama_rayon }}</option>
+                                @foreach ($rayons as $item)
+                                    <option value="{{ $item->id }}">{{ $item->nama_rayon }}</option>
+                                @endforeach
+                             </select>
+                             @error('rayon_id')
+                                 <div class="invalid">
+                                     {{ $message }}
+                                 </div>
+                             @enderror
                         </div>
-           <div class="form-group col-md-4">
-                        <div class="card-footer">
-                        <button class="btn btn-primary" type="submit">submit</button>
-                        <a href={{ url('pembimbing') }} class="btn btn-danger" type="reset">Back</a>
-                         </div>
+                        <div class="form-group col-md-4">
+                            <button class="btn btn-primary" type="submit">Update</button>
+                            <a href={{ route('admin.pembimbing.index') }} class="btn btn-danger" type="reset">Kembali</a>
                         </div>
-                </div>
+                    </div>
                 </form>
             </div>
         </div>
