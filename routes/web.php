@@ -105,6 +105,16 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::put('/update/{pembimbing}', 'Admin\PembimbingController@update')->name('update');
         Route::delete('/delete/{pembimbing}', 'Admin\PembimbingController@destroy')->name('destroy');
     });
+
+    //ROUTE SISWA
+    Route::prefix('/siswa')->name('siswa.')->group(function(){
+        Route::get('/', 'Admin\SiswaController@index')->name('index');
+        Route::get('/create', 'Admin\SiswaController@create')->name('create');
+        Route::post('/store', 'Admin\SiswaController@store')->name('store');
+        Route::get('/edit/{siswa}', 'Admin\SiswaController@edit')->name('edit');
+        Route::put('/update/{siswa}', 'Admin\SiswaController@update')->name('update');
+        Route::delete('/delete/{siswa}', 'Admin\SiswaController@destroy')->name('destroy');
+    });
  
 });
 

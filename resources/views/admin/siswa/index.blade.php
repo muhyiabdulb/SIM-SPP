@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ url('siswa/create') }}" class="btn btn-primary"
+                    <a href="{{ route('admin.siswa.create') }}" class="btn btn-primary"
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
@@ -32,22 +32,33 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse ($siswas as $siswa)
                             <tr>
-                                <td>1</td>
-                                <td></td>
-                                <td>11806738</td>
-                                <td>Bayu Ganteng</td>
-                                <td>Laki-laki</td>
-                                <td>RPL XII-1</td>
-                                <td>Tajur 1</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    <a href="{{ ('siswa/show') }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
-                                    <a href="{{ ('siswa/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <img style="height:100px; width:100px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ $siswa->takeImage }}">    
+                                </td>
+                                <td>{{ $siswa->nis }}</td>
+                                <td>{{ $siswa->nama_siswa }}</td>
+                                <td>{{ $siswa->jenis_kelamin }}</td>
+                                <td>{{ $siswa->rombel_id }}</td>
+                                <td>{{ $siswa->rayon_id }}</td>
+                                <td>
+                                    <form action="{{ route('admin.siswa.destroy', $siswa->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="{{ ('siswa/show') }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                        <a href="" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('admin.siswa.edit', $siswa->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <button type="submit" class="btn btn-danger btn-action" onclick="return confirm('Anda Yakin ?')"><i class="fas fa-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
+                            @empty
+                            <tr>
+                                <td colspan="8" class="text-center"><h3>Data Kosong</h3></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
