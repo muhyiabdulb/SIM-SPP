@@ -31,7 +31,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pembimbings as $pembimbing)
+                            @forelse ($pembimbings as $pembimbing)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $pembimbing->nip }}</td>
@@ -42,14 +42,20 @@
                                 <td>{{ $pembimbing->jenis_kelamin }}</td>
                                 <td>{{ $pembimbing->rayon->nama_rayon }}</td>
                                 <td>
-                                    <a href="{{ ('pembimbing/show') }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
-                                    <a href="{{ ('pembimbing/edit') }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
-                                    <a class="btn btn-danger btn-action" data-toggle="tooltip" title="Delete"
-                                        data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?"
-                                        data-confirm-yes="alert('Deleted')"><i class="fas fa-trash"></i></a>
+                                    <form action="{{ route('admin.pembimbing.destroy', $pembimbing->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <a href="" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                        <a href="{{ route('admin.pembimbing.edit', $pembimbing->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <button type="submit" class="btn btn-danger btn-action" onclick="return confirm('Anda Yakin ?')"><i class="fas fa-trash"></i></button>
+                                    </form>
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="7" class="text-center"><h3>Data Kosong</h3></td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

@@ -48,13 +48,13 @@ class PembimbingController extends Controller
         return redirect()->route('admin.pembimbing.index');
     }
 
-    public function edit(Rayon $rayon)
+    public function edit(Pembimbing $pembimbing)
     {
         // pindah halaman ke edit
         return view('admin.pembimbing.edit', compact('rayon'));
     }
 
-    public function update(Request $request, Rayon $rayon)
+    public function update(Request $request, Pembimbing $pembimbing)
     {
         // ini validasi sesuai inputan
         $request->validate([
@@ -62,15 +62,16 @@ class PembimbingController extends Controller
         ]);
 
         // inputan di update
-        $rayon->update($request->all());
+        $pembimbing->update($request->all());
         Alert::success('Pemberitahun!', 'Berhasil Diupdate');
         return redirect()->route('admin.pembimbing.index');
     }
 
-    public function destroy(Rayon $rayon)
+    public function destroy(Pembimbing $pembimbing)
     {
         // mengahapus 1 data
-        $rayon->delete();
+        \Storage::delete($pembimbing->photo);
+        $pembimbing->delete();
         Alert::success('Pemberitahun!', 'Berhasil Dihapus :)');
         return redirect()->route('admin.pembimbing.index');
     }
