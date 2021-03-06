@@ -11,7 +11,7 @@ class PembimbingController extends Controller
 {
     public function index()
     {
-        $pembimbings = Pembimbing::get();
+        $pembimbings = Pembimbing::latest()->get();;
         // return $pembimbings;
         return view('admin.pembimbing.index', compact('pembimbings'));
     }

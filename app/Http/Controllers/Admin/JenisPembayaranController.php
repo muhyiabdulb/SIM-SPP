@@ -12,7 +12,7 @@ class jenispembayaranController extends Controller
     public function index()
     {
         // variabel jenispembayarans buat nampung data jenispembayaran dari db 
-        $jenispembayarans = JenisPembayaran::get();
+        $jenispembayarans = JenisPembayaran::latest()->get();
         // masukkan ke halaman index, jangan compact variabel nya
         return view('admin.jenispembayaran.index', compact('jenispembayarans'));
     }

@@ -12,7 +12,7 @@ class rombelController extends Controller
     public function index()
     {
         // variabel rombels buat nampung data rombel dari db 
-        $rombels = Rombel::get();
+        $rombels = Rombel::latest()->get();;
         // masukkan ke halaman index, jangan compact variabel nya
         return view('admin.rombel.index', compact('rombels'));
     }

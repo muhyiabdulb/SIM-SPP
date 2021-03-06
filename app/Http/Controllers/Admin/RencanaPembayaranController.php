@@ -12,7 +12,7 @@ class RencanaPembayaranController extends Controller
     public function index()
     {
         // variabel Semesters buat nampung data Semester dari db 
-        $rencanaPembayarans = RencanaPembayaran::get();
+        $rencanaPembayarans = RencanaPembayaran::latest()->get();;
         // masukkan ke halaman index, jangan compact variabel nya
         return view('admin.rencana_pembayaran.index', compact('rencanaPembayarans'));
     }

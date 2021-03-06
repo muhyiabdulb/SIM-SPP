@@ -12,7 +12,7 @@ class jurusanController extends Controller
     public function index()
     {
         // variabel jurusans buat nampung data jurusan dari db 
-        $jurusans = Jurusan::get();
+        $jurusans = Jurusan::latest()->get();;
         // masukkan ke halaman index, jangan compact variabel nya
         return view('admin.jurusan.index', compact('jurusans'));
     }

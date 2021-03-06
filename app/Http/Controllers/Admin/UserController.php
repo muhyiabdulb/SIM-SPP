@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::get();
+        $users = User::latest()->get();;
         // return $users;
         return view('admin.user.index', compact('users'));
     }

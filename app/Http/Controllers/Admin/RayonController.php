@@ -12,7 +12,7 @@ class RayonController extends Controller
     public function index()
     {
         // variabel rayons buat nampung data Rayon dari db 
-        $rayons = Rayon::get();
+        $rayons = Rayon::latest()->get();;
         // masukkan ke halaman index, jangan compact variabel nya
         return view('admin.rayon.index', compact('rayons'));
     }

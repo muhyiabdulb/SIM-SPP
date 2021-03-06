@@ -12,7 +12,7 @@ class ViaTransferController extends Controller
     public function index()
     {
         // variabel viatransfernsfers buat nampung data viatransfernsfer dari db 
-        $viatransfers = ViaTransfer::get();
+        $viatransfers = ViaTransfer::latest()->get();;
         // masukkan ke halaman index, jangan compact variabel nya
         return view('admin.viatransfer.index', compact('viatransfers'));
     }
