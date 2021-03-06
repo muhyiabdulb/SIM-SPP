@@ -5,14 +5,10 @@
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-<<<<<<< HEAD
                 <h4>Tambah Data User</h4>
                 <div class="card-header-action">
                    <a href={{ route('admin.user.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
-            </div>
-=======
-                <h4>Edit Data User</h4>
->>>>>>> 8d5a37d059c6ae2b97a75165f9d8ffa3a6782328
+                </div>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.user.update', $user->id) }}" method="POST" enctype="multipart/form-data">
