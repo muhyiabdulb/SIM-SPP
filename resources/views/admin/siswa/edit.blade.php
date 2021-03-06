@@ -25,7 +25,7 @@
 
                         <div class="form-group col-md-4">
                             <label for="nis">NIS</label>
-                            <input type="text" name="nis" class="form-control" placeholder="NIS">
+                            <input type="text" name="nis" value="{{ $siswa->nis }}" class="form-control" placeholder="NIS">
                             @error('nis')
                                 <div class="invalid">
                                     {{ $message }}
@@ -35,7 +35,7 @@
                 
                         <div class="form-group col-md-4">
                             <label for="contoh1">Nama Siswa</label>
-                            <input type="text" name="nama_siswa" class="form-control" placeholder="Nama Siswa">
+                            <input type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}" class="form-control" placeholder="Nama Siswa">
                             @error('nama_siswa')
                                 <div class="invalid">
                                     {{ $message }}
@@ -64,7 +64,7 @@
                         <div class="form-group col-md-4">
                             <label>Rombel</label>
                             <select name="rombel_id" class="form-control">
-                                <option selected disabled="disabled">Pilih Rombel</option>
+                                <option value="{{ $siswa->rombel_id }}">{{ $siswa->rombel->nama_rombel }}</option>
                                  @foreach ($rombels as $item)
                                      <option value="{{ $item->id }}">{{ $item->nama_rombel }}</option>
                                  @endforeach
@@ -79,7 +79,7 @@
                         <div class="form-group col-md-4">
                             <label>Rayon</label>
                             <select name="rayon_id" class="form-control">
-                                <option selected disabled="disabled">Pilih Rayon</option>
+                                <option value="{{ $siswa->rayon_id }}">{{ $siswa->rayon->nama_rayon }}</option>
                                  @foreach ($rayons as $item)
                                      <option value="{{ $item->id }}">{{ $item->nama_rayon }}</option>
                                  @endforeach

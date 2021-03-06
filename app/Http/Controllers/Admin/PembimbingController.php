@@ -27,7 +27,7 @@ class PembimbingController extends Controller
     {
         // ini validasi sesuai inputan
         $request->validate([
-            'photo' => 'required|image|mimes:png,jpg,jpeg,svg|max:2048',
+            'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'nip' => 'required',
             'nama_pembimbing' => 'required',
             'jenis_kelamin' => 'required',

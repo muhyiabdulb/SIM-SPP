@@ -29,7 +29,7 @@ class SiswaController extends Controller
     {
         // ini validasi sesuai inputan
         $request->validate([
-            'photo' => 'required|image|mimes:png,jpg,jpeg,svg|max:2048',
+            'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'nis' => 'required',
             'nama_siswa' => 'required',
             'jenis_kelamin' => 'required',
@@ -63,7 +63,7 @@ class SiswaController extends Controller
     {
         // ini validasi sesuai inputan
         $request->validate([
-            'photo' => 'required|image|mimes:png,jpg,jpeg,svg|max:2048',
+            'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'nis' => 'required',
             'nama_siswa' => 'required',
             'jenis_kelamin' => 'required',
