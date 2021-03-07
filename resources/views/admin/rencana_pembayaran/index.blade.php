@@ -24,7 +24,7 @@
                                 <th>NO</th>
                                 <th>JENIS PEMBAYARAN</th>
                                 <th>NOMINAL</th>
-                                <th>BANYAKNYA</th>
+                                <th>BANYAKNYA (dlm 1 thn)</th>
                                 <th>TOTAL NOMINAL</th>
                                 <th>TAHUN</th>
                                 <th>ACTION</th>
@@ -34,10 +34,10 @@
                             @forelse ($rencanaPembayarans as $rencanaPembayaran)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rencanaPembayaran->jenis_pembayaran_id }}</td>
-                                <td>{{ $rencanaPembayaran->nominal }}</td>
+                                <td>{{ $rencanaPembayaran->jenisPembayaran['jenis_pembayaran'] }}</td>
+                                <td>Rp {{ number_format($rencanaPembayaran->nominal) }}</td>
                                 <td>{{ $rencanaPembayaran->banyaknya }}</td>
-                                <td>{{ $rencanaPembayaran->total_nominal }}</td>
+                                <td>Rp {{ number_format($rencanaPembayaran->total_nominal) }}</td>
                                 <td>{{ $rencanaPembayaran->tahun }}</td>
                                 <td>
                                     <form action="{{ route('admin.rencanapembayaran.destroy', $rencanaPembayaran->id) }}" method="POST">

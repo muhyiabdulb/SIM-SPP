@@ -10,7 +10,7 @@ class RencanaPembayaran extends Model
     protected $guarded = [];
 
     // RELASI KEPADA TABEL JENIS PEMBAYARAN
-    public function jenispembayaran()
+    public function jenisPembayaran()
     {
         return $this->belongsTo(JenisPembayaran::class);
     }

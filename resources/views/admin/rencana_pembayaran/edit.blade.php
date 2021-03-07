@@ -18,9 +18,8 @@
                         <div class="form-group col-md-6">
                             <label for="contoh2">Jenis Pembayaran</label>
                             <select name="jenis_pembayaran_id" class="form-control select2">
-                                <option selected disabled="disabled">Pilih Jenis Pembayaran</option>
-                                    <option value="{{ $rencanapembayaran->jenis_pembayaran }}">{{ $rencanapembayaran->jenis_pembayaran->jenis_pembayaran }}</option>
-                                 @foreach ($jenisPembayarans as $item)
+                                    <option value="{{ $rencanapembayaran->jenis_pembayaran_id }}">{{ $rencanapembayaran->jenisPembayaran->jenis_pembayaran }}</option>
+                                 @foreach ($jenisPembayaran as $item)
                                      <option value="{{ $item->id }}">{{ $item->jenis_pembayaran }}</option>
                                  @endforeach
                              </select>

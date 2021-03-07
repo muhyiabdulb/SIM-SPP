@@ -10,7 +10,7 @@ class JenisPembayaranController extends Controller
 {
     public function index()
     {
-        $data = Type::select(['id', 'jenis_pembayaran'])->get();
+        $data = JenisPembayaran::select(['id', 'jenis_pembayaran'])->get();
 
         $messages = [
             'code' => 200,
@@ -23,9 +23,9 @@ class JenisPembayaranController extends Controller
             ->header('Content-Type', 'application/json');
     }
     
-    public function show(Request $request, Type $type)
+    public function show(Request $request, JenisPembayaran $jenispembayaran)
     {
-        $data = Type::select(['id', 'jenis_pembayaran', 'nominal'])->find($request->id);
+        $data = JenisPembayaran::select(['id', 'jenis_pembayaran', 'nominal'])->find($request->id);
         
         $messages = [
             'code' => 200,
