@@ -87,11 +87,20 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <div class="dropdown-title">Logged in 5 min ago</div>
-                    <a href="features-profile.html" class="dropdown-item has-icon">
+                    @if(request()->is('kepsek/dashboard'))
+                      <a href="{{ route('kepsek.profile.myprofile') }}" class="dropdown-item has-icon">
                         <i class="far fa-user"></i> Profile
-                    </a>
-                    <a href="features-activities.html" class="dropdown-item has-icon">
-                        <i class="fas fa-bolt"></i> Activities
+                      </a>
+                    @elseif(request()->is('admin/dashboard'))
+                      <a href="{{ route('admin.profile.myprofile') }}" class="dropdown-item has-icon">
+                        <i class="far fa-user"></i> Profile
+                      </a>
+                    @else
+                      {{ "tidak ada" }}
+                    @endif
+                    
+                    <a href="{{ route('admin.profile.changepassword') }}" class="dropdown-item has-icon">
+                        <i class="fas fa-bolt"></i> Ubah Password
                     </a>
                     <a href="features-settings.html" class="dropdown-item has-icon">
                         <i class="fas fa-cog"></i> Settings
