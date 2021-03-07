@@ -127,7 +127,16 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::get('/edit/{user}', 'Admin\UserController@edit')->name('edit');
         Route::put('/update/{user}', 'Admin\UserController@update')->name('update');
         Route::delete('/delete/{user}', 'Admin\UserController@destroy')->name('destroy');
+
     });
+
+    // Profile
+    Route::prefix('/profile')->name('profile.')->group(function () {
+        Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
+        Route::put('/updateprofile', 'UserController@updateProfile')->name('update');
+        Route::get('/password', 'UserController@changePassword')->name('changepassword');
+        Route::put('/updatepassword', 'UserController@updatePassword')->name('updatepassword');
+    });     
  
 });
 
@@ -144,6 +153,14 @@ Route::middleware('role:ortu')->prefix('/ortu')->name('ortu.')->group(function()
 // ROLE KEPALA SEKOLAH
 Route::middleware('role:kepsek')->prefix('/kepsek')->name('kepsek.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+    // Profile
+    Route::prefix('/profile')->name('profile.')->group(function () {
+        Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
+        Route::patch('/updateprofile', 'UserController@updateProfile')->name('update');
+        Route::get('/password', 'UserController@changePassword')->name('changepassword');
+        Route::patch('/updatepassword', 'UserController@updatePassword')->name('updatepassword');
+    });  
 });
 
 // ROLE PEMBIMBING RAYON
