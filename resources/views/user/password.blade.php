@@ -7,11 +7,11 @@
             <div class="card-header">
                 <h4>Ubah Password</h4>
                 <div class="card-header-action">
-                   <a href={{ route('admin.user.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
+                   {{-- <a href={{ route('admin.user.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a> --}}
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.profile.updatepassword') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.profile.updatepassword') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="card-body">

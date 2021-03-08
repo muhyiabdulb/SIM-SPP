@@ -130,13 +130,13 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
 
     });
 
-    // Profile
-    Route::prefix('/profile')->name('profile.')->group(function () {
-        Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
-        Route::put('/updateprofile', 'UserController@updateProfile')->name('update');
-        Route::get('/password', 'UserController@changePassword')->name('changepassword');
-        Route::put('/updatepassword', 'UserController@updatePassword')->name('updatepassword');
-    });     
+    // // Profile
+    // Route::prefix('/profile')->name('profile.')->group(function () {
+    //     Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
+    //     Route::put('/updateprofile', 'UserController@updateProfile')->name('update');
+    //     Route::get('/password', 'UserController@changePassword')->name('changepassword');
+    //     Route::put('/updatepassword', 'UserController@updatePassword')->name('updatepassword');
+    // });     
  
 });
 
@@ -153,19 +153,22 @@ Route::middleware('role:ortu')->prefix('/ortu')->name('ortu.')->group(function()
 // ROLE KEPALA SEKOLAH
 Route::middleware('role:kepsek')->prefix('/kepsek')->name('kepsek.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-
-    // Profile
-    Route::prefix('/profile')->name('profile.')->group(function () {
-        Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
-        Route::patch('/updateprofile', 'UserController@updateProfile')->name('update');
-        Route::get('/password', 'UserController@changePassword')->name('changepassword');
-        Route::patch('/updatepassword', 'UserController@updatePassword')->name('updatepassword');
-    });  
+ 
 });
 
 // ROLE PEMBIMBING RAYON
 Route::middleware('role:pembimbing')->prefix('/pembimbing')->name('pembimbing.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+});
+
+// User Profile
+Route::prefix('user')->name('user.')->group(function () {
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
+        Route::put('/updateprofile', 'UserController@updateProfile')->name('update');
+        Route::get('/password', 'UserController@changePassword')->name('changepassword');
+        Route::put('/updatepassword', 'UserController@updatePassword')->name('updatepassword');
+    }); 
 });
 
 Route::get('/admin', function () {

@@ -42,7 +42,7 @@ class UserController extends Controller
         ]);
 
         Alert::success('Pemberitahun!', 'Profile Berhasil Diubah');
-        return redirect()->route('admin.profile.myprofile');
+        return redirect()->route('user.profile.myprofile');
     }
 
     public function changePassword()
@@ -64,7 +64,7 @@ class UserController extends Controller
                 'password' => bcrypt(request('password'))
             ]);
             Alert::success('Pemberitahun!', 'Password Berhasil Diubah');
-            return redirect()->route('admin.profile.changepassword');
+            return redirect()->route('user.profile.changepassword');
         } else {
             Alert::error('Pemberitahun!', 'Password Gagal Diubah');
             return back()->withErrors(['old_password' => 'Password Lama tidak Valid!']);
