@@ -212,7 +212,7 @@
                     <h4>Total User</h4>
                   </div>
                   <div class="card-body">
-                    10
+                    {{ App\User::count() }}
                   </div>
                 </div>
               </div>
@@ -227,7 +227,7 @@
                     <h4>Total Siswa</h4>
                   </div>
                   <div class="card-body">
-                    42
+                    {{ App\Siswa::count() }}
                   </div>
                 </div>
               </div>
@@ -242,7 +242,7 @@
                     <h4>Total Pemb. Siswa</h4>
                   </div>
                   <div class="card-body">
-                    1,201
+                    {{ App\Pembimbing::count() }}
                   </div>
                 </div>
               </div>
@@ -257,7 +257,7 @@
                     <h4>Total Rayon</h4>
                   </div>
                   <div class="card-body">
-                    47
+                    {{ App\Rayon::count() }}
                   </div>
                 </div>
               </div>
@@ -274,7 +274,7 @@
                     <h4>Total Rombel</h4>
                   </div>
                   <div class="card-body">
-                    10
+                    {{ App\Rombel::count() }}
                   </div>
                 </div>
               </div>
@@ -289,7 +289,7 @@
                     <h4>Total Jurusan</h4>
                   </div>
                   <div class="card-body">
-                    42
+                    {{ App\Jurusan::count() }}
                   </div>
                 </div>
               </div>
@@ -304,7 +304,7 @@
                     <h4>Total Semester</h4>
                   </div>
                   <div class="card-body">
-                    1,201
+                    {{ App\Semester::count() }}
                   </div>
                 </div>
               </div>
@@ -319,7 +319,7 @@
                     <h4>Total Jenis Pembayaran</h4>
                   </div>
                   <div class="card-body">
-                    47
+                    {{ App\JenisPembayaran::count() }}
                   </div>
                 </div>
               </div>
@@ -336,7 +336,7 @@
                     <h4>Total Via Transfer</h4>
                   </div>
                   <div class="card-body">
-                    10
+                    {{ App\ViaTransfer::count() }}
                   </div>
                 </div>
               </div>
@@ -351,7 +351,7 @@
                     <h4>Total Rencana Pembayaran</h4>
                   </div>
                   <div class="card-body">
-                    42
+                    {{ App\RencanaPembayaran::count() }}
                   </div>
                 </div>
               </div>
