@@ -6,7 +6,7 @@ use DB;
 use Auth;
 use Validator;
 use Alert;
-use App\{Transaksi, DetailTransaksi, Siswa, ViaTransfer, RencanaPembayaran};
+use App\{Pembayaran, DetailPembayaran, Siswa, ViaTransfer, JenisPembayaran};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,18 +14,18 @@ class PembayaranController extends Controller
 {
     public function history()
     {
-        $history = Transaksi::latest()->get();
+        $history = Pembayaran::latest()->get();
         // return $history;
-        return view('kepsek.pembayaran.history', compact('history'));
+        return view('pegawai.pembayaran.history', compact('history'));
     }
 
     public function bayar()
     {
         $siswas = Siswa::latest()->get();
         $viaTransfer = ViaTransfer::latest()->get();
-        $rencanaPembayaran = RencanaPembayaran::latest()->get();
+        $jenisPembayaran = JenisPembayaran::latest()->get();
         // return $siswas;
-        return view('kepsek.pembayaran.bayar', compact('siswas', 'viaTransfer', 'rencanaPembayaran'));
+        return view('pegawai.pembayaran.bayar', compact('siswas', 'viaTransfer', 'jenisPembayaran'));
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class PembayaranController extends Controller
         DB::beginTransaction();
         try {
             // return $input['siswa_id'];
-            $transaksi = Transaksi::create([
+            $transaksi = Pembayaran::create([
                 'user_id' => Auth::user()->id,
                 'siswa_id' => $input['siswa_id'],
                 'tanggal_transaksi' => date('Y-m-d'),
@@ -47,7 +47,7 @@ class PembayaranController extends Controller
             foreach($input['transactions'] as $detail) {
                 $total_nominal += $detail['total_nominal'];
 
-                DetailTransaksi::create([
+                DetailPembayaran::create([
                     'user_id' => Auth::user()->id,
                     'transaksi_id' => $transaksi->id,
                     'via_transfer_id' => $detail['via_transfer_id'],

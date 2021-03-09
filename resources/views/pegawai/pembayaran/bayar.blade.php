@@ -44,7 +44,7 @@
                                 <th>Sisa</th>
                                 <th>Status</th>
                                 <th>
-                                    <button type="button" class="btn btn-success" id="add"><i class="fa fa-plus"></i></button>
+                                    <button type="button" class="btn btn-success btn-sm" id="add"><i class="fa fa-plus"></i></button>
                                 </th>
                             </tr>
                         </thead>
@@ -54,7 +54,7 @@
                         <tfoot>
                             <tr>
                                 <td colspan="8">
-                                    <button type="submit" class="btn btn-primary btn-block btn-lg"><i class="fa fa-save"></i> Bayar</button>
+                                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Bayar</button>
                                 </td>
                             </tr>
                         </tfoot>
@@ -163,7 +163,7 @@
                         <select name="transactions[${index}][status]" class="form-control select-${index}"></select>
                     </td>
                     <td>
-                        <button type="text" name="remove" class="btn btn-danger text-white btn_remove"><i class="fa fa-trash"></i></button>
+                        <button type="text" name="remove" class="btn btn-danger btn-sm text-white btn_remove"><i class="fa fa-trash"></i></button>
                     </td>
                 </tr>`
             );

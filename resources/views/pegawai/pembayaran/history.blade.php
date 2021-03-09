@@ -42,7 +42,7 @@
                                 <td>Rp {{ number_format($item->total_nominal) }}</td>
                                 <td>{{ $item->tahun }}</td>
                                 <td>
-                                    <form action="{{ route('admin.rencanapembayaran.destroy', $item->id) }}" method="POST">
+                                <form action="{{ route('admin.rencanapembayaran.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <a href="{{ route('admin.rencanapembayaran.edit', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
