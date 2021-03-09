@@ -143,6 +143,14 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
 // ROLE PEGAWAI
 Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+    // Pembayaran
+    Route::prefix('pembayaran')->name('pembayaran.')->group(function () {
+        Route::get('/history', 'Pegawai\PembayaranController@history')->name('history');
+        Route::get('/bayar', 'Pegawai\PembayaranController@bayar')->name('bayar');
+        Route::post('/store', 'Pegawai\PembayaranController@store')->name('store');
+        Route::get('/detail/{id}', 'Pegawai\PembayaranController@detail')->name('detail');
+    });
 });
 
 // ROLE ORANG TUA
@@ -161,7 +169,7 @@ Route::middleware('role:pembimbing')->prefix('/pembimbing')->name('pembimbing.')
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 });
 
-// User Profile
+// User Edit Profile & Ganti Password
 Route::prefix('user')->name('user.')->group(function () {
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
