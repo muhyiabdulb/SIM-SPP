@@ -18,9 +18,12 @@ class CreateDetailTransaksisTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('transaksi_id');
             $table->unsignedBigInteger('via_transfer_id');
-            $table->unsignedBigInteger('rencana_pembayaran_id');
+            $table->unsignedBigInteger('jenis_pembayaran_id');
             $table->date('tanggal_transfer');
+            $table->string('bulan');
+            $table->integer('nominal');
             $table->integer('bayar');
+            $table->integer('sub_bayar');
             $table->integer('sisa_pembayaran');
             $table->string('bukti_bayar')->nullable();
             $table->string('status');
