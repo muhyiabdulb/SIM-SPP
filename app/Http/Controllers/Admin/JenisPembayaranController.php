@@ -29,6 +29,8 @@ class jenispembayaranController extends Controller
         $request->validate([
             'jenis_pembayaran' => 'required',
             'nominal' => 'required',
+            'banyaknya' => 'required',
+            'total_nominal' => 'required',
         ]);
 
         // masukkan semua inputan ke db
@@ -51,6 +53,8 @@ class jenispembayaranController extends Controller
         $request->validate([
             'jenis_pembayaran' => 'required',
             'nominal' => 'required',
+            'banyaknya' => 'required',
+            'total_nominal' => 'required',
         ]);
 
         // inputan di update

@@ -33,14 +33,38 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group col-md-4">
-                                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Simpan</button>
-                            </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="contoh2">Banyaknya</label>
+                            <input type="text" name="banyaknya" class="form-control" placeholder="Banyaknya">
+                            @error('banyaknya')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="contoh2">Total Nominal</label>
+                            <input type="text" name="total_nominal" class="form-control" placeholder="Total Nominal">
+                            @error('total_nominal')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i> Simpan</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+ 
 @endsection
