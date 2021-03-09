@@ -27,7 +27,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="contoh2">Nominal</label>
-                            <input type="text" name="nominal" value="{{ $jenispembayaran->nominal }}" class="form-control" placeholder="Nominaln">
+                            <input type="number" id="nominal" onkeyup="totalNominal();"  name="nominal" value="{{ $jenispembayaran->nominal }}" class="form-control" placeholder="Nominaln">
                             @error('nominal')
                                 <div class="invalid">
                                     {{ $message }}
@@ -38,7 +38,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="contoh2">Banyaknya</label>
-                            <input type="text" name="banyaknya" value="{{ $jenispembayaran->banyaknya }}"  class="form-control" placeholder="Banyaknya">
+                            <input type="number" id="banyaknya" onkeyup="totalNominal();"  name="banyaknya" value="{{ $jenispembayaran->banyaknya }}"  class="form-control" placeholder="Banyaknya">
                             @error('banyaknya')
                                 <div class="invalid">
                                     {{ $message }}
@@ -48,7 +48,7 @@
 
                         <div class="form-group col-md-6">
                             <label for="contoh2">Total Nominal</label>
-                            <input type="text" name="total_nominal" value="{{ $jenispembayaran->total_nominal }}"  class="form-control" placeholder="Total Nominal">
+                            <input type="number" id="total_nominal" onkeyup="totalNominal();"  name="total_nominal" value="{{ $jenispembayaran->total_nominal }}"  class="form-control" placeholder="Total Nominal" readonly>
                             @error('total_nominal')
                                 <div class="invalid">
                                     {{ $message }}
@@ -65,4 +65,15 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+    function totalNominal()
+    {
+      var nominal = parseInt(document.getElementById("nominal").value);
+      var banyaknya = parseInt(document.getElementById("banyaknya").value);
+      document.getElementById("total_nominal").value = nominal * banyaknya;     
+    }
+</script> 
 @endsection
