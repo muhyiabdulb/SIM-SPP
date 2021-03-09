@@ -76,16 +76,6 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::delete('/delete/{viatransfer}', 'Admin\ViaTransferController@destroy')->name('destroy');
     });
 
-      // CRUD RENCANA PEMBAYARAN
-    Route::prefix('/rencanapembayaran')->name('rencanapembayaran.')->group(function(){
-        Route::get('/', 'Admin\RencanaPembayaranController@index')->name('index');
-        Route::get('/create', 'Admin\RencanaPembayaranController@create')->name('create');
-        Route::post('/store', 'Admin\RencanaPembayaranController@store')->name('store');
-        Route::get('/edit/{rencanapembayaran}', 'Admin\RencanaPembayaranController@edit')->name('edit');
-        Route::put('/update/{rencanapembayaran}', 'Admin\RencanaPembayaranController@update')->name('update');
-        Route::delete('/delete/{rencanapembayaran}', 'Admin\RencanaPembayaranController@destroy')->name('destroy');
-    });
-
     //ROUTE JENIS PEMBAYARAN
       Route::prefix('/jenispembayaran')->name('jenispembayaran.')->group(function(){
         Route::get('/', 'Admin\JenisPembayaranController@index')->name('index');

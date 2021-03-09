@@ -35,7 +35,6 @@
                     <li><a href="{{ route('admin.semester.index') }}">Data Semester</a></li>
                     <li><a href="{{ route('admin.jenispembayaran.index')}}">Data Jenis Pembayaran</a></li>
                     <li><a href="{{ route('admin.viatransfer.index') }}">Data Via Transfer</a></li>
-                    <li><a href="{{ route('admin.rencanapembayaran.index') }}">Rencana Pembayaran</a></li>
                 </ul>
             </li>
             @elserole('kepsek')
