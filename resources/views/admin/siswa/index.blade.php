@@ -17,8 +17,8 @@
                 </div>
             </div>
             <div class="card-body ">
-                <div class="table-responsive">
-                    <table class="table table-striped">
+                <div class="table">
+                    <table class="table table-striped" id="users-table">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -64,4 +64,24 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script>
+$(function() {
+    $('#users-table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: 'user/json',
+        columns: [
+            { data: 'photo', name: 'photo' },
+            { data: 'nis', name: 'nis' },
+            { data: 'nama_siswa', name: 'nama_siswa' },
+            { data: 'jenis_kelamin', name: 'jenis_kelamin' },
+            { data: 'rombel_id', name: 'rombel_id' },
+            { data: 'rayon_id', name: 'rayon_id' }
+        ]
+    });
+});
+</script>
 @endsection
