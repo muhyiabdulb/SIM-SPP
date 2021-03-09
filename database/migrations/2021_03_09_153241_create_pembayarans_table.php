@@ -14,7 +14,7 @@ class CreatePembayaransTable extends Migration
     public function up()
     {
         Schema::create('pembayarans', function (Blueprint $table) {
-            $$table->id();
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('siswa_id');
             $table->date('tanggal_bayar');
