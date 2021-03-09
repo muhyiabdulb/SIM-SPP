@@ -12,14 +12,8 @@
 
     <title>SIM SPP</title>
 </head>
-<style>
 
-    body{
-       background:  #6777ef;
-    }
-
-</style>
-<body>
+<body style="background: #6777ef">
 
     <!-- Optional JavaScript; choose one of the two! -->
     <div class="container">
@@ -42,7 +36,7 @@
                 <!-- Image and text -->
 <nav class="navbar">
   <a class="navbar-brand">
-    <p><img src="{{ asset('assets/img/logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+    <p ><img src="{{ asset('assets/img/logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
     SIM SPP</p>
   </a>
 </nav>

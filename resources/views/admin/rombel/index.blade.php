@@ -1,5 +1,9 @@
 @extends('layouts.master', ['title' => 'Data Rombel'])
 
+@section('style')
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+@endsection
+
 @section('content')
 
 <section class="section">
@@ -18,7 +22,7 @@
             </div>
             <div class="card-body ">
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="myTable">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -53,4 +57,13 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>   
+    <script>
+        $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+        </script> 
 @endsection

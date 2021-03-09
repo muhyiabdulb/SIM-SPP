@@ -1,5 +1,9 @@
 @extends('layouts.master', ['title' => 'Data Siswa'])
 
+@section('style')
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+@endsection
+
 @section('content')
 
 <section class="section">
@@ -18,7 +22,7 @@
             </div>
             <div class="card-body ">
                 <div class="table">
-                    <table class="table table-striped" id="users-table">
+                    <table class="table table-striped" id="myTable">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -71,21 +75,10 @@
 @endsection
 
 @section('script')
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>   
     <script>
-$(function() {
-    $('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: 'user/json',
-        columns: [
-            { data: 'photo', name: 'photo' },
-            { data: 'nis', name: 'nis' },
-            { data: 'nama_siswa', name: 'nama_siswa' },
-            { data: 'jenis_kelamin', name: 'jenis_kelamin' },
-            { data: 'rombel_id', name: 'rombel_id' },
-            { data: 'rayon_id', name: 'rayon_id' }
-        ]
-    });
-});
-</script>
+        $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+        </script> 
 @endsection
