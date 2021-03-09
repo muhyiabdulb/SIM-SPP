@@ -5,7 +5,7 @@
     <div class="col-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4>Tambah Data User</h4>
+                <h4>Edit Data User</h4>
                 <div class="card-header-action">
                    <a href={{ route('admin.user.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
                 </div>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="contoh1">Nama Orang Tua</label>
+                            <label for="contoh1">Nama User</label>
                             <input type="text" name="name" value="{{ $user->name }}" class="form-control" placeholder="Nama Orang Tua">
                             @error('name')
                                 <div class="invalid">
@@ -47,8 +47,8 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Siswa</label>
-                            @if($user->siswa_id === 1)
-                                <input type="text" name="email" class="form-control" placeholder="User ini bukan Ortu, jadi tidak bisa memilih Siswa" readonly> 
+                            @if($user->siswa_id === 0)
+                                <input type="text" name="siswa_id" class="form-control" placeholder="User ini bukan Ortu, jadi tidak bisa memilih Siswa" readonly> 
                             @else
                                 <select name="siswa_id" class="form-control select2">
                                     <option value="{{ $user->siswa_id }}">{{ $user->siswa->nama_siswa }}</option>

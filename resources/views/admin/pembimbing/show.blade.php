@@ -19,8 +19,12 @@
                         <div class="card-body">
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <p style="text-align:justify;"><img src="{{ $pembimbing->takeImage }}"
-                                            class="img-fluid" alt="" style="width: 250px;height:300px;float:left;">
+                                    <p style="text-align:justify;">
+                                        @if($pembimbing->photo)
+                                            <img style="height:300px; width:300px; object-fit:cover; object-position:center;" class="card-img-top rounded-circle mr-1" src="{{ $pembimbing->takeImage }}"> <br>
+                                        @else
+                                            <img alt="image" src="{{ asset('/assets/img/avatar/avatar-1.png') }}" style="height:300px; width:300px; object-fit:cover; object-position:center;"  class="card-img-top rounded-circle mr-1">
+                                        @endif
                                     </p>
                                 </div>
                                 <table>
