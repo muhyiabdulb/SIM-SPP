@@ -1,5 +1,8 @@
 @extends('layouts.master', ['title' => 'Data User'])
 
+@section('style')
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
+@endsection
 @section('content')
 
 <section class="section">
@@ -16,9 +19,9 @@
                         style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
                 </div>
             </div>
-            <div class="card-body ">
+            <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-striped">
+                    <table class="table table-striped" id="myTable">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -67,4 +70,12 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+    <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>   
+    <script>
+        $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+        </script> 
 @endsection

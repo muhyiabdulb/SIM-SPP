@@ -46,6 +46,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::delete('/delete/{jurusan}', 'Admin\JurusanController@destroy')->name('destroy');
     });
 
+    
     //ROUTE ROMBEL
     Route::prefix('/rombel')->name('rombel.')->group(function(){
         Route::get('/', 'Admin\RombelController@index')->name('index');
@@ -127,7 +128,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::get('/edit/{user}', 'Admin\UserController@edit')->name('edit');
         Route::put('/update/{user}', 'Admin\UserController@update')->name('update');
         Route::delete('/delete/{user}', 'Admin\UserController@destroy')->name('destroy');
-
+        Route::get('user/json','UserController@json');
     });
 
     // // Profile
