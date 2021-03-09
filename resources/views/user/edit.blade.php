@@ -7,17 +7,22 @@
             <div class="card-header">
                 <h4>Profil User</h4>
                 <div class="card-header-action">
-                   <a href={{ route('admin.user.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
+                   {{-- <a href={{ route('admin.user.index') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a> --}}
                 </div>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.profile.update') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('user.profile.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="photo">Photo</label> <br>
-                            <img style="height:300px; width:300px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ auth()->user()->takeImage}}"> <br>
+                            @if(auth()->user()->photo)
+                                <img style="height:300px; width:300px; object-fit:cover; object-position:center;" class="card-img-top rounded-circle mr-1" src="{{ auth()->user()->takeImage }}"> <br>
+                            @else
+                                <img alt="image" src="{{ asset('/assets/img/avatar/avatar-1.png') }}" style="height:300px; width:300px; object-fit:cover; object-position:center;"  class="card-img-top rounded-circle mr-1">
+                            @endif
+                            <br>
                             <label for="photo">Ganti Photo</label> <br>
                             <input id="photo" type="file" name="photo" class="form-control">
                             @error('photo')
