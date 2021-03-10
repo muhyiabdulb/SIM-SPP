@@ -102,8 +102,6 @@
               const onClick = (e) => e.target.submit()
               document.querySelector('#logout').addEventListener('click', onClick)
             </script>
-
-
           </div>
         </li>
       </ul>
