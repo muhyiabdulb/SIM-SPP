@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Detail Pembayaran'])
+@extends('layouts.master', ['title' => 'Laporan SPP'])
 
 @section('content')
 

@@ -41,8 +41,8 @@
                                         
                                     </div>
                                         <div class="col-sm-4 invoice-col mb-2" style="margin-top: 25px">
-                                        <b>Rombel : </b> {{ $detail->date }}<br>
-                                        <b>Rayon : </b> {{ $detail->date }}<br>
+                                        <b>Rombel : </b> {{ $detail['siswa']['rombel']['nama_rombel'] }}<br>
+                                        <b>Rayon : </b> {{ $detail['siswa']['rayon']['nama_rayon'] }}<br>
                                         <b>Pegawai : </b> {{ $detail['user']['name'] }}<br>
                                         
                                     </div>

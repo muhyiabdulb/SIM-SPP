@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('layouts/landing');
 });
 Route::get('pegawai', function () {
-    return view('pegawai/pembayaran/laporan');
+    return view('pegawai/laporan/laporanSPP');
 });
 
 
