@@ -20,7 +20,7 @@ class CreateDetailPembayaransTable extends Migration
             $table->unsignedBigInteger('via_transfer_id');
             $table->unsignedBigInteger('jenis_pembayaran_id');
             $table->date('tanggal_transfer');
-            $table->string('bulan');
+            $table->string('bulan')->nullable();
             $table->integer('nominal');
             $table->integer('bayar');
             $table->integer('sub_bayar');
