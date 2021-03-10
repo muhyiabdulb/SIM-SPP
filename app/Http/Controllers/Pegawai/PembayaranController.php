@@ -30,38 +30,44 @@ class PembayaranController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'siswa_id' => 'required',
+        ]);
+
         $input = $request->all();
         // return $input['transactions'];
         DB::beginTransaction();
         try {
             // return $input['siswa_id'];
-            $transaksi = Pembayaran::create([
+            $pembayaran = Pembayaran::create([
                 'user_id' => Auth::user()->id,
                 'siswa_id' => $input['siswa_id'],
-                'tanggal_transaksi' => date('Y-m-d'),
+                'tanggal_bayar' => date('Y-m-d'),
                 'total_nominal' => 0,
             ]);
-            // return $transaksi; 
+            // dd($pembayaran); 
             $total_nominal = 0;
             // return $total_nominal;
             foreach($input['transactions'] as $detail) {
-                $total_nominal += $detail['total_nominal'];
+                $total_nominal += $detail['sub_bayar'];
 
                 DetailPembayaran::create([
                     'user_id' => Auth::user()->id,
-                    'transaksi_id' => $transaksi->id,
+                    'transaksi_id' => $pembayaran->id,
                     'via_transfer_id' => $detail['via_transfer_id'],
-                    'rencana_pembayaran_id' => $detail['rencana_pembayaran_id'],
+                    'jenis_pembayaran_id' => $detail['jenis_pembayaran_id'],
                     'tanggal_transfer' => $detail['tanggal_transfer'],
                     'bayar' => $detail['bayar'],
+                    'nominal' => $detail['nominal'],
                     'sisa_pembayaran' => $detail['sisa_pembayaran'],
+                    'sub_bayar' => $detail['sub_bayar'],
                     'status' => $detail['status'],
                 ]);
             }
 
             // return $total_nominal;
             // Update Total
-            $transaksi->update(['total_nominal' => $total_nominal]);
+            $pembayaran->update(['total_nominal' => $total_nominal]);
 
             DB::commit();
             Alert::success('Pemberitahun!', 'Pembayaran Berhasil :)');
@@ -72,5 +78,12 @@ class PembayaranController extends Controller
             Alert::error('Pemberitahun!', 'Pembayaran Gagal!!! ):');
             return redirect()->back();
         }
+    }
+
+    public function detail($id)
+    {
+        $detail = Pembayaran::with('detailPembayaran')->find($id);
+        // return $detail;
+        return view('pegawai.pembayaran.detail', compact('detail'));
     }
 }

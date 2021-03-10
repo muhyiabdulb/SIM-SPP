@@ -8,7 +8,7 @@
                 <h4>Form Bayar</h4>
                 <div class="card-header-action">
                    <a href={{ route('pegawai.pembayaran.history') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
-            </div>
+                </div>
             </div>
             
             <div class="card-body">
@@ -21,8 +21,8 @@
                         <div class="col-md-10">
                             <select name="siswa_id" id="siswa_id" class="form-control select2 mb-2 @error('siswa_id') is-invalid @enderror">
                                 <option selected disabled>Pilih Siswa</option>
-                                @foreach($siswas as $siswa)
-                                <option value="{{ $siswa->id }}">{{ $siswa->nama_siswa }}</option>
+                                @foreach($siswas as $item)
+                                <option value="{{ $item->id }}">{{ $item->nama_siswa }}</option>
                                 @endforeach
                             </select>
                             @error('siswa_id')
@@ -40,8 +40,10 @@
                                 <th>Via Transfer</th>
                                 <th>Kategori Bayar</th>
                                 <th>Tanggal Transfer</th>
+                                <th>Nominal</th>
                                 <th>Bayar</th>
                                 <th>Sisa</th>
+                                <th>Sub Bayar</th>
                                 <th>Status</th>
                                 <th>
                                     <button type="button" class="btn btn-success btn-sm" id="add"><i class="fa fa-plus"></i></button>
@@ -53,7 +55,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="8">
+                                <td colspan="10">
                                     <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Bayar</button>
                                 </td>
                             </tr>
@@ -76,16 +78,16 @@
 
     async function transactionEachColumn(index) {
         // Renacana Pembayaran
-        let fetchData = await fetch(`{{ route('api.get-rencana-pembayaran') }}`);
+        let fetchData = await fetch(`{{ route('api.get-jenis-pembayaran') }}`);
         let response = JSON.parse(await fetchData.text());
 
-        let $select2 = $('select[name="transactions[' + index+'][rencana_pembayaran_id]"]').select2({
+        let $select2 = $('select[name="transactions[' + index+'][jenis_pembayaran_id]"]').select2({
                 theme: "classic",
                 width: '100%'
             }).empty();
         $select2.append($("<option></option>").attr("value", '').text('Pilih Jenis Pembayaran'));
         $.each(response.data, function(key, data){
-            $select2.append($("<option></option>").attr("value", data.rencana_pembayaran_id).text(data.jenis_pembayaran_id));
+            $select2.append($("<option></option>").attr("value", data.id).text(data.jenis_pembayaran));
         });
 
         // Via Transfer
@@ -108,6 +110,7 @@
             }).empty();
         $selectStatus.append($("<option></option>").attr("value", '').text('Pilih Status'));
         $selectStatus.append($("<option></option>").attr("value", 'Belum Bayar').text('Belum Bayar'));
+        $selectStatus.append($("<option></option>").attr("value", 'Belum Lunas').text('Belum Lunas'));
         $selectStatus.append($("<option></option>").attr("value", 'Nunggak').text('Nunggak'));
         $selectStatus.append($("<option></option>").attr("value", 'Sudah Bayar').text('Sudah Bayar'));
         $selectStatus.append($("<option></option>").attr("value", 'Sudah DiVerifikasi').text('Sudah DiVerifikasi'));
@@ -116,19 +119,22 @@
         $select2.on('select2:select', async function(e) {
             let data = e.params.data;
 
-            let fetchData = await fetch(`{{ route('api.get-rencana-pembayaran-object') }}?` + new URLSearchParams(data));
+            let fetchData = await fetch(`{{ route('api.get-jenis-pembayaran-object') }}?` + new URLSearchParams(data));
             let response = JSON.parse(await fetchData.text());
 
-            $('input[name="transactions[' + index + '][total_nominal]"]').val(response.data.total_nominal)
+            $('input[name="transactions[' + index + '][nominal]"]').val(response.data.nominal)
         }).trigger('change')
 
-        // Sum of total_nominal and banyaknya
-        $('input[name="transactions[' + index + '][banyaknya]"]').keyup(function(e){
-            let banyaknya = $(this).val();
-            let total_nominal = $('input[name="transactions[' + index + '][total_nominal]"]').val();
+        // Sum of nominal and bayar
+        $('input[name="transactions[' + index + '][bayar]"]').keyup(function(e){
+            let bayar = $(this).val();
+            let nominal = $('input[name="transactions[' + index + '][nominal]"]').val();
 
-            let total_nominal_akhir = total_nominal * banyaknya;
-            $('input[name="transactions[' + index + '][total_nominal]"]').val(total_nominal_akhir);
+            let sisa_pembayaran = nominal - bayar;
+            $('input[name="transactions[' + index + '][sisa_pembayaran]"]').val(sisa_pembayaran);
+
+            let sub_bayar = bayar;
+            $('input[name="transactions[' + index + '][sub_bayar]"]').val(sub_bayar);
         })
 
     }
@@ -145,22 +151,28 @@
                         <input type="text" value="${index + 1}" class="form-control" disabled>
                     </td>
                     <td>
-                        <select name="transactions[${index}][via_transfer_id]" class="form-control select-${index}"></select>
+                        <select name="transactions[${index}][via_transfer_id]" class="form-control select-${index}" required></select>
                     </td>
                     <td>
-                        <select name="transactions[${index}][rencana_pembayaran_id]" class="form-control select-${index}"></select>
+                        <select name="transactions[${index}][jenis_pembayaran_id]" class="form-control select-${index}" required></select>
                     </td>
                     <td>
-                        <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control">
+                        <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control" required>
                     </td>
                     <td>
-                        <input type="number" name="transactions[${index}][bayar]" class="form-control">
+                        <input type="number" name="transactions[${index}][nominal]" class="form-control" readonly>
                     </td>
                     <td>
-                        <input type="text" name="transactions[${index}][sisa_pembayaran]" class="form-control">
+                        <input type="number" name="transactions[${index}][bayar]" class="form-control" required>
                     </td>
                     <td>
-                        <select name="transactions[${index}][status]" class="form-control select-${index}"></select>
+                        <input type="text" name="transactions[${index}][sisa_pembayaran]" class="form-control" readonly>
+                    </td>
+                    <td>
+                        <input type="text" name="transactions[${index}][sub_bayar]" class="form-control" readonly>
+                    </td>
+                    <td>
+                        <select name="transactions[${index}][status]" class="form-control select-${index}" required></select>
                     </td>
                     <td>
                         <button type="text" name="remove" class="btn btn-danger btn-sm text-white btn_remove"><i class="fa fa-trash"></i></button>

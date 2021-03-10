@@ -79,10 +79,10 @@
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Total Admin</h4>
+                    <h4>Total Uang Masuk</h4>
                   </div>
                   <div class="card-body">
-                    10
+                    Rp {{ number_format(App\Pembayaran::sum('total_nominal')) }}
                   </div>
                 </div>
               </div>
@@ -94,10 +94,10 @@
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>News</h4>
+                    <h4>Total Pembayaran</h4>
                   </div>
                   <div class="card-body">
-                    42
+                    {{ App\Pembayaran::count('total_nominal') }}
                   </div>
                 </div>
               </div>

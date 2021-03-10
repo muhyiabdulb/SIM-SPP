@@ -39,13 +39,13 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->user['name'] }}</td>
                                 <td>{{ $item->siswa['nama_siswa'] }}</td>
+                                <td>{{ $item->date }}</td>
                                 <td>Rp {{ number_format($item->total_nominal) }}</td>
-                                <td>{{ $item->tahun }}</td>
                                 <td>
-                                <form action="{{ route('admin.rencanapembayaran.destroy', $item->id) }}" method="POST">
+                                <form action="" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('admin.rencanapembayaran.edit', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <a href="{{ route('pegawai.pembayaran.detail', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
                                         <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
                                 </td>
                             </tr>
@@ -66,7 +66,7 @@
     <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>   
     <script>
         $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-        </script> 
+            $('#myTable').DataTable();
+        } );
+    </script> 
 @endsection
