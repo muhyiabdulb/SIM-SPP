@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts/landing');
 });
+Route::get('pegawai', function () {
+    return view('pegawai/pembayaran/laporan');
+});
 
 
 Auth::routes();
