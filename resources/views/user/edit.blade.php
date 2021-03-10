@@ -22,7 +22,6 @@
                             @else
                                 <img alt="image" src="{{ asset('/assets/img/avatar/avatar-1.png') }}" style="height:300px; width:300px; object-fit:cover; object-position:center;"  class="card-img-top rounded-circle mr-1">
                             @endif
-                            <br>
                             <label for="photo">Ganti Photo</label> <br>
                             <input id="photo" type="file" name="photo" class="form-control">
                             @error('photo')

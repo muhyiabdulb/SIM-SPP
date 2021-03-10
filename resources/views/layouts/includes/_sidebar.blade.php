@@ -35,7 +35,6 @@
                     <li><a href="{{ route('admin.semester.index') }}">Data Semester</a></li>
                     <li><a href="{{ route('admin.jenispembayaran.index')}}">Data Jenis Pembayaran</a></li>
                     <li><a href="{{ route('admin.viatransfer.index') }}">Data Via Transfer</a></li>
-                    <li><a href="{{ route('admin.rencanapembayaran.index') }}">Rencana Pembayaran</a></li>
                 </ul>
             </li>
             @elserole('kepsek')
@@ -47,6 +46,12 @@
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
                 <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pegawai.pembayaran.history') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan</span></a>
             </li>
             @elserole('pembimbing')
             <li class="menu-header">Dashboard</li>

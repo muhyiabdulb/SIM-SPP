@@ -19,7 +19,7 @@
         "maatwebsite/excel": "^3.1",
         "realrashid/sweet-alert": "^3.2",
         "spatie/laravel-permission": "^4.0",
-        "yajra/laravel-datatables-oracle": "^9.15"
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

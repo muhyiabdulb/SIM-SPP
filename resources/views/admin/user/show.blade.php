@@ -19,10 +19,9 @@
                                 <div class="form-group col-md-4">
                                     <p style="text-align:justify;">
                                         @if($user->photo)
-                                            <img src="{{ $user->takeImage }}"
-                                            class="img-fluid" alt="" style="width: 250px;height:300px; object-fit:cover; object-position:center;" class="card-img-top" >
+                                            <img style="height:300px; width:300px; object-fit:cover; object-position:center;" class="card-img-top rounded-circle mr-1" src="{{ $user->takeImage }}"> <br>
                                         @else
-                                            {{ "Tidak Ada Photo" }}
+                                            <img alt="image" src="{{ asset('/assets/img/avatar/avatar-1.png') }}" style="height:300px; width:300px; object-fit:cover; object-position:center;"  class="card-img-top rounded-circle mr-1">
                                         @endif
                                     </p>
                                     

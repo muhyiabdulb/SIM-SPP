@@ -17,6 +17,8 @@ class CreateJenisPembayaransTable extends Migration
             $table->id();
             $table->string('jenis_pembayaran');
             $table->integer('nominal');
+            $table->integer('banyaknya');
+            $table->integer('total_nominal');
             $table->timestamps();
         });
     }

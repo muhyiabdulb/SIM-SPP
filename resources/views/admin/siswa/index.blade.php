@@ -40,7 +40,11 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
-                                    <img style="height:100px; width:100px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ $siswa->takeImage }}">    
+                                    @if($siswa->photo)
+                                        <img style="height:100px; width:100px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ $siswa->takeImage }}"> 
+                                    @else
+                                        {{ "Tidak Ada Photo" }}
+                                    @endif 
                                 </td>
                                 <td>{{ $siswa->nis }}</td>
                                 <td>{{ $siswa->nama_siswa }}</td>

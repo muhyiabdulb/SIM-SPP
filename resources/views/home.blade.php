@@ -79,10 +79,10 @@
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Total Admin</h4>
+                    <h4>Total Uang Masuk</h4>
                   </div>
                   <div class="card-body">
-                    10
+                    Rp {{ number_format(App\Pembayaran::sum('total_nominal')) }}
                   </div>
                 </div>
               </div>
@@ -94,10 +94,10 @@
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>News</h4>
+                    <h4>Total Pembayaran</h4>
                   </div>
                   <div class="card-body">
-                    42
+                    {{ App\Pembayaran::count('total_nominal') }}
                   </div>
                 </div>
               </div>
@@ -337,21 +337,6 @@
                   </div>
                   <div class="card-body">
                     {{ App\ViaTransfer::count() }}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-              <div class="card card-statistic-1">
-                <div class="card-icon bg-success">
-                  <i class="far fa-newspaper"></i>
-                </div>
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <h4>Total Rencana Pembayaran</h4>
-                  </div>
-                  <div class="card-body">
-                    {{ App\RencanaPembayaran::count() }}
                   </div>
                 </div>
               </div>

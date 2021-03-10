@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Data Rencana Pembayaran'])
+@extends('layouts.master', ['title' => 'History Pembayaran'])
 
 @section('style')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
@@ -8,7 +8,7 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>Data Rencana Pembayaran</h1>
+        <h1>History Pembayaran</h1>
     </div>
 </section>
 <div class="row">
@@ -16,8 +16,8 @@
         <div class="card">
             <div class="card-header">
                 <div class="card-header-action">
-                    <a href="{{ route('admin.rencanapembayaran.create') }}" class="btn btn-primary"
-                        style="border-radius: 5px"><i class="fa fa-plus"></i> Tambah Data</a>
+                    <a href="{{ route('pegawai.pembayaran.bayar') }}" class="btn btn-primary"
+                        style="border-radius: 5px"><i class="fa fa-plus"></i> Bayar</a>
                 </div>
             </div>
             <div class="card-body ">
@@ -26,28 +26,26 @@
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>JENIS PEMBAYARAN</th>
-                                <th>NOMINAL</th>
-                                <th>BANYAKNYA (dlm 1 thn)</th>
+                                <th>USER</th>
+                                <th>SISWA</th>
+                                <th>TANGGAL PEMBAYARAN</th>
                                 <th>TOTAL NOMINAL</th>
-                                <th>TAHUN</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($rencanaPembayarans as $rencanaPembayaran)
+                            @forelse ($history as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $rencanaPembayaran->jenisPembayaran['jenis_pembayaran'] }}</td>
-                                <td>Rp {{ number_format($rencanaPembayaran->nominal) }}</td>
-                                <td>{{ $rencanaPembayaran->banyaknya }}</td>
-                                <td>Rp {{ number_format($rencanaPembayaran->total_nominal) }}</td>
-                                <td>{{ $rencanaPembayaran->tahun }}</td>
+                                <td>{{ $item->user['name'] }}</td>
+                                <td>{{ $item->siswa['nama_siswa'] }}</td>
+                                <td>{{ $item->date }}</td>
+                                <td>Rp {{ number_format($item->total_nominal) }}</td>
                                 <td>
-                                    <form action="{{ route('admin.rencanapembayaran.destroy', $rencanaPembayaran->id) }}" method="POST">
+                                <form action="" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('admin.rencanapembayaran.edit', $rencanaPembayaran->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
+                                        <a href="{{ route('pegawai.pembayaran.detail', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
                                         <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
                                 </td>
                             </tr>
@@ -68,7 +66,7 @@
     <script src="//cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>   
     <script>
         $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-        </script> 
+            $('#myTable').DataTable();
+        } );
+    </script> 
 @endsection

@@ -28,6 +28,8 @@
                                 <th>No</th>
                                 <th>Jenis Pembayaran</th>
                                 <th>Nominal</th>
+                                <th>Banyaknya</th>
+                                <th>Total Nominal</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -37,6 +39,8 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $jenispembayaran->jenis_pembayaran }}</td>
                                 <td>Rp {{ number_format($jenispembayaran->nominal) }}</td>
+                                <td>{{ $jenispembayaran->banyaknya }}</td>
+                                <td>Rp {{ number_format($jenispembayaran->total_nominal) }}</td>
                                 <td>
                                     <form action="{{ route('admin.jenispembayaran.destroy', $jenispembayaran->id) }}" method="POST">
                                         @csrf
@@ -48,7 +52,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="4" class="text-center"><h3>Data Kosong</h3></td>
+                                <td colspan="6" class="text-center"><h3>Data Kosong</h3></td>
                             </tr>
                             @endforelse
                         </tbody>
