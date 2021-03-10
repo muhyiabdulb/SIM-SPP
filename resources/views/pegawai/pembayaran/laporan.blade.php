@@ -2,15 +2,11 @@
 
 @section('content')
 
-<section class="section">
-    <div class="section-header">
-        <h1>Laporan</h1>
-    </div>
-</section>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
-        <div class="card">
+         <div class="card">
             <div class="card-header">
+                <h4>Laporan</h4>
                 <div class="card-header-action">
                     <a href={{ route('pegawai.dashboard') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
                  </div>
@@ -71,12 +67,12 @@
                                     <!-- /.row -->
             
                                     <!-- this row will not appear when printing -->
-                                    <div class="row no-print">
+                                    <div class="row no-print" style="margin-top: 10px">
                                         <div class="col-12">
-                                            <a href="" onclick="window.print()" class="btn btn-danger" style="margin-right: 20px;"><i class="fas fa-print"></i> Print</a>
-                                            <a href="" class="btn btn-primary float-right" 
-                                            style="margin-right: 5px;"><i class="fas fa-download"></i> Generate PDF
-                                            </a>                
+                                            <a href="" onclick="window.print()" class="btn btn-danger" style="margin-right: 10px;margin-left:12px"><i class="fas fa-print"></i> Print</a>
+                                            <a href="" class="btn btn-primary float-right" style="margin-right: 5px;margin-left:10px"><i class="fas fa-download"></i> Generate PDF</a>                
+                                            <a href="" class="btn btn-default float-right" style="background:green;color:white;"><i class="fas fa-download"></i> Generate Excel</a>                
+                                       
                                         </div>
                                     </div>
                                 </div>

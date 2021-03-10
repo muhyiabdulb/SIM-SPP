@@ -2,15 +2,11 @@
 
 @section('content')
 
-<section class="section">
-    <div class="section-header">
-        <h1>Detail Pembayaran</h1>
-    </div>
-</section>
 <div class="row">
     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
         <div class="card">
             <div class="card-header">
+                <h4>Detail Pembayaran</h4>
                 <div class="card-header-action">
                     <a href={{ route('pegawai.pembayaran.history') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
                  </div>
