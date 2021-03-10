@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Alert;
 use Illuminate\Support\Facades\Storage;
-use Yajra\Datatables\Datatables;
 
 class SiswaController extends Controller
 {
