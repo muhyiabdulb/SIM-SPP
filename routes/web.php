@@ -122,16 +122,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::put('/update/{user}', 'Admin\UserController@update')->name('update');
         Route::delete('/delete/{user}', 'Admin\UserController@destroy')->name('destroy');
         Route::get('user/json','UserController@json');
-    });
-
-    // // Profile
-    // Route::prefix('/profile')->name('profile.')->group(function () {
-    //     Route::get('/myprofile', 'UserController@myProfile')->name('myprofile');
-    //     Route::put('/updateprofile', 'UserController@updateProfile')->name('update');
-    //     Route::get('/password', 'UserController@changePassword')->name('changepassword');
-    //     Route::put('/updatepassword', 'UserController@updatePassword')->name('updatepassword');
-    // });     
- 
+    });     
 });
 
 // ROLE PEGAWAI
