@@ -51,7 +51,7 @@
                 <a href="{{ route('pegawai.pembayaran.history') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="{{ url('pegawai') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan</span></a>
+                <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan</span></a>
             </li>
             @elserole('pembimbing')
             <li class="menu-header">Dashboard</li>
