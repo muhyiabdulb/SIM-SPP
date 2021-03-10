@@ -16,10 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts/landing');
 });
-Route::get('pegawai', function () {
-    return view('pegawai/laporan/laporanSPP');
-});
-
 
 Auth::routes();
 
@@ -135,6 +131,14 @@ Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(f
         Route::get('/bayar', 'Pegawai\PembayaranController@bayar')->name('bayar');
         Route::post('/store', 'Pegawai\PembayaranController@store')->name('store');
         Route::get('/detail/{id}', 'Pegawai\PembayaranController@detail')->name('detail');
+    });
+
+    // Pembayaran
+    Route::prefix('laporan')->name('laporan.')->group(function () {
+        Route::get('/spp', 'Pegawai\LaporanController@spp')->name('spp');
+        Route::get('/bayar', 'Pegawai\LaporanController@bayar')->name('bayar');
+        Route::post('/store', 'Pegawai\LaporanController@store')->name('store');
+        Route::get('/detail/{id}', 'Pegawai\LaporanController@detail')->name('detail');
     });
 });
 
