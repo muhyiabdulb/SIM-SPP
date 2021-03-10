@@ -82,7 +82,7 @@
                     <h4>Total Uang Masuk</h4>
                   </div>
                   <div class="card-body">
-                    Rp {{ number_format(App\Pembayaran::sum('total_nominal')) }}
+                    <h6>Rp {{ number_format(App\Pembayaran::sum('total_nominal')) }}</h6>
                   </div>
                 </div>
               </div>
