@@ -32,6 +32,7 @@
                             @enderror
                         </div>
                     </div>
+                    <br>
                     <span id="result"></span>
                     <table class="table table-bordered table-striped" id="table">
                         <thead>
