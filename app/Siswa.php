@@ -21,6 +21,11 @@ class Siswa extends Model
         return $this->belongsTo(Rombel::class);
     }
 
+    // RELASI KEPADA TABEL DETAILPEMBAYARAN
+    public function detailPembayaran(){
+        return $this->hasMany(DetailPembayaran::class, 'siswa_id');
+    }
+
     public function getTakeImageAttribute()
     {
         return "/storage/" . $this->photo;
