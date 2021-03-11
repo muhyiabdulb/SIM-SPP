@@ -6,9 +6,9 @@
     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
          <div class="card">
             <div class="card-header">
-                <h4>Laporan</h4>
+                <h4>Laporan SPP</h4>
                 <div class="card-header-action">
-                    <a href={{ route('pegawai.dashboard') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
+                    <a href={{ route('pegawai.laporan.spp') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
                  </div>
             </div>
             <div class="card-body ">
@@ -43,18 +43,24 @@
                                                         <th>PENERIMA</th>
                                                         <th>PARAF</th>
                                                         <th>DIKETAHUI ORANG TUA/WALI</th>
+                                                        <th>STATUS</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    
+                                                    @forelse ($detail->detailPembayaran as $item)
                                                     <tr>
-                                                    <td>Januari</td>
-                                                    <td>14/07/2020</td>
-                                                    <td>Lia M</td>
-                                                    <td></td>
-                                                    <td></td>
+                                                        <th>{{ $item->bulan }}</th>
+                                                        <td>{{ $item->tanggal_transfer }}</td>
+                                                        <td>{{ $item->user['name'] }}</td>
+                                                        <td>Paraf</td>
+                                                        <td>Paraf</td>
+                                                        <td><span class="badge rounded-pill bg-info text-dark">{{ $item->status }}</span></td>
                                                     </tr>
-                                                 
+                                                    @empty
+                                                    <tr>
+                                                        <td colspan="6" class="text-center"><h3>{{ $detail->nama_siswa }} Belum Bayar SPP</h3></td>
+                                                    </tr>
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>
