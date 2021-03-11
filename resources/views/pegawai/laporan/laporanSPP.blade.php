@@ -8,7 +8,7 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>History Pembayaran</h1>
+        <h1>Laporan SPP</h1>
     </div>
 </section>
 <div class="row">
@@ -26,27 +26,27 @@
                         <thead>
                             <tr>
                                 <th>NO</th>
-                                <th>USER</th>
-                                <th>SISWA</th>
-                                <th>TANGGAL PEMBAYARAN</th>
-                                <th>TOTAL NOMINAL</th>
+                                <th>PHOTO</th>
+                                <th>NIS</th>
+                                <th>NAMA</th>
+                                <th>JENIS KELAMIN</th>
+                                <th>ROMBEL</th>
+                                <th>RAYON</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($history as $item)
+                            @forelse ($siswas as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->user['name'] }}</td>
-                                <td>{{ $item->siswa['nama_siswa'] }}</td>
-                                <td>{{ $item->date }}</td>
-                                <td>Rp {{ number_format($item->total_nominal) }}</td>
+                                <td>{{ $item->takeImage }}</td>
+                                <td>{{ $item->nis }}</td>
+                                <td>{{ $item->nama_siswa }}</td>
+                                <td>{{ $item->jenis_kelamin }}</td>
+                                <td>{{ $item->rombel->nama_rombel }}</td>
+                                <td>{{ $item->rayon->nama_rayon }}</td>
                                 <td>
-                                <form action="" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <a href="{{ route('pegawai.pembayaran.detail', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
-                                        <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
+                                    <a href="{{ route('pegawai.laporan.detailSPP', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                             @empty
