@@ -15,6 +15,11 @@ class DetailPembayaran extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class);
+    }
+
     public function jenisPembayaran()
     {
         return $this->belongsTo(JenisPembayaran::class);

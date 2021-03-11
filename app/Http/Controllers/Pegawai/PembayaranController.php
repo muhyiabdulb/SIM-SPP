@@ -53,6 +53,7 @@ class PembayaranController extends Controller
 
                 DetailPembayaran::create([
                     'user_id' => Auth::user()->id,
+                    'siswa_id' => $input['siswa_id'],
                     'transaksi_id' => $pembayaran->id,
                     'via_transfer_id' => $detail['via_transfer_id'],
                     'jenis_pembayaran_id' => $detail['jenis_pembayaran_id'],
