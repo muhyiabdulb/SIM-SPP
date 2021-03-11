@@ -87,7 +87,14 @@
                                     <!-- /.col -->
                                     </div><br>
                                     <!-- /.row -->
-            
+                                    
+                                    <!-- this row will not appear when printing -->
+                                    <div class="row no-print" style="margin-top: 25px">
+                                        <div class="col-12">
+                                            <h4 class="float-right">Total : Rp {{ number_format($detail->total_nominal) }}</h4>              
+                                        </div>
+                                    </div>
+
                                     <!-- this row will not appear when printing -->
                                     <div class="row no-print" style="margin-top: 25px">
                                         <div class="col-12">
