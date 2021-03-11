@@ -133,7 +133,7 @@ Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(f
         Route::get('/detail/{id}', 'Pegawai\PembayaranController@detail')->name('detail');
     });
 
-    // Pembayaran
+    // Laporan
     Route::prefix('laporan')->name('laporan.')->group(function () {
         Route::get('/spp', 'Pegawai\LaporanController@spp')->name('spp');
         Route::get('/bayar', 'Pegawai\LaporanController@bayar')->name('bayar');
