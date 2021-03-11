@@ -58,6 +58,7 @@ class PembayaranController extends Controller
                     'via_transfer_id' => $detail['via_transfer_id'],
                     'jenis_pembayaran_id' => $detail['jenis_pembayaran_id'],
                     'tanggal_transfer' => $detail['tanggal_transfer'],
+                    'bulan' => $detail['bulan'],
                     'bayar' => $detail['bayar'],
                     'nominal' => $detail['nominal'],
                     'sisa_pembayaran' => $detail['sisa_pembayaran'],
