@@ -136,7 +136,7 @@ Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(f
     // Laporan
     Route::prefix('laporan')->name('laporan.')->group(function () {
         Route::get('/spp', 'Pegawai\LaporanController@spp')->name('spp');
-        Route::get('/bayar', 'Pegawai\LaporanController@bayar')->name('bayar');
+        Route::get('/spp/detail/{id}', 'Pegawai\LaporanController@detailSPP')->name('detailSPP');
         Route::post('/store', 'Pegawai\LaporanController@store')->name('store');
         Route::get('/detail/{id}', 'Pegawai\LaporanController@detail')->name('detail');
     });
