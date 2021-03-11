@@ -41,6 +41,7 @@
                                 <th>Via Transfer</th>
                                 <th>Kategori Bayar</th>
                                 <th>Tanggal Transfer</th>
+                                <th>Bulan</th>
                                 <th>Nominal</th>
                                 <th>Bayar</th>
                                 <th>Sisa</th>
@@ -56,7 +57,7 @@
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="10">
+                                <td colspan="11">
                                     <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i> Bayar</button>
                                 </td>
                             </tr>
@@ -103,6 +104,25 @@
         $.each(hasil.data, function(key, data){
             $selectBank.append($("<option></option>").attr("value", data.id).text(data.nama_bank));
         });
+
+        // Bulan
+        let $selectBulan = $('select[name="transactions[' + index+'][bulan]"]').select2({
+                theme: "classic",
+                width: '100%'
+            }).empty();
+        $selectBulan.append($("<option></option>").attr("value", '').text('Pilih Bulan'));
+        $selectBulan.append($("<option></option>").attr("value", 'Januari').text('Januari'));
+        $selectBulan.append($("<option></option>").attr("value", 'Februari').text('Februari'));
+        $selectBulan.append($("<option></option>").attr("value", 'Maret').text('Maret'));
+        $selectBulan.append($("<option></option>").attr("value", 'April').text('April'));
+        $selectBulan.append($("<option></option>").attr("value", 'Mei').text('Mei'));
+        $selectBulan.append($("<option></option>").attr("value", 'Juni').text('Juni'));
+        $selectBulan.append($("<option></option>").attr("value", 'Juli').text('Juli'));
+        $selectBulan.append($("<option></option>").attr("value", 'Agustus').text('Agustus'));
+        $selectBulan.append($("<option></option>").attr("value", 'September').text('September'));
+        $selectBulan.append($("<option></option>").attr("value", 'Oktober').text('Oktober'));
+        $selectBulan.append($("<option></option>").attr("value", 'November').text('November'));
+        $selectBulan.append($("<option></option>").attr("value", 'Desember').text('Desember'));
 
         // Status
         let $selectStatus = $('select[name="transactions[' + index+'][status]"]').select2({
@@ -159,6 +179,9 @@
                     </td>
                     <td>
                         <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control" required>
+                    </td>
+                    <td>
+                        <select name="transactions[${index}][bulan]" class="form-control select-${index}" required></select>
                     </td>
                     <td>
                         <input type="number" name="transactions[${index}][nominal]" class="form-control" readonly>
