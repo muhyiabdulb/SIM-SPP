@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'History Pembayaran'])
+@extends('layouts.master', ['title' => 'Laporan SPP'])
 
 @section('style')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
@@ -14,12 +14,6 @@
 <div class="row">
     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
         <div class="card">
-            <div class="card-header">
-                <div class="card-header-action">
-                    <a href="{{ route('pegawai.pembayaran.bayar') }}" class="btn btn-primary"
-                        style="border-radius: 5px"><i class="fa fa-plus"></i> Bayar</a>
-                </div>
-            </div>
             <div class="card-body ">
                 <div class="table-responsive">
                     <table class="table table-striped" id="myTable">
