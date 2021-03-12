@@ -39,7 +39,13 @@
                             @forelse ($siswas as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $item->takeImage }}</td>
+                                <td>
+                                    @if($item->photo)
+                                        <img style="height:100px; width:100px; object-fit:cover; object-position:center;" class="card-img-top" src="{{ $item->takeImage }}"> 
+                                    @else
+                                        {{ "Tidak Ada Photo" }}
+                                    @endif  
+                                </td>
                                 <td>{{ $item->nis }}</td>
                                 <td>{{ $item->nama_siswa }}</td>
                                 <td>{{ $item->jenis_kelamin }}</td>

@@ -31,7 +31,6 @@
                                     <!-- /.col -->
                                     </div>
                                     <!-- /.row -->
-            
                                     <!-- Table row -->
                                     <div class="row">
                                         <div class="col-12 table-responsive">
@@ -47,7 +46,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @forelse ($detail->detailPembayaran as $item)
+                                                    @forelse ($detail as $item)
                                                     <tr>
                                                         <th>{{ $item->bulan }}</th>
                                                         <td>{{ $item->tanggal_transfer }}</td>
@@ -58,7 +57,7 @@
                                                     </tr>
                                                     @empty
                                                     <tr>
-                                                        <td colspan="6" class="text-center"><h3>{{ $detail->nama_siswa }} Belum Bayar SPP</h3></td>
+                                                        <td colspan="6" class="text-center"><h3>Belum Bayar SPP</h3></td>
                                                     </tr>
                                                     @endforelse
                                                 </tbody>
