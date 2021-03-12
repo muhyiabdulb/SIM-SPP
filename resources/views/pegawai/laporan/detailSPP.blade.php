@@ -23,7 +23,7 @@
                                         <div class="col-sm-12 invoice-col text-center">
                                             <address>
                                                 <strong>BUKTI PEMBAYARAN SPP</strong><br>
-                                               Rp. 350.000,-
+                                               Rp. 450.000,-
                                                 <p style="font-size: 18px;">(Tiga ratus lima puluh ribu rupiah)</p>
                                             </address>
                                         </div>
@@ -31,6 +31,7 @@
                                     <!-- /.col -->
                                     </div>
                                     <!-- /.row -->
+                                    <p>Nama Siswa : {{ $siswa->nama_siswa }}</p>
                                     <!-- Table row -->
                                     <div class="row">
                                         <div class="col-12 table-responsive">
@@ -57,7 +58,7 @@
                                                     </tr>
                                                     @empty
                                                     <tr>
-                                                        <td colspan="6" class="text-center"><h3>Belum Bayar SPP</h3></td>
+                                                        <td colspan="6" class="text-center"><h3>{{ $siswa->nama_siswa }} Belum Bayar SPP</h3></td>
                                                     </tr>
                                                     @endforelse
                                                 </tbody>
