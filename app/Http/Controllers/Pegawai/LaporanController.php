@@ -21,11 +21,6 @@ class LaporanController extends Controller
                                 ->where('jenis_pembayaran_id', 1)
                                 ->get();
         // return $detail;
-
-        // $detail = Pembayaran::with('detailPembayaran')
-        //                 ->find($id);
-        // return $detail;
-        // return collect($detail['detailPembayaran'][0]['jenisPembayaran']['jenis_pembayaran']);
         return view('pegawai.laporan.detailSPP', compact('detail', 'siswa'));
     }
 }
