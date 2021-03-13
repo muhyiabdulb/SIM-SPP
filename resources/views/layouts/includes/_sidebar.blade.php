@@ -57,12 +57,9 @@
             <li class="nav-item dropdown">
                 <a href="{{ route('pegawai.pembayaran.history') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
             </li>
+            <li class="menu-header">Laporan</li>
             <li class="nav-item dropdown">
-                <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan</span></a>
-            </li>
-                      <li class="menu-header">Laporan</li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
+                <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
