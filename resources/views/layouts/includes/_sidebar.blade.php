@@ -10,7 +10,7 @@
 			@role('ortu')
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
-                <a href="{{ route('ortu.dashboard') }}" class="{{ request()->is('ortu/dashboard') ? ' active' : '' }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="{{ route('ortu.dashboard') }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link"><i class="fa fa-book"></i><span>Tunggakan</span></a>
@@ -51,17 +51,17 @@
             </li>
             @elserole('pegawai')
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown{{ request()->is('pegawai/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown{{ request()->is('pegawai/pembayaran/history') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.pembayaran.history') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
             </li>
             <li class="menu-header">Laporan</li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown{{ request()->is('pegawai/laporan/spp') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown{{ request()->is('pegawai/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
             </li>
             @elserole('pembimbing')
