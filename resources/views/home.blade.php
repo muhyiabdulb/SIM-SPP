@@ -393,7 +393,7 @@
                         <h4>Dashboard</h4>
                     </div>
                     <div class="card-body">
-                        Selamat Datang Pembimbing Rayon Ciawi 4 Muhyi Abdul Basith
+                        Selamat Datang Pembimbing Rayon {{ Auth::user()->rayon->nama_rayon  }} {{ Auth::user()->name }}
                     </div>
                 </div>
             </div>
@@ -407,10 +407,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Total Admin</h4>
+                        <h4>Total Siswa</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ App\Siswa::where('rayon_id', Auth::user()->rayon_id)->count() }} 
                     </div>
                 </div>
             </div>
@@ -422,10 +422,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>News</h4>
+                        <h4>Total Nunggak</h4>
                     </div>
                     <div class="card-body">
-                        42
+                        10
                     </div>
                 </div>
             </div>
