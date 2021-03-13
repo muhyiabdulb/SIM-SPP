@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Laporan Bayaran SPP'])
+@extends('layouts.master', ['title' => 'Laporan Bayarn Umum'])
 
 @section('style')
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
@@ -8,7 +8,7 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>Laporan Bayaran SPP</h1>
+        <h1>Laporan Bayaran Umum</h1>
     </div>
 </section>
 <div class="row">
@@ -46,7 +46,7 @@
                                 <td>{{ $item->rombel->nama_rombel }}</td>
                                 <td>{{ $item->rayon->nama_rayon }}</td>
                                 <td>
-                                    <a href="{{ route('pegawai.laporan.detailSPP', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ route('pegawai.laporan.detailUmum', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                             @empty

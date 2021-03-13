@@ -6,9 +6,9 @@
     <div class="col-lg-12 col-md-12 col-12 col-sm-12">
          <div class="card">
             <div class="card-header">
-                <h4>Laporan Bayaran SPP</h4>
+                <h4>Laporan SPP</h4>
                 <div class="card-header-action">
-                    <a href={{ route('pegawai.laporan.spp') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
+                    <a href={{ route('pegawai.laporan.umum') }} class="btn btn-danger"><i class="fa fa-arrow-left"></i> Back</a>
                  </div>
             </div>
             <div class="card-body ">
@@ -22,9 +22,7 @@
                                     <div class="row invoice-info">
                                         <div class="col-sm-12 invoice-col text-center">
                                             <address>
-                                                <strong>BUKTI PEMBAYARAN SPP</strong><br>
-                                               Rp. 450.000,-
-                                                <p style="font-size: 18px;">(Tiga ratus lima puluh ribu rupiah)</p>
+                                                <strong>BUKTI PEMBAYARAN UMUM</strong><br>
                                             </address>
                                         </div>
                                     <!-- /.col -->
@@ -38,7 +36,7 @@
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th>BULAN</th>
+                                                        <th>JENIS PEMBAYARAN</th>
                                                         <th>TANGGAL BAYAR</th>
                                                         <th>PENERIMA</th>
                                                         <th>PARAF</th>
@@ -49,7 +47,7 @@
                                                 <tbody>
                                                     @forelse ($detail as $item)
                                                     <tr>
-                                                        <th>{{ $item->bulan }}</th>
+                                                        <th>{{ $item->jenisPembayaran->jenis_pembayaran }}</th>
                                                         <td>{{ $item->tanggal_transfer }}</td>
                                                         <td>{{ $item->user['name'] }}</td>
                                                         <td>Paraf</td>
