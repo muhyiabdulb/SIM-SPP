@@ -45,6 +45,12 @@ class User extends Authenticatable
         return $this->belongsTo(Siswa::class);
     }
 
+    // RELASI KEPADA TABEL RAYON
+    public function rayon()
+    {
+        return $this->belongsTo(Rayon::class);
+    }
+
     // membuat function Image
     public function getTakeImageAttribute()
     {
