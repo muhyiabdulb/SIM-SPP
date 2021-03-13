@@ -58,7 +58,7 @@
                 <a href="{{ route('pegawai.pembayaran.history') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
             </li>
             <li class="menu-header">Laporan</li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown active">
                 <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
             </li>
             <li class="nav-item dropdown">
