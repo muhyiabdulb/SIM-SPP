@@ -156,6 +156,22 @@ Route::middleware('role:kepsek')->prefix('/kepsek')->name('kepsek.')->group(func
 // ROLE PEMBIMBING RAYON
 Route::middleware('role:pembimbing')->prefix('/pembimbing')->name('pembimbing.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+    // Data Siswa
+    Route::prefix('siswa')->name('siswa.')->group(function () {
+        Route::get('/index', 'Pembimbing\DataSiswaController@index')->name('index');
+        Route::get('/spp/detail/{id}', 'Pembimbing\DataSiswaController@detailSPP')->name('detailSPP');
+        Route::get('/umum', 'Pembimbing\DataSiswaController@umum')->name('umum');
+        Route::get('/umum/detail/{id}', 'Pembimbing\DataSiswaController@detailUmum')->name('detailUmum');
+    });
+
+    // Laporan
+    Route::prefix('laporan')->name('laporan.')->group(function () {
+        Route::get('/spp', 'Pembimbing\LaporanController@spp')->name('spp');
+        Route::get('/spp/detail/{id}', 'Pembimbing\LaporanController@detailSPP')->name('detailSPP');
+        Route::get('/umum', 'Pembimbing\LaporanController@umum')->name('umum');
+        Route::get('/umum/detail/{id}', 'Pembimbing\LaporanController@detailUmum')->name('detailUmum');
+    });
 });
 
 // User Edit Profile & Ganti Password
