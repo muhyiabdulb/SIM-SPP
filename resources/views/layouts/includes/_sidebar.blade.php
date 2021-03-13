@@ -13,10 +13,10 @@
                 <a href="{{ route('ortu.dashboard') }}" class="{{ request()->is('ortu/dashboard') ? ' active' : '' }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fa fa-book"></i><span>Tunggakan</span></a>
+                <a href="#" class="nav-link"><i class="fas fa-book"></i><span>Tunggakan</span></a>
             </li>
-             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fa fa-clipboard"></i><span>Konfirmasi</span></a>
+            <li class="nav-item dropdown">
+                <a href="# class="nav-link"><i class="fas fa-clipboard"></i><span>Konfirmasi</span></a>
             </li>
 			@elserole('admin')
 			<li class="menu-header">Dashboard</li>
