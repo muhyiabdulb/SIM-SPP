@@ -87,7 +87,7 @@
                     <h4>Dashboard</h4>
                 </div>
                 <div class="card-body">
-                    Selamat Datang Pemgawai
+                    Selamat Datang Pegawai
                 </div>
             </div>
         </div>
