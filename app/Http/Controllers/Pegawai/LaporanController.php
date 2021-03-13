@@ -16,14 +16,11 @@ class LaporanController extends Controller
 
     public function detailSPP($id)
     {
+        $siswa = Siswa::find($id);
         $detail = DetailPembayaran::where('siswa_id', $id)
                                 ->where('jenis_pembayaran_id', 1)
                                 ->get();
         // return $detail;
-
-        // $detail = Siswa::with('detailPembayaran')->find($id)->count();
-        // return $detail;
-        // return collect($detail['detailPembayaran'][0]['jenisPembayaran']['jenis_pembayaran']);
-        return view('pegawai.laporan.detailSPP', compact('detail'));
+        return view('pegawai.laporan.detailSPP', compact('detail', 'siswa'));
     }
 }
