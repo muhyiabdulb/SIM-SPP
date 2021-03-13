@@ -42,6 +42,13 @@
             <li class="nav-item dropdown">
                 <a href="{{ route('kepsek.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
+            <li class="menu-header">Laporan</li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('kepsek.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('kepsek.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
+            </li>
             @elserole('pegawai')
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
@@ -53,10 +60,24 @@
             <li class="nav-item dropdown">
                 <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan</span></a>
             </li>
+                      <li class="menu-header">Laporan</li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
+            </li>
             @elserole('pembimbing')
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown">
                 <a href="{{ route('pembimbing.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+            </li>
+            <li class="menu-header">Laporan</li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pembimbing.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('pembimbing.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
             </li>
             @endrole
         </ul>
