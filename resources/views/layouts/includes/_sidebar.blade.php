@@ -54,15 +54,15 @@
             <li class="nav-item dropdown{{ request()->is('pegawai/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="nav-item dropdown{{ request()->is('pegawai/pembayaran/history') ? ' active' : '' }}">
+            <li class="nav-item dropdown{{ request()->is('pegawai/pembayaran/history') || request()->is('pegawai/pembayaran/bayar') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.pembayaran.history') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
             </li>
             <li class="menu-header">Laporan</li>
             <li class="nav-item dropdown{{ request()->is('pegawai/laporan/spp') ? ' active' : '' }}">
-                <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
+                <a href="{{ route('pegawai.laporan.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan Bayaran SPP</span></a>
             </li>
-            <li class="nav-item dropdown{{ request()->is('pegawai/dashboard') ? ' active' : '' }}">
-                <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
+            <li class="nav-item dropdown{{ request()->is('pegawai/laporan/umum') ? ' active' : '' }}">
+                <a href="{{ route('pegawai.laporan.umum') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Bayaran Umum</span></a>
             </li>
             @elserole('pembimbing')
             <li class="menu-header">Dashboard</li>
