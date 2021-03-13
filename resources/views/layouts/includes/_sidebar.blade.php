@@ -66,15 +66,19 @@
             </li>
             @elserole('pembimbing')
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown{{ request()->is('pembimbing/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('pembimbing.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
-            <li class="menu-header">Laporan</li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('pembimbing.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan SPP</span></a>
+            <li class="menu-header">Data Siswa</li>
+            <li class="nav-item dropdown{{ request()->is('pembimbing/siswa/index') ? ' active' : '' }}">
+                <a href="{{ route('pembimbing.siswa.index') }}" class="nav-link"><i class="fas fa-user"></i><span>Data Siswa</span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('pembimbing.dashboard') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
+            <li class="menu-header">Laporan</li>
+            <li class="nav-item dropdown{{ request()->is('pembimbing/laporan/spp') ? ' active' : '' }}">
+                <a href="{{ route('pembimbing.laporan.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan Bayaran SPP</span></a>
+            </li>
+            <li class="nav-item dropdown{{ request()->is('pembimbing/laporan/umum') ? ' active' : '' }}">
+                <a href="{{ route('pembimbing.laporan.umum') }}" class="nav-link"><i class="fas fa-clipboard"></i><span>Laporan Bayaran Umum</span></a>
             </li>
             @endrole
         </ul>
