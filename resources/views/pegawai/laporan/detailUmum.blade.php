@@ -38,9 +38,9 @@
                                                     <tr>
                                                         <th>JENIS PEMBAYARAN</th>
                                                         <th>TANGGAL BAYAR</th>
-                                                        <th>PENERIMA</th>
-                                                        <th>PARAF</th>
-                                                        <th>DIKETAHUI ORANG TUA/WALI</th>
+                                                        <th>NOMINAL</th>
+                                                        <th>BAYAR</th>
+                                                        <th>SISA PEMBAYARAN</th>
                                                         <th>STATUS</th>
                                                     </tr>
                                                 </thead>
@@ -49,9 +49,9 @@
                                                     <tr>
                                                         <th>{{ $item->jenisPembayaran->jenis_pembayaran }}</th>
                                                         <td>{{ $item->tanggal_transfer }}</td>
-                                                        <td>{{ $item->user['name'] }}</td>
-                                                        <td>Paraf</td>
-                                                        <td>Paraf</td>
+                                                        <td>Rp {{ number_format($item->nominal) }}</td>
+                                                        <td>Rp {{ number_format($item->bayar) }}</td>
+                                                        <td>Rp {{ number_format($item->sisa_pembayaran) }}</td>
                                                         <td><span class="badge rounded-pill bg-info text-dark">{{ $item->status }}</span></td>
                                                     </tr>
                                                     @empty
