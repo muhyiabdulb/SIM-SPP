@@ -437,10 +437,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Reports</h4>
+                        <h4>Nominal Tunggakan</h4>
                     </div>
                     <div class="card-body">
-                        1,201
+                        Rp {{ number_format(App\DetailPembayaran::where('siswa_id', Auth::user()->siswa_id)->sum('sisa_pembayaran')) }} 
                     </div>
                 </div>
             </div>
