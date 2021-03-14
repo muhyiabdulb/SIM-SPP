@@ -46,7 +46,7 @@
                                 <td>{{ $item->rombel->nama_rombel }}</td>
                                 <td>{{ $item->rayon->nama_rayon }}</td>
                                 <td>
-                                    <a href="{{ route('pembimbing.laporan.detailSPP', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ route('pegawai.laporan.detailSPP', $item->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-eye"></i></a>
                                 </td>
                             </tr>
                             @empty
