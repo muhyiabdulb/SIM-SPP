@@ -22,16 +22,16 @@
                                     <div class="row invoice-info">
                                         <div class="col-sm-12 invoice-col text-center">
                                             <address>
-                                                <strong>BUKTI PEMBAYARAN SPP</strong><br>
+                                                <strong><h4>BUKTI PEMBAYARAN SPP</h4></strong><br>
                                                Rp. 450.000,-
-                                                <p style="font-size: 18px;">(Tiga ratus lima puluh ribu rupiah)</p>
+                                                <p style="font-size: 18px;">(Empat Ratus Lima Puluh Ribu Rupiah)</p>
                                             </address>
                                         </div>
                                     <!-- /.col -->
                                     <!-- /.col -->
                                     </div>
                                     <!-- /.row -->
-                                    <p>Nama Siswa : {{ $siswa->nama_siswa }}</p>
+                                    <h5>Nama Siswa : {{ $siswa->nama_siswa }}</h5>
                                     <!-- Table row -->
                                     <div class="row">
                                         <div class="col-12 table-responsive">

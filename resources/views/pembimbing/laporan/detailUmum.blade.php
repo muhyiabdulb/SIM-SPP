@@ -22,14 +22,14 @@
                                     <div class="row invoice-info">
                                         <div class="col-sm-12 invoice-col text-center">
                                             <address>
-                                                <strong>BUKTI PEMBAYARAN UMUM</strong><br>
+                                                <h3>BUKTI PEMBAYARAN UMUM</h3><br>
                                             </address>
                                         </div>
                                     <!-- /.col -->
                                     <!-- /.col -->
                                     </div>
                                     <!-- /.row -->
-                                    <p>Nama Siswa : {{ $siswa->nama_siswa }}</p>
+                                    <h5>Nama Siswa : {{ $siswa->nama_siswa }}</h5>
                                     <!-- Table row -->
                                     <div class="row">
                                         <div class="col-12 table-responsive">
@@ -38,9 +38,9 @@
                                                     <tr>
                                                         <th>JENIS PEMBAYARAN</th>
                                                         <th>TANGGAL BAYAR</th>
-                                                        <th>PENERIMA</th>
-                                                        <th>PARAF</th>
-                                                        <th>DIKETAHUI ORANG TUA/WALI</th>
+                                                        <th>NOMINAL</th>
+                                                        <th>BAYAR</th>
+                                                        <th>SISA PEMBAYARAN</th>
                                                         <th>STATUS</th>
                                                     </tr>
                                                 </thead>
@@ -49,9 +49,9 @@
                                                     <tr>
                                                         <th>{{ $item->jenisPembayaran->jenis_pembayaran }}</th>
                                                         <td>{{ $item->tanggal_transfer }}</td>
-                                                        <td>{{ $item->user['name'] }}</td>
-                                                        <td>Paraf</td>
-                                                        <td>Paraf</td>
+                                                        <td>Rp {{ number_format($item->nominal) }}</td>
+                                                        <td>Rp {{ number_format($item->bayar) }}</td>
+                                                        <td>Rp {{ number_format($item->sisa_pembayaran) }}</td>
                                                         <td><span class="badge rounded-pill bg-info text-dark">{{ $item->status }}</span></td>
                                                     </tr>
                                                     @empty
