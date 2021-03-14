@@ -58,7 +58,7 @@
                                                     </tr>
                                                     @empty
                                                     <tr>
-                                                        <td colspan="6" class="text-center"><h3>{{ $siswa->nama_siswa }} Belum Bayar SPP</h3></td>
+                                                        <td colspan="6" class="text-center"><h3>{{ $siswa->nama_siswa }} Belum Bayar</h3></td>
                                                     </tr>
                                                     @endforelse
                                                 </tbody>
