@@ -54,6 +54,7 @@
             <li class="nav-item dropdown{{ request()->is('pegawai/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.dashboard') }}" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
+            <li class="menu-header">Pembayaran</li>
             <li class="nav-item dropdown{{ request()->is('pegawai/pembayaran/history') || request()->is('pegawai/pembayaran/bayar') ? ' active' : '' }}">
                 <a href="{{ route('pegawai.pembayaran.history') }}" class="nav-link"><i class="fas fa-money-bill"></i><span>Pembayaran</span></a>
             </li>
