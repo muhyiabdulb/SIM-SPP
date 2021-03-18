@@ -25,15 +25,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $totalNunggak = Pembayaran::whereHas('siswa', function($q){
-                            $q->where('rayon_id', Auth::user()->rayon_id);
-                        })->count();
+        // Untuk Pegawai (Semua Siswa)
+        $totalNunggakP = Pembayaran::whereHas('detailPembayaran', function($q){
+                                        $q->where('status', 'Belum Lunas');
+                                    })->count();
 
-        $nominalNunggak = DetailPembayaran::whereHas('siswa', function($q){
-                            $q->where('rayon_id', Auth::user()->rayon_id);
-                        })->sum('sisa_pembayaran');
+        $nominalNunggakP = DetailPembayaran::sum('sisa_pembayaran');
+
+        // Untuk Rayon (Hanya Rayon)
+        $totalNunggakR = Pembayaran::whereHas('detailPembayaran', function($q){
+                                        $q->where('status', 'Belum Lunas');
+                                    })->whereHas('siswa', function($q){
+                                        $q->where('rayon_id', Auth::user()->rayon_id);
+                                    })->count();
+
+        $nominalNunggakR = DetailPembayaran::whereHas('siswa', function($q){
+                                        $q->where('rayon_id', Auth::user()->rayon_id);
+                                    })->sum('sisa_pembayaran');
 
         // return $nominalNunggak;
-        return view('home', compact('nominalNunggak', 'totalNunggak'));
+        return view('home', compact('nominalNunggakR', 'totalNunggakR', 'nominalNunggakP', 'totalNunggakP', ));
     }
 }

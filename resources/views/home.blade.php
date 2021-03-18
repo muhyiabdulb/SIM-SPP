@@ -98,10 +98,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Total Uang Masuk</h4>
+                            <h4>Total Pembayaran</h4>
                         </div>
                         <div class="card-body">
-                            <h6>Rp {{ number_format(App\Pembayaran::sum('total_nominal')) }}</h6>
+                            {{ App\Pembayaran::count('total_nominal') }}
                         </div>
                     </div>
                 </div>
@@ -113,10 +113,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Total Pembayaran</h4>
+                            <h4>Total Nominal Uang Masuk</h4>
                         </div>
                         <div class="card-body">
-                            {{ App\Pembayaran::count('total_nominal') }}
+                            <h6>Rp {{ number_format(App\Pembayaran::sum('total_nominal')) }}</h6>
                         </div>
                     </div>
                 </div>
@@ -130,10 +130,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Reports</h4>
+                            <h4>Total Tunggakan</h4>
                         </div>
                         <div class="card-body">
-                            1,201
+                            {{ $totalNunggakP }} Orang
                         </div>
                     </div>
                 </div>
@@ -145,10 +145,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Online Users</h4>
+                            <h4>Total Nominal Tunggakan</h4>
                         </div>
                         <div class="card-body">
-                            47
+                            Rp {{ number_format($nominalNunggakP) }}
                         </div>
                     </div>
                 </div>
@@ -438,7 +438,7 @@
                             <h4>Total Nunggak</h4>
                         </div>
                         <div class="card-body">
-                            {{ $totalNunggak }} Orang
+                            {{ $totalNunggakR }} Orang
                         </div>
                     </div>
                 </div>
@@ -450,10 +450,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Nominal Tunggakan</h4>
+                            <h4>Total Nominal Tunggakan</h4>
                         </div>
                         <div class="card-body">
-                            Rp {{ number_format($nominalNunggak) }}
+                            Rp {{ number_format($nominalNunggakR) }}
                         </div>
                     </div>
                 </div>
