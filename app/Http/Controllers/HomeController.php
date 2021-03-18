@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\{Pembayaran, DetailPembayaran,Siswa};
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalNunggak = Pembayaran::whereHas('siswa', function($q){
+                            $q->where('rayon_id', Auth::user()->rayon_id);
+                        })->count();
+
+        $nominalNunggak = DetailPembayaran::whereHas('siswa', function($q){
+                            $q->where('rayon_id', Auth::user()->rayon_id);
+                        })->sum('sisa_pembayaran');
+
+        // return $nominalNunggak;
+        return view('home', compact('nominalNunggak', 'totalNunggak'));
     }
 }
