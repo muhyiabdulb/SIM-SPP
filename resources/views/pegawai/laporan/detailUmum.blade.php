@@ -52,7 +52,13 @@
                                                         <td>Rp {{ number_format($item->nominal) }}</td>
                                                         <td>Rp {{ number_format($item->bayar) }}</td>
                                                         <td>Rp {{ number_format($item->sisa_pembayaran) }}</td>
-                                                        <td><span class="badge rounded-pill bg-info text-dark">{{ $item->status }}</span></td>
+                                                        <td>
+                                                            @if ($item->status === 'Sudah DiVerifikasi')
+                                                            <span class="badge rounded-pill bg-primary text-white">{{ $item->status }}</span>
+                                                            @else
+                                                            <span class="badge rounded-pill bg-warning text-white">{{ $item->status }}</span>
+                                                            @endif
+                                                        </td>
                                                     </tr>
                                                     @empty
                                                     <tr>
