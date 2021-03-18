@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\{User, Siswa};
+use App\{User, Siswa, Rayon};
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -21,36 +21,99 @@ class UserController extends Controller
     {
         $siswas = Siswa::all();
         // return $siswas;
+        $rayons = Rayon::all();
         // pindah ke halaman create
-        return view('admin.user.create', compact('siswas'));
+        return view('admin.user.create', compact('siswas', 'rayons'));
     }
 
     public function store(Request $request)
     {
-        // ini validasi sesuai inputan
-        $request->validate([
-            'siswa_id' => 'required',
-            'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
-            'name' => 'required|string|max:255|',
-            'email' => 'required|string|email|max:255|unique:users',
-            'username' => 'required|string|max:255|unique:users',
-            'password' => ['required', 'string', 'confirmed'],
-            'role' => 'required',
-        ]);
+        if($request->role === 'pembimbing') {
 
-        $user = $request->all();
-        // return $user;
-        $photo = request()->file('photo') ? request()->file('photo')->store("img/photo") : null;
-        // return $photo;
-        $user['photo'] = $photo;
-   
-        $user['password'] = Hash::make($user['password']);
-        // return $request->role;
-        //  return $user;
-        // masukkan semua inputan ke db
-        $role = User::create($user);
+            // ini validasi sesuai inputan
+            $request->validate([
+                'siswa_id' => 'nullable',
+                'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
+                'name' => 'required|string|max:255|',
+                'rayon_id' => 'required',
+                'email' => 'required|string|email|max:255|unique:users',
+                'username' => 'required|string|max:255|unique:users',
+                'password' => ['required', 'string', 'confirmed'],
+                'role' => 'required',
+            ]);
 
-        $role->assignRole($request->role);
+            $user = $request->all();
+            // return $user;
+            $photo = request()->file('photo') ? request()->file('photo')->store("img/photo") : null;
+            // return $photo;
+            $user['photo'] = $photo;
+            $user['siswa_id'] = 1;
+            $user['password'] = Hash::make($user['password']);
+            // return $request->role;
+            //  return $user;
+            // masukkan semua inputan ke db
+            $role = User::create($user);
+
+            $role->assignRole($request->role);
+
+        } elseif($request->role === 'ortu') {
+
+            // ini validasi sesuai inputan
+            $request->validate([
+                'siswa_id' => 'required',
+                'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
+                'name' => 'required|string|max:255|',
+                'rayon_id' => 'nullable',
+                'email' => 'required|string|email|max:255|unique:users',
+                'username' => 'required|string|max:255|unique:users',
+                'password' => ['required', 'string', 'confirmed'],
+                'role' => 'required',
+            ]);
+
+            $user = $request->all();
+            // return $user;
+            $photo = request()->file('photo') ? request()->file('photo')->store("img/photo") : null;
+            // return $photo;
+            $user['photo'] = $photo;
+            $user['rayon_id'] = 0;
+            $user['password'] = Hash::make($user['password']);
+            // return $request->role;
+            //  return $user;
+            // masukkan semua inputan ke db
+            $role = User::create($user);
+
+            $role->assignRole($request->role);
+
+        } else {
+
+            // ini validasi sesuai inputan
+            $request->validate([
+                'siswa_id' => 'nullable',
+                'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
+                'name' => 'required|string|max:255|',
+                'rayon_id' => 'nullable',
+                'email' => 'required|string|email|max:255|unique:users',
+                'username' => 'required|string|max:255|unique:users',
+                'password' => ['required', 'string', 'confirmed'],
+                'role' => 'required',
+            ]);
+
+            $user = $request->all();
+            // return $user;
+            $photo = request()->file('photo') ? request()->file('photo')->store("img/photo") : null;
+            // return $photo;
+            $user['photo'] = $photo;
+            $user['siswa_id'] = 1;
+            $user['rayon_id'] = 0;
+            $user['password'] = Hash::make($user['password']);
+            // return $request->role;
+            //  return $user;
+            // masukkan semua inputan ke db
+            $role = User::create($user);
+
+            $role->assignRole($request->role);
+        }
+        
         // alert berhasil
         Alert::success('Pemberitahun!', 'Berhasil Ditambahkan');
         // pindah halaman lagi ke index
@@ -68,7 +131,7 @@ class UserController extends Controller
     {
         // ini validasi sesuai inputan
         $request->validate([
-            'siswa_id' => 'required',
+            'siswa_id' => 'nullable',
             'photo' => 'nullable|image|mimes:png,jpg,jpeg,svg|max:2048',
             'name' => 'required|string|max:255|',
             'email' => 'required|string|email|max:255|',
