@@ -25,9 +25,39 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="contoh1">Nama Orang Tua</label>
-                            <input type="text" name="name" class="form-control" placeholder="Nama Orang Tua">
+                            <label for="contoh1">Nama Pengguna</label>
+                            <input type="text" name="name" class="form-control" placeholder="Nama Pengguna">
                             @error('name')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Siswa</label>
+                            <select name="siswa_id" class="form-control select2">
+                                <option selected disabled="disabled">Pilih Siswa</option>
+                                    @foreach ($siswas as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_siswa }}</option>
+                                    @endforeach
+                            </select>
+                            @error('siswa_id')
+                                <div class="invalid">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Rayon</label>
+                            <select name="rayon_id" class="form-control select2">
+                                <option selected disabled="disabled">Pilih Rayon</option>
+                                    @foreach ($rayons as $item)
+                                        <option value="{{ $item->id }}">{{ $item->nama_rayon }}</option>
+                                    @endforeach
+                            </select>
+                            @error('rayon_id')
                                 <div class="invalid">
                                     {{ $message }}
                                 </div>
@@ -45,22 +75,6 @@
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Siswa</label>
-                            <select name="siswa_id" class="form-control select2">
-                                <option selected disabled="disabled">Pilih Siswa</option>
-                                    @foreach ($siswas as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama_siswa }}</option>
-                                    @endforeach
-                            </select>
-                            @error('siswa_id')
-                                <div class="invalid">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
                             <label for="username">Username</label>
                             <input type="text" name="username" class="form-control" placeholder="Username">
                             @error('username')
@@ -69,7 +83,9 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group col-md-4">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" placeholder="Password">
                             @error('password')
@@ -78,9 +94,9 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-6">
                             <label for="password">Ketik Ulang Password</label>
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Password">
+                            <input type="password" name="password_confirmation" class="form-control" placeholder="Ketik Ulang Password">
                             @error('password_confirmation')
                                 <div class="invalid">
                                     {{ $message }}
