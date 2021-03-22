@@ -150,7 +150,14 @@ Route::middleware('role:ortu')->prefix('/ortu')->name('ortu.')->group(function()
 // ROLE KEPALA SEKOLAH
 Route::middleware('role:kepsek')->prefix('/kepsek')->name('kepsek.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
- 
+
+    // Laporan
+    Route::prefix('laporan')->name('laporan.')->group(function () {
+        Route::get('/spp', 'Kepsek\LaporanController@spp')->name('spp');
+        Route::get('/spp/detail/{id}', 'Kepsek\LaporanController@detailSPP')->name('detailSPP');
+        Route::get('/umum', 'Kepsek\LaporanController@umum')->name('umum');
+        Route::get('/umum/detail/{id}', 'Kepsek\LaporanController@detailUmum')->name('detailUmum');
+    });
 });
 
 // ROLE PEMBIMBING RAYON
