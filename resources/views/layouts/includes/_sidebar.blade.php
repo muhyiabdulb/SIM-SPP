@@ -65,17 +65,17 @@
             </li>
             @elserole('kepsek')
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown{{ request()->is('kepsek/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('kepsek.dashboard') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Laporan</li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('kepsek.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+            <li class="nav-item dropdown{{ request()->is('kepsek/laporan/spp') ? ' active' : '' }}">
+                <a href="{{ route('kepsek.laporan.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         SPP</span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('kepsek.dashboard') }}" class="nav-link"><i
+            <li class="nav-item dropdown{{ request()->is('kepsek/laporan/umum') ? ' active' : '' }}">
+                <a href="{{ route('kepsek.laporan.umum') }}" class="nav-link"><i
                         class="fas fa-clipboard"></i><span>Laporan Umum</span></a>
             </li>
             @elserole('pegawai')
