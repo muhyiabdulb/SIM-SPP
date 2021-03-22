@@ -8,10 +8,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Dashboard</h4>
-                        </div>
-                        <div class="card-body">
-                            Selamat Datang Kepala Sekolah
+                            <h1>Dashboard Kepala Sekolah {{ Auth::user()->name }}</h1>
                         </div>
                     </div>
                 </div>
@@ -25,10 +22,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Total Admin</h4>
+                            <h4>Total Siswa</h4>
                         </div>
                         <div class="card-body">
-                            10
+                            {{ App\Siswa::count() }} Orang
                         </div>
                     </div>
                 </div>
@@ -40,10 +37,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>News</h4>
+                            <h4>Total Siswa Laki-laki</h4>
                         </div>
                         <div class="card-body">
-                            42
+                            {{ App\Siswa::where('jenis_kelamin', 'L')->count() }} Orang
                         </div>
                     </div>
                 </div>
@@ -55,10 +52,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Reports</h4>
+                            <h4>Total Siswa Perempuan</h4>
                         </div>
                         <div class="card-body">
-                            1,201
+                            {{ App\Siswa::where('jenis_kelamin', 'P')->count() }} Orang
                         </div>
                     </div>
                 </div>
