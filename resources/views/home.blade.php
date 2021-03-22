@@ -1,22 +1,22 @@
 @extends('layouts.master', ['title' => 'Dashboard'])
 
 @section('content')
-<section class="section">
-    <div class="section-header">
-    @role('kepsek')
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Dashboard</h4>
-                    </div>
-                    <div class="card-body">
-                        Selamat Datang Kepala Sekolah
+    <section class="section">
+        <div class="section-header">
+            @role('kepsek')
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Dashboard</h4>
+                        </div>
+                        <div class="card-body">
+                            Selamat Datang Kepala Sekolah
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
@@ -79,7 +79,7 @@
                 </div>
             </div>
         </div>
-    @elserole('pegawai')
+        @elserole('pegawai')
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
@@ -154,7 +154,7 @@
                 </div>
             </div>
         </div>
-    @elserole('ortu')
+        @elserole('ortu')
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
@@ -230,15 +230,12 @@
                 </div>
             </div>
         </div>
-    @elserole('admin')
+        @elserole('admin')
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Dashboard</h4>
-                    </div>
-                    <div class="card-body">
-                        Selamat Datang Admin
+                        <h1>Dashboard Pegawai {{ Auth::user()->name }}</h1>
                     </div>
                 </div>
             </div>
@@ -384,16 +381,17 @@
                     </div>
                 </div>
             </div>
-    @elserole('pembimbing')
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h1>Dashboard Pembimbing Rayon {{ Auth::user()->rayon->nama_rayon  }} {{ Auth::user()->name }}</h1>
+            @elserole('pembimbing')
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Dashboard Pembimbing Rayon {{ Auth::user()->rayon->nama_rayon }}
+                                {{ Auth::user()->name }}</h1>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-12">
@@ -459,7 +457,7 @@
                 </div>
             </div>
         </div>
-    @endrole
-    </div>
-</section>
+        @endrole
+        </div>
+    </section>
 @endsection
