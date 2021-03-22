@@ -12,11 +12,27 @@
             <li class="nav-item dropdown">
                 <a href="{{ route('ortu.dashboard') }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
+            <li class="menu-header">Pembayaran</li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fa fa-book"></i><span>Tunggakan</span></a>
+                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i
+                        class="fas fa-clipboard"></i><span>Pembayaran</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link"><i class="fa fa-clipboard"></i><span>Konfirmasi</span></a>
+                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i
+                        class="fas fa-clipboard"></i><span>Konfirmasi</span></a>
+            </li>
+            <li class="menu-header">Laporan</li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                        SPP</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                        Umum</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                        Tunggakan</span></a>
             </li>
             @elserole('admin')
             <li class="menu-header">Dashboard</li>
