@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('layouts/landing');
 });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -145,6 +146,15 @@ Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(f
 // ROLE ORANG TUA
 Route::middleware('role:ortu')->prefix('/ortu')->name('ortu.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+    Route::get('/spp', function () {
+    return view('ortu.spp');
+    });
+    Route::get('/umum', function () {
+    return view('ortu.umum');
+    });
+    Route::get('/tunggakan', function () {
+    return view('ortu.tunggakan');
+    });
 });
 
 // ROLE KEPALA SEKOLAH

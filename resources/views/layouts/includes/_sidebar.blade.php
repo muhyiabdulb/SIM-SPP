@@ -23,15 +23,15 @@
             </li>
             <li class="menu-header">Laporan</li>
             <li class="nav-item dropdown">
-                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                <a href="{{ url('ortu/spp') }}"  class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         SPP</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                <a href="{{ url('ortu/umum') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         Umum</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                <a href="{{ url('ortu/tunggakan') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         Tunggakan</span></a>
             </li>
             @elserole('admin')
