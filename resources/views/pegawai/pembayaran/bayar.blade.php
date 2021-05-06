@@ -172,41 +172,41 @@
                 let index = $('#dynamic_field tr').length
                 $('#dynamic_field').append(
                     `<tr class="rowComponent">
-                                    <input type="hidden" width="10px" name="transactions[${index}][id]" value="${undefined}">
-                                    <td class="no">
-                                        <input type="text" value="${index + 1}" class="form-control" disabled>
-                                    </td>
-                                    <td>
-                                        <select name="transactions[${index}][via_transfer_id]" class="form-control select-${index}" required></select>
-                                    </td>
-                                    <td>
-                                        <select name="transactions[${index}][jenis_pembayaran_id]" class="form-control select-${index}" required></select>
-                                    </td>
-                                    <td>
-                                        <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control" required>
-                                    </td>
-                                    <td>
-                                        <select name="transactions[${index}][bulan]" class="form-control select-${index}" required></select>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="transactions[${index}][nominal]" class="form-control" readonly>
-                                    </td>
-                                    <td>
-                                        <input type="number" name="transactions[${index}][bayar]" class="form-control" required>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="transactions[${index}][sisa_pembayaran]" class="form-control" readonly>
-                                    </td>
-                                    <td>
-                                        <input type="text" name="transactions[${index}][sub_bayar]" class="form-control" readonly>
-                                    </td>
-                                    <td>
-                                        <select name="transactions[${index}][status]" class="form-control select-${index}" required></select>
-                                    </td>
-                                    <td>
-                                        <button type="text" name="remove" class="btn btn-danger btn-sm text-white btn_remove"><i class="fa fa-trash"></i></button>
-                                    </td>
-                                </tr>`
+                            <input type="hidden" width="10px" name="transactions[${index}][id]" value="${undefined}">
+                            <td class="no">
+                                <input type="text" value="${index + 1}" class="form-control" disabled>
+                            </td>
+                            <td>
+                                <select name="transactions[${index}][via_transfer_id]" class="form-control select-${index}" required></select>
+                            </td>
+                            <td>
+                                <select name="transactions[${index}][jenis_pembayaran_id]" class="form-control select-${index}" required></select>
+                            </td>
+                            <td>
+                                <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control" required>
+                            </td>
+                            <td>
+                                <select name="transactions[${index}][bulan]" class="form-control select-${index}" required></select>
+                            </td>
+                            <td>
+                                <input type="number" name="transactions[${index}][nominal]" class="form-control" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="transactions[${index}][bayar]" class="form-control" required>
+                            </td>
+                            <td>
+                                <input type="text" name="transactions[${index}][sisa_pembayaran]" class="form-control" readonly>
+                            </td>
+                            <td>
+                                <input type="text" name="transactions[${index}][sub_bayar]" class="form-control" readonly>
+                            </td>
+                            <td>
+                                <select name="transactions[${index}][status]" class="form-control select-${index}" required></select>
+                            </td>
+                            <td>
+                                <button type="text" name="remove" class="btn btn-danger btn-sm text-white btn_remove"><i class="fa fa-trash"></i></button>
+                            </td>
+                        </tr>`
                 );
 
                 transactionEachColumn(index)
