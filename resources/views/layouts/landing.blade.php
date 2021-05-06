@@ -22,8 +22,8 @@
     {{-- <div class="card">
         <div class="card-body">
             <h1>Selamat Datang</h1>
-            <p>SIM SPP SMK WIKRAMA BOGOR adalah Sistem Informasi<br> 
-            yang berguna untuk mengelola pembayaran keuangan <br> di SMK WIkrama Bogor</p>
+            <p>Pendaftaran Peserta Didik Baru<br> 
+             <br> di SMK WIkrama Bogor</p>
             <a href="#" class="btn btn-outline-primary">Mulai</a>
             <img src="{{ asset('assets/img/keuangan.png') }}" class="img-fluid" alt=""
                             style="width: 500px;height:325px">

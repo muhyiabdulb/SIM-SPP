@@ -39,6 +39,7 @@
                                     <form action="{{ route('admin.rayon.destroy', $rayon->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
+                                        <a href="{{ route('admin.rayon.show', $rayon->id) }}" class="btn btn-success btn-action mr-1"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('admin.rayon.edit', $rayon->id) }}" class="btn btn-primary btn-action mr-1"><i class="fa fa-pencil-alt"></i></a>
                                         <button type="submit" onclick="return confirm('Anda Yakin ?')" class="btn btn-danger btn-action"><i class="fa fa-trash"></i></button> 
                                     </form>

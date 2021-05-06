@@ -31,6 +31,7 @@ Route::middleware('role:admin')->prefix('/admin')->name('admin.')->group(functio
         Route::get('/', 'Admin\RayonController@index')->name('index');
         Route::get('/create', 'Admin\RayonController@create')->name('create');
         Route::post('/store', 'Admin\RayonController@store')->name('store');
+        Route::get('/show/{rayon}', 'Admin\RayonController@show')->name('show');
         Route::get('/edit/{rayon}', 'Admin\RayonController@edit')->name('edit');
         Route::put('/update/{rayon}', 'Admin\RayonController@update')->name('update');
         Route::delete('/delete/{rayon}', 'Admin\RayonController@destroy')->name('destroy');

@@ -57,6 +57,11 @@ class RayonController extends Controller
         return redirect()->route('admin.rayon.index');
     }
 
+    public function show(Rayon $rayon)
+    {
+        return view('admin.rayon.show', compact('rayon'));
+    }
+
     public function destroy(Rayon $rayon)
     {
         // mengahapus 1 data
