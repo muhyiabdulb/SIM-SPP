@@ -36,37 +36,24 @@
                         </div>
                         <br>
                         <span id="result"></span>
-                        <table class="table table-bordered table-striped" id="table">
-                            <thead>
-                                <tr>
-                                    <th width="80px">No</th>
-                                    <th>Via Transfer</th>
-                                    <th>Kategori Bayar</th>
-                                    <th>Tanggal Transfer</th>
-                                    <th>Bulan</th>
-                                    <th>Nominal</th>
-                                    <th>Bayar</th>
-                                    <th>Sisa</th>
-                                    <th>Sub Bayar</th>
-                                    <th>Status</th>
-                                    <th>
-                                        <button type="button" class="btn btn-success btn-sm" id="add"><i
-                                                class="fa fa-plus"></i></button>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody id="dynamic_field">
+                        <div class="card border border-primary">
+                            <div class="card-body" id="dynamic_field">
 
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="11">
+                            </div>
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-success btn-block" id="add">Tambah Form
+                                            Pembayaran <i class="fa fa-plus"></i></button>
+                                    </div>
+                                    <div class="col-md-6">
                                         <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-save"></i>
                                             Bayar</button>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
@@ -169,44 +156,71 @@
             getNumberOfTr();
 
             $('#add').click(function() {
-                let index = $('#dynamic_field tr').length
+                let index = $('#dynamic_field .rowComponent').length
                 $('#dynamic_field').append(
-                    `<tr class="rowComponent">
-                            <input type="hidden" width="10px" name="transactions[${index}][id]" value="${undefined}">
-                            <td class="no">
+                    `<div class="rowComponent container mb-3">
+                        <input type="hidden" width="10px" name="transactions[${index}][id]" value="${undefined}">
+                        <div class="no row mb-3">
+                            <div class="col-md-3">
+                                <h4 class="text-dark">Form Ke - </h4>
+                            </div>
+                            <div class="col-md-9">
                                 <input type="text" value="${index + 1}" class="form-control" disabled>
-                            </td>
-                            <td>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="text-dark">Via Transfer</label>
                                 <select name="transactions[${index}][via_transfer_id]" class="form-control select-${index}" required></select>
-                            </td>
-                            <td>
-                                <select name="transactions[${index}][jenis_pembayaran_id]" class="form-control select-${index}" required></select>
-                            </td>
-                            <td>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-dark">Tanggal Bayar</label>
                                 <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control" required>
-                            </td>
-                            <td>
+                            </div>
+                            
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="text-dark">Pilih Bulan</label>
                                 <select name="transactions[${index}][bulan]" class="form-control select-${index}" required></select>
-                            </td>
-                            <td>
+                                
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-dark">Pilih Jenis Pemabayaran</label>
+                                <select name="transactions[${index}][jenis_pembayaran_id]" class="form-control select-${index}" required></select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="text-dark">Nominal</label>
                                 <input type="number" name="transactions[${index}][nominal]" class="form-control" readonly>
-                            </td>
-                            <td>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-dark">Bayar</label>
                                 <input type="number" name="transactions[${index}][bayar]" class="form-control" required>
-                            </td>
-                            <td>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="text-dark">Sisa Pembayaran</label>
                                 <input type="text" name="transactions[${index}][sisa_pembayaran]" class="form-control" readonly>
-                            </td>
-                            <td>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="text-dark">Sub Bayar</label>
                                 <input type="text" name="transactions[${index}][sub_bayar]" class="form-control" readonly>
-                            </td>
-                            <td>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label class="text-dark">Pilih Status</label>
                                 <select name="transactions[${index}][status]" class="form-control select-${index}" required></select>
-                            </td>
-                            <td>
-                                <button type="text" name="remove" class="btn btn-danger btn-sm text-white btn_remove"><i class="fa fa-trash"></i></button>
-                            </td>
-                        </tr>`
+                            </div>
+                        </div>
+                        <div class="row col-md-12">
+                            <button type="text" name="remove" class="btn btn-danger text-white btn_remove">Hapus Form Pembayaran ? <i class="fa fa-trash"></i></button>
+                        </div>
+                        <hr class="border border-primary">
+                    </div>`
                 );
 
                 transactionEachColumn(index)
@@ -228,8 +242,8 @@
         });
 
         function getNumberOfTr() {
-            $('#dynamic_field tr').each(function(index, tr) {
-                $(this).find("td.no input").val(index + 1)
+            $('#dynamic_field .rowComponent').each(function(index, div) {
+                $(this).find("div.no input").val(index + 1)
             });
         }
 
