@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="contoh1">Nama Orang Tua</label>
+                            <label for="contoh1">Nama User</label>
                             <input type="text" name="name" value="{{ auth()->user()->name }}" class="form-control" placeholder="Nama Orang Tua">
                             @error('name')
                                 <div class="invalid">
