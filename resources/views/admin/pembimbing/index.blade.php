@@ -8,7 +8,7 @@
 
 <section class="section">
     <div class="section-header">
-        <h1>Data Pembimbing Siswa</h1>
+        <h1>Data Pembimbing</h1>
     </div>
 </section>
 <div class="row">
