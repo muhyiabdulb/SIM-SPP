@@ -124,7 +124,7 @@
             $selectStatus.append($("<option></option>").attr("value", 'Belum Bayar').text('Belum Bayar'));
             $selectStatus.append($("<option></option>").attr("value", 'Belum Lunas').text('Belum Lunas'));
             $selectStatus.append($("<option></option>").attr("value", 'Nunggak').text('Nunggak'));
-            $selectStatus.append($("<option></option>").attr("value", 'Sudah Bayar').text('Sudah Bayar'));
+            $selectStatus.append($("<option></option>").attr("value", 'Sudah Lunas').text('Sudah Lunas'));
             $selectStatus.append($("<option></option>").attr("value", 'Sudah DiVerifikasi').text('Sudah DiVerifikasi'));
 
             // Get nominal
@@ -159,68 +159,68 @@
                 let index = $('#dynamic_field .rowComponent').length
                 $('#dynamic_field').append(
                     `<div class="rowComponent container mb-3">
-                        <input type="hidden" width="10px" name="transactions[${index}][id]" value="${undefined}">
-                        <div class="no row mb-3">
-                            <div class="col-md-3">
-                                <h4 class="text-dark">Form Ke - </h4>
+                            <input type="hidden" width="10px" name="transactions[${index}][id]" value="${undefined}">
+                            <div class="no row mb-3">
+                                <div class="col-md-3">
+                                    <h4 class="text-dark">Form Ke - </h4>
+                                </div>
+                                <div class="col-md-9">
+                                    <input type="text" value="${index + 1}" class="form-control" disabled>
+                                </div>
                             </div>
-                            <div class="col-md-9">
-                                <input type="text" value="${index + 1}" class="form-control" disabled>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="text-dark">Via Transfer</label>
-                                <select name="transactions[${index}][via_transfer_id]" class="form-control select-${index}" required></select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="text-dark">Tanggal Bayar</label>
-                                <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control" required>
-                            </div>
-                            
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="text-dark">Pilih Bulan</label>
-                                <select name="transactions[${index}][bulan]" class="form-control select-${index}" required></select>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="text-dark">Via Transfer</label>
+                                    <select name="transactions[${index}][via_transfer_id]" class="form-control select-${index}" required></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-dark">Tanggal Bayar</label>
+                                    <input type="date" name="transactions[${index}][tanggal_transfer]" class="form-control" required>
+                                </div>
                                 
                             </div>
-                            <div class="col-md-6">
-                                <label class="text-dark">Pilih Jenis Pemabayaran</label>
-                                <select name="transactions[${index}][jenis_pembayaran_id]" class="form-control select-${index}" required></select>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="text-dark">Pilih Bulan</label>
+                                    <select name="transactions[${index}][bulan]" class="form-control select-${index}" required></select>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-dark">Pilih Jenis Pemabayaran</label>
+                                    <select name="transactions[${index}][jenis_pembayaran_id]" class="form-control select-${index}" required></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="text-dark">Nominal</label>
-                                <input type="number" name="transactions[${index}][nominal]" class="form-control" readonly>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="text-dark">Nominal</label>
+                                    <input type="number" name="transactions[${index}][nominal]" class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-dark">Bayar</label>
+                                    <input type="number" name="transactions[${index}][bayar]" class="form-control" required>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label class="text-dark">Bayar</label>
-                                <input type="number" name="transactions[${index}][bayar]" class="form-control" required>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label class="text-dark">Sisa Pembayaran</label>
+                                    <input type="text" name="transactions[${index}][sisa_pembayaran]" class="form-control" readonly>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="text-dark">Sub Bayar</label>
+                                    <input type="text" name="transactions[${index}][sub_bayar]" class="form-control" readonly>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="text-dark">Sisa Pembayaran</label>
-                                <input type="text" name="transactions[${index}][sisa_pembayaran]" class="form-control" readonly>
+                            <div class="row mb-3">
+                                <div class="col-md-12">
+                                    <label class="text-dark">Pilih Status</label>
+                                    <select name="transactions[${index}][status]" class="form-control select-${index}" required></select>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <label class="text-dark">Sub Bayar</label>
-                                <input type="text" name="transactions[${index}][sub_bayar]" class="form-control" readonly>
+                            <div class="row col-md-12">
+                                <button type="text" name="remove" class="btn btn-danger text-white btn_remove">Hapus Form Pembayaran ? <i class="fa fa-trash"></i></button>
                             </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-12">
-                                <label class="text-dark">Pilih Status</label>
-                                <select name="transactions[${index}][status]" class="form-control select-${index}" required></select>
-                            </div>
-                        </div>
-                        <div class="row col-md-12">
-                            <button type="text" name="remove" class="btn btn-danger text-white btn_remove">Hapus Form Pembayaran ? <i class="fa fa-trash"></i></button>
-                        </div>
-                        <hr class="border border-primary">
-                    </div>`
+                            <hr class="border border-primary">
+                        </div>`
                 );
 
                 transactionEachColumn(index)

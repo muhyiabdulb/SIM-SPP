@@ -18,8 +18,8 @@
             <ul class="mr-auto navbar-nav">
                 @role('pegawai')
                 @php
-                    $totalSudahBayar = App\Pembayaran::whereHas('detailPembayaran', function ($q) {
-                        $q->where('status', 'Sudah DiVerifikasi');
+                    $totalSudahLunas = App\Pembayaran::whereHas('detailPembayaran', function ($q) {
+                        $q->where('status', 'Sudah Lunas');
                     })->count();
                 @endphp
                 <li class="dropdown dropdown-list-toggle">
@@ -28,7 +28,7 @@
                         Pesan
                         <span
                             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
-                            {{ $totalSudahBayar }}
+                            {{ $totalSudahLunas }}
                             <span class="visually-hidden">Pesan belum Diverikasi</span></span>
                     </button>
                     <div class="dropdown-menu dropdown-list dropdown-menu-right">
@@ -40,7 +40,7 @@
                         <div class="dropdown-list-icons">
                             @php
                                 $totalNotif = App\Pembayaran::whereHas('detailPembayaran', function ($q) {
-                                    $q->where('status', 'Sudah DiVerifikasi');
+                                    $q->where('status', 'Sudah Lunas');
                                 })->get();
                             @endphp
                             @forelse ($totalNotif as $item)
