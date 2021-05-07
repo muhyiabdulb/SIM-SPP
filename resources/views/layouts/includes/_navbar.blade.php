@@ -71,21 +71,24 @@
                         </div>
                     </div>
                 </li>
-                @endrole
-            </ul>
-            <ul class="navbar-nav navbar-right">
-                @role('ortu')
+
+                @elserole('ortu')
                 @php
-                    $totalNotif = App\Pembayaran::where('user_id', Auth::user()->id)
+                    $totalSudahDiverifikasi = App\Pembayaran::where('siswa_id', Auth::user()->siswa_id)
                         ->whereHas('detailPembayaran', function ($q) {
-                            $q->where('status', 'Nunggak');
+                            $q->where('status', 'Sudah DiVerifikasi')->orWhere('status', 'Nunggak');
                         })
                         ->count();
                 @endphp
                 <li class="dropdown dropdown-list-toggle">
-                    <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i
-                            class="far fa-bell"></i><span class="badge rounded-pill bg-info">{{ $totalNotif }}
-                        </span></a>
+                    <button type="button" data-toggle="dropdown" class="btn btn-info position-relative beep"><i
+                            class="far fa-bell"></i>
+                        Pesan
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
+                            {{ $totalSudahDiverifikasi }}
+                            <span class="visually-hidden">Pesan belum dibaca</span></span>
+                    </button>
                     <div class="dropdown-menu dropdown-list dropdown-menu-right">
                         <div class="dropdown-header">Notifications
                             <div class="float-right">
@@ -94,9 +97,9 @@
                         </div>
                         <div class="dropdown-list-icons">
                             @php
-                                $totalNotif = App\Pembayaran::where('user_id', Auth::user()->id)
+                                $totalNotif = App\Pembayaran::where('siswa_id', Auth::user()->siswa_id)
                                     ->whereHas('detailPembayaran', function ($q) {
-                                        $q->where('status', 'Nunggak');
+                                        $q->where('status', 'Sudah DiVerifikasi')->orWhere('status', 'Nunggak');
                                     })
                                     ->get();
                             @endphp
@@ -129,6 +132,8 @@
                     </div>
                 </li>
                 @endrole
+            </ul>
+            <ul class="navbar-nav navbar-right">
                 <li class="dropdown"><a href="#" data-toggle="dropdown"
                         class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                         @if (Auth::user()->photo)

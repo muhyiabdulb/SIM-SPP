@@ -9,12 +9,13 @@
         <ul class="sidebar-menu">
             @role('ortu')
             <li class="menu-header">Dashboard</li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown{{ request()->is('ortu/dashboard') ? ' active' : '' }}">
                 <a href="{{ route('ortu.dashboard') }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             <li class="menu-header">Pembayaran</li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('ortu.dashboard') }}" class="nav-link"><i
+            <li
+                class="nav-item dropdown{{ (request()->is('ortu/pembayaran/history') || request()->is('ortu/pembayaran/bayar') ? ' active' : '') ? ' active' : '' }}">
+                <a href="{{ route('ortu.pembayaran.history') }}" class="nav-link"><i
                         class="fas fa-clipboard"></i><span>Pembayaran</span></a>
             </li>
             <li class="nav-item dropdown">
@@ -23,7 +24,7 @@
             </li>
             <li class="menu-header">Laporan</li>
             <li class="nav-item dropdown">
-                <a href="{{ url('ortu/spp') }}"  class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                <a href="{{ url('ortu/spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         SPP</span></a>
             </li>
             <li class="nav-item dropdown">

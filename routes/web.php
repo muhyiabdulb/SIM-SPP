@@ -147,6 +147,15 @@ Route::middleware('role:pegawai')->prefix('/pegawai')->name('pegawai.')->group(f
 // ROLE ORANG TUA
 Route::middleware('role:ortu')->prefix('/ortu')->name('ortu.')->group(function() {
     Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+
+    // Pembayaran
+    Route::prefix('pembayaran')->name('pembayaran.')->group(function () {
+        Route::get('/history', 'Ortu\PembayaranController@history')->name('history');
+        Route::get('/bayar', 'Ortu\PembayaranController@bayar')->name('bayar');
+        Route::post('/store', 'Ortu\PembayaranController@store')->name('store');
+        Route::get('/detail/{id}', 'Ortu\PembayaranController@detail')->name('detail');
+    });
+
     Route::get('/spp', function () {
     return view('ortu.spp');
     });
