@@ -15,7 +15,7 @@
                     <div class="search-backdrop"></div>
                 </div>
             </form>
-            <ul class="navbar-nav navbar-right">
+            <ul class="mr-auto navbar-nav">
                 @role('pegawai')
                 @php
                     $totalSudahBayar = App\Pembayaran::whereHas('detailPembayaran', function ($q) {
@@ -23,10 +23,14 @@
                     })->count();
                 @endphp
                 <li class="dropdown dropdown-list-toggle">
-                    <a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i
-                            class="far fa-bell"></i><span class="badge rounded-pill bg-info">
+                    <button type="button" data-toggle="dropdown" class="btn btn-info position-relative beep"><i
+                            class="far fa-bell"></i>
+                        Pesan
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">
                             {{ $totalSudahBayar }}
-                        </span></a>
+                            <span class="visually-hidden">Pesan belum Diverikasi</span></span>
+                    </button>
                     <div class="dropdown-menu dropdown-list dropdown-menu-right">
                         <div class="dropdown-header">Notifications
                             <div class="float-right">
@@ -53,7 +57,8 @@
                                     <div class="dropdown-item-desc">
                                         <p>Nama Ortu : {{ $item->user->name }}</p>
                                         <p>Nama Siswa : {{ $item->siswa->nama_siswa }}</p>
-                                        <div class="time text-primary">Publish on {{ $item->created_at->diffForHumans() }}
+                                        <div class="time text-primary">Publish on
+                                            {{ $item->created_at->diffForHumans() }}
                                         </div>
                                     </div>
                                 </a>
@@ -66,8 +71,10 @@
                         </div>
                     </div>
                 </li>
-
-                @elserole('ortu')
+                @endrole
+            </ul>
+            <ul class="navbar-nav navbar-right">
+                @role('ortu')
                 @php
                     $totalNotif = App\Pembayaran::where('user_id', Auth::user()->id)
                         ->whereHas('detailPembayaran', function ($q) {
