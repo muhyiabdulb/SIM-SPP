@@ -14,7 +14,7 @@ class PembayaranController extends Controller
 {
     public function history()
     {
-        $history = Pembayaran::where('user_id', auth()->user()->id)->latest()->get();
+        $history = Pembayaran::where('siswa_id', auth()->user()->siswa_id)->latest()->get();
         // return $history;
         return view('ortu.pembayaran.history', compact('history'));
     }
