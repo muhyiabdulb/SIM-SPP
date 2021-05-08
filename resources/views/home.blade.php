@@ -244,7 +244,7 @@
                                 <h4>Nama Siswa</h4>
                             </div>
                             <div class="card-body">
-                                {{ auth()->user()->siswa->nama_siswa }}
+                             {{-- {{ auth()->user()->siswa['nama_siswa'] }} --}}
                             </div>
                         </div>
                     </div>
