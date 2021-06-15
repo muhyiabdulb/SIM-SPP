@@ -35,7 +35,7 @@
                                             <table class="table table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th>JENIS PEMBAYARAN</th>
+                                                        <th>BULAN</th>
                                                         <th>TANGGAL BAYAR</th>
                                                         <th>NOMINAL</th>
                                                         <th>BAYAR</th>
