@@ -13,12 +13,15 @@ class RombelSeeder extends Seeder
     public function run()
     {
         Rombel::create([
+            'jurusan_id' => 1,
             'nama_rombel' => 'RPL XII-1',
         ]);
         Rombel::create([
+            'jurusan_id' => 1,
             'nama_rombel' => 'RPL XII-2',
         ]);
         Rombel::create([
+            'jurusan_id' => 1,
             'nama_rombel' => 'RPL XII-3',
         ]);
     }
