@@ -30,7 +30,7 @@
                                     <!-- /.col -->
                                     </div>
                                     <!-- /.row -->
-                                    <b>Nama : </b>
+                                    <b>Nama :  {{ Auth::user()->siswa->nama_siswa }} </b>
                                     <!-- Table row -->
                                     <div class="row">
                                         <div class="col-12 table-responsive">
@@ -47,14 +47,19 @@
                                                 </thead>
                                                 <tbody>
                                                     @forelse ($umum as $item)
-                                                    <tr>
-                                                        <th>{{ $item->jenisPembayaran['jenis_pembayaran'] }}</th>
-                                                        <td>{{ $item->date }}</td>
-                                                        <td>Rp {{ number_format($item->nominal) }}</td>
-                                                        <td>Rp {{ number_format($item->bayar) }}</td>
-                                                        <td>Rp {{ number_forma ($item->sisa_pembayaran) }}</td>
-                                                        <td>{{ $item->status }}</td>
-                                                    </tr>
+                                                    @if  ($item->detailPembayaran[0]->jenisPembayaran->jenis_pembayaran != 'SPP')
+                                                <tr>
+                                                    <th>
+                                                    {{ $item->detailPembayaran[0]->jenisPembayaran->jenis_pembayaran }}
+                                                    </th>
+                                                    <td>{{ $item->date }}</td>
+                                                    <td>Rp {{ number_format($item->detailPembayaran[0]->nominal) }}</td>
+                                                    <td>Rp {{ number_format($item->detailPembayaran[0]->bayar) }}</td>
+                                                    <td>Rp {{ number_format ($item->detailPembayaran[0]->sisa_pembayaran) }}</td>
+                                                    <td>{{ $item->detailPembayaran[0]->status }}</td>
+                                                </tr>
+                                                @endif
+                                               
                                                     @empty
                                                     <tr>
                                                         <td colspan="6" class="text-center">

@@ -52,7 +52,7 @@
                                                         <th>{{ $item->bulan }}</th>
                                                         <td>{{ $item->tanggal_transfer }}</td>
                                                         <td>{{ $item->user['name'] }}</td>
-                                                        <td>Paraf</td>
+                                                        <td>Paraf</td> 
                                                         <td>Paraf</td>
                                                         <td>
                                                             @if ($item->status === 'Sudah DiVerifikasi')

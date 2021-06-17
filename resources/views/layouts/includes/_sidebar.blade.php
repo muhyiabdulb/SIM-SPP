@@ -24,7 +24,7 @@
             </li>
             <li class="menu-header">Laporan</li>
             <li class="nav-item dropdown">
-                <a href="{{ url('ortu/spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                <a href="{{ route('ortu.pembayaran.spp') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         SPP</span></a>
             </li>
             <li class="nav-item dropdown">

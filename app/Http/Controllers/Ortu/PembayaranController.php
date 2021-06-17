@@ -85,8 +85,16 @@ class PembayaranController extends Controller
     }
     public function umum()
     {
-        $umum = Pembayaran::with('detailPembayaran');
+        $umum = Pembayaran::where('siswa_id', auth()->user()->siswa_id)->latest()->get();
+      
         // return $umum;
         return view('ortu.umum', compact('umum'));
+    }
+    public function spp()
+    {
+        $spp = Pembayaran::where('siswa_id', auth()->user()->siswa_id)->latest()->get();
+      
+        // return $umum;
+        return view('ortu.spp', compact('spp'));
     }
 }

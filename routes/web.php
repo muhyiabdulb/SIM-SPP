@@ -155,11 +155,12 @@ Route::middleware('role:ortu')->prefix('/ortu')->name('ortu.')->group(function()
         Route::post('/store', 'Ortu\PembayaranController@store')->name('store');
         Route::get('/detail/{id}', 'Ortu\PembayaranController@detail')->name('detail');
         Route::get('/umum', 'Ortu\PembayaranController@umum')->name('umum');
+        Route::get('/spp', 'Ortu\PembayaranController@spp')->name('spp');
     });
  
-    Route::get('/spp', function () {
-    return view('ortu.spp');
-    });
+    // Route::get('/spp', function () {
+    // return view('ortu.spp');
+    // });
     Route::get('/tunggakan', function () {
     return view('ortu.tunggakan');
     });
