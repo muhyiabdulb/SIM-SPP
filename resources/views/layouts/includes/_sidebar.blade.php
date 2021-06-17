@@ -28,7 +28,7 @@
                         SPP</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="{{ url('ortu/umum') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
+                <a href="{{ route('ortu.pembayaran.umum') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         Umum</span></a>
             </li>
             <li class="nav-item dropdown">

@@ -8,12 +8,14 @@
             <div class="card-header">
                 <h4>Laporan Bayaran Umum</h4>
                 <div class="card-header-action">
+                    <a href={{ route('ortu.pembayaran.umum') }} class="btn btn-danger"><i
+                        class="fa fa-arrow-left"></i> Back</a>
                  </div>
             </div>
             <div class="card-body ">
                 <!-- /.content-header -->
                 <section class="content">
-                    <div class="container-fluid">
+                    <div class="container-fluid"> 
                         <div class="row">
                             <div class="col-12">
                                 <!-- Main content -->
@@ -28,7 +30,7 @@
                                     <!-- /.col -->
                                     </div>
                                     <!-- /.row -->
-                                    <p>Nama Siswa : </p>
+                                    <b>Nama : </b>
                                     <!-- Table row -->
                                     <div class="row">
                                         <div class="col-12 table-responsive">
@@ -44,18 +46,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @forelse ($umum as $item)
                                                     <tr>
-                                                        <th></th>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
+                                                        <th>{{ $item->jenisPembayaran['jenis_pembayaran'] }}</th>
+                                                        <td>{{ $item->date }}</td>
+                                                        <td>Rp {{ number_format($item->nominal) }}</td>
+                                                        <td>Rp {{ number_format($item->bayar) }}</td>
+                                                        <td>Rp {{ number_forma ($item->sisa_pembayaran) }}</td>
+                                                        <td>{{ $item->status }}</td>
+                                                    </tr>
+                                                    @empty
+                                                    <tr>
+                                                        <td colspan="6" class="text-center">
+                                                            <h3>Belum Bayar</h3>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td colspan="6" class="text-center"><h3> Belum Bayar</h3></td>
-                                                    </tr>
+                                                    @endforelse
                                                 </tbody>
                                             </table>
                                         </div>

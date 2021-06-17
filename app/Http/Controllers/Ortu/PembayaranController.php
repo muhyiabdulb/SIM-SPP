@@ -83,4 +83,10 @@ class PembayaranController extends Controller
         // return $detail;
         return view('ortu.pembayaran.detail', compact('detail'));
     }
+    public function umum()
+    {
+        $umum = Pembayaran::with('detailPembayaran');
+        // return $umum;
+        return view('ortu.umum', compact('umum'));
+    }
 }

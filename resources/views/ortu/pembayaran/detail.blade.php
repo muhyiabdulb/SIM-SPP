@@ -39,7 +39,7 @@
                                             <div class="col-sm-8 invoice-col mb-2" style="margin-top: 25px">
                                                 <b>Hari/Tanggal :</b> {{ $detail->date }}<br>
                                                 <b>NIS : </b> {{ $detail['siswa']['nis'] }}<br>
-                                                <b>Nama : </b> {{ $detail['siswa']['nama_siswa'] }}<br>
+                                                <b>Nama : </b> {{ $detail['siswa']['nama_siswa'] }}<br> 
 
                                             </div>
                                             <div class="col-sm-4 invoice-col mb-2" style="margin-top: 25px">
