@@ -34,7 +34,7 @@
                                     <!-- Table row -->
                                     <div class="row">
                                         <div class="col-12 table-responsive">
-                                            <table class="table table-striped">
+                                            <table class="table table-striped" id="tblData">
                                                 <thead>
                                                     <tr>
                                                         <th>BULAN</th>
@@ -82,9 +82,37 @@
                                     <div class="row no-print" style="margin-top: 10px">
                                         <div class="col-12">
                                             <a href="" onclick="window.print()" class="btn btn-danger" style="margin-right: 10px;margin-left:12px"><i class="fas fa-print"></i> Print</a>
-                                            <a href="" class="btn btn-primary float-right" style="margin-right: 5px;margin-left:10px"><i class="fas fa-download"></i> Generate PDF</a>                
-                                            <a href="" class="btn btn-default float-right" style="background:green;color:white;"><i class="fas fa-download"></i> Generate Excel</a>                
-                                       
+                                            <button class="btn btn-primary float-right" style="margin-right: 5px;margin-left:10px"><i class="fas fa-download"></i> Generate PDF</button>                
+                                            <button onclick="tableHtmlToExcel('tblData')" class="btn btn-default float-right" style="background:green;color:white;"><i class="fas fa-download"></i> Generate Excel</button>                
+                                            <script src="https://unpkg.com/xlsx@0.17.0/dist/xlsx.js"></script>
+                                            <script>
+
+                                                function tableHtmlToExcel(tableID, filename = ''){
+                                                var downloadLink;
+                                                var dataType = 'application/vnd.ms-excel';
+                                                var tableSelect = document.getElementById(tableID);
+                                                var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+                                            
+                                                filename = filename?filename+'.xls':'excel_data.xls';
+                                            
+                                                downloadLink = document.createElement("a");
+                                                
+                                                document.body.appendChild(downloadLink);
+                                                
+                                                if(navigator.msSaveOrOpenBlob){
+                                                    var blob = new Blob(['\ufeff', tableHTML], {
+                                                        type: dataType
+                                                    });
+                                                    navigator.msSaveOrOpenBlob( blob, filename);
+                                                }else{
+                                                    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+                                            
+                                                    downloadLink.download = filename;
+                                                
+                                                    downloadLink.click();
+                                                }
+                                            }
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

@@ -31,10 +31,6 @@
                 <a href="{{ route('ortu.pembayaran.umum') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
                         Umum</span></a>
             </li>
-            <li class="nav-item dropdown">
-                <a href="{{ url('ortu/tunggakan') }}" class="nav-link"><i class="fas fa-book"></i><span>Laporan
-                        Tunggakan</span></a>
-            </li>
             @elserole('admin')
             <li class="menu-header">Dashboard</li>
             <li class="nav-item dropdown{{ request()->is('admin/dashboard') ? ' active' : '' }}">
